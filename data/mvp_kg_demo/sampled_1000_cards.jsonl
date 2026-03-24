@@ -1,0 +1,100 @@
+{"id": 50056, "name": "Sul'thraze", "text": "<b>Overkill</b>: You may attack again.", "manaCost": 6, "attack": 4, "health": 4}
+{"id": 120524, "name": "Chillmaw", "text": "<b>Taunt</b> <b>Deathrattle:</b> If you're holding a Dragon, deal 3 damage to all minions.", "manaCost": 7, "attack": 6, "health": 6}
+{"id": 39215, "name": "Arcane Anomaly", "text": "After you cast a spell, give this minion +1 Health.", "manaCost": 1, "attack": 2, "health": 1}
+{"id": 120962, "name": "Wizened Truthseeker", "text": "<b>Battlecry:</b> Set the Cost of every card in both player's hands back to their original Costs.", "manaCost": 4, "attack": 4, "health": 5}
+{"id": 119918, "name": "Gelbin of Tomorrow", "text": "<b>Fabled</b> <b>Battlecry:</b> Put one of each Aura from your deck into the battlefield.", "manaCost": 8, "attack": 6, "health": 6}
+{"id": 64423, "name": "Fire Sale", "text": "<b>Tradeable</b> Deal 3 damage to all minions.", "manaCost": 4, "attack": null, "health": null}
+{"id": 38408, "name": "Evolved Kobold", "text": "<b>Spell Damage +2</b>", "manaCost": 4, "attack": 2, "health": 2}
+{"id": 69661, "name": "Crazed Alchemist", "text": "<b>Battlecry:</b> Swap the Attack and Health of a minion.", "manaCost": 2, "attack": 2, "health": 2}
+{"id": 103340, "name": "Wind-Up Musician", "text": "<b>Tradeable</b> <b>Battlecry:</b> Deal damage to all enemy minions. <i>(<b>Trade</b> to upgrade!)</i>", "manaCost": 6, "attack": 5, "health": 5}
+{"id": 61254, "name": "Cascading Disaster", "text": "Destroy a random enemy minion. <b>Corrupt:</b> Destroy 2. <b>Corrupt Again:</b> Destroy 3.", "manaCost": 4, "attack": null, "health": null}
+{"id": 41252, "name": "Tortollan Forager", "text": "<b>Battlecry:</b> Add a random minion with 5 or more Attack to your hand.", "manaCost": 2, "attack": 2, "health": 2}
+{"id": 47117, "name": "Witching Hour", "text": "Summon a random friendly Beast that died this game.", "manaCost": 3, "attack": null, "health": null}
+{"id": 53967, "name": "Sandstorm Elemental", "text": "<b>Battlecry:</b> Deal 1 damage to all enemy minions. <b>Overload:</b> (1)", "manaCost": 2, "attack": 2, "health": 2}
+{"id": 69672, "name": "Brightwing", "text": "<b>Battlecry:</b> Add a random <b>Legendary</b> minion to your hand.", "manaCost": 2, "attack": 3, "health": 2}
+{"id": 118222, "name": "Sizzling Cinder", "text": "<b>Deathrattle:</b> Deal 2 damage randomly split among all enemies.", "manaCost": 1, "attack": 2, "health": 1}
+{"id": 59643, "name": "Mindrender Illucia", "text": "<b>Battlecry:</b> Replace your hand with a copy of your opponent's until end of turn.", "manaCost": 3, "attack": 1, "health": 3}
+{"id": 45366, "name": "Arfus", "text": "<b>Deathrattle:</b> Add a random <b>Lich King</b> card to your hand.", "manaCost": 4, "attack": 2, "health": 2}
+{"id": 115307, "name": "Archdruid of Thorns", "text": "<b>Battlecry:</b> Gain the <b>Deathrattles</b> of your minions that died this turn.", "manaCost": 2, "attack": 3, "health": 2}
+{"id": 108619, "name": "Buy One, Get One Freeze", "text": "<b>Freeze</b> a minion. Summon a <b>Frozen</b> copy of it.", "manaCost": 3, "attack": null, "health": null}
+{"id": 101877, "name": "Eroded Sediment", "text": "<b>Battlecry:</b> If you played an Elemental last turn, <b>Discover</b> any Elemental from the past.", "manaCost": 3, "attack": 4, "health": 3}
+{"id": 95404, "name": "Fanottem, Lord of the Opera", "text": "<b>Taunt</b>, <b>Lifesteal</b> This card's Cost is equal to the amount of cards in your deck.", "manaCost": 30, "attack": 15, "health": 15}
+{"id": 374, "name": "Ragnaros the Firelord", "text": "Can't attack. At the end of your turn, deal 8 damage to a random enemy.", "manaCost": 8, "attack": 8, "health": 8}
+{"id": 42765, "name": "Snowfury Giant", "text": "Costs (1) less for each Mana Crystal you've <b><b>Overload</b>ed</b> this game.", "manaCost": 11, "attack": 8, "health": 8}
+{"id": 123692, "name": "Arcane Flow", "text": "<b>Shatter</b> Deal 4 damage. Deal 2 damage to all enemies. Deal 4 damage. Deal 2 damage to all enemies.", "manaCost": 4, "attack": null, "health": null}
+{"id": 72487, "name": "Serpent Wig", "text": "Give a minion +1/+2. If you played a Naga while holding this, add a Serpent Wig to your hand.", "manaCost": 1, "attack": null, "health": null}
+{"id": 692, "name": "Druid of the Claw", "text": "<b>Choose One -</b> Transform into a 7/6 with <b>Rush</b>; or a 4/9 with <b>Taunt</b>.", "manaCost": 6, "attack": 4, "health": 6}
+{"id": 59192, "name": "Void Drinker", "text": "<b>Taunt</b>. <b>Battlecry:</b> Destroy a Soul Fragment in your deck to gain +3/+3.", "manaCost": 5, "attack": 4, "health": 5}
+{"id": 63218, "name": "Tamsin Roame", "text": "Whenever you cast a Shadow spell that costs (1) or more, add a copy to your hand that costs (0).", "manaCost": 3, "attack": 1, "health": 3}
+{"id": 117871, "name": "Unleash the Colossus", "text": "<b>Quest:</b> Deal exactly 2 damage to an enemy on your turn, 12 times. <b>Reward:</b> Gorishi Colossus.", "manaCost": 1, "attack": null, "health": null}
+{"id": 53969, "name": "Sandhoof Waterbearer", "text": "At the end of your turn, restore 5 Health to a damaged friendly character.", "manaCost": 5, "attack": 5, "health": 5}
+{"id": 38957, "name": "Midnight Drake", "text": "<b>Battlecry:</b> Gain +1 Attack for each other card in your hand.", "manaCost": 4, "attack": 1, "health": 4}
+{"id": 57184, "name": "Ethereal Augmerchant", "text": "<b>Battlecry:</b> Deal 1 damage to a minion and give it <b>Spell Damage +1</b>.", "manaCost": 1, "attack": 2, "health": 1}
+{"id": 2683, "name": "Nexus-Champion Saraad", "text": "<b>Inspire:</b> Add a random spell to your hand.", "manaCost": 5, "attack": 4, "health": 5}
+{"id": 116684, "name": "Siphoning Growth", "text": "Destroy a friendly minion to gain 8 Armor.", "manaCost": 1, "attack": null, "health": null}
+{"id": 102059, "name": "Giant Tumbleweed!!!", "text": "Deal 6 damage to all minions. Summon a 6/6 Tumbleweed.", "manaCost": 7, "attack": null, "health": null}
+{"id": 102175, "name": "Aftershocks", "text": "Deal 1 damage to all minions, three times. Costs (2) less if you cast a spell last turn.", "manaCost": 4, "attack": null, "health": null}
+{"id": 114218, "name": "Darkrider", "text": "<b>Battlecry:</b> If you're holding a Dragon, <b>Discover</b> a Dragon with a <b>Dark Gift</b>.", "manaCost": 1, "attack": 2, "health": 1}
+{"id": 52417, "name": "Underbelly Ooze", "text": "After this minion survives damage, summon a copy of it.", "manaCost": 7, "attack": 3, "health": 5}
+{"id": 73471, "name": "Miracle Growth", "text": "Draw 3 cards. Summon a Plant with <b>Taunt</b> and stats equal to your hand size.", "manaCost": 7, "attack": null, "health": null}
+{"id": 57191, "name": "Infectious Sporeling", "text": "After this damages a minion, turn it into an Infectious Sporeling.", "manaCost": 1, "attack": 1, "health": 2}
+{"id": 41242, "name": "Giant Mastodon", "text": "<b>Taunt</b>", "manaCost": 9, "attack": 6, "health": 12}
+{"id": 103194, "name": "Dark Arakkoa", "text": "<b>Taunt</b> <b>Battlecry:</b> Give your C'Thun +4/+4 <i>(wherever it is).</i>", "manaCost": 6, "attack": 5, "health": 7}
+{"id": 84736, "name": "Energy Shaper", "text": "<b>Battlecry:</b> Transform all spells in your hand into ones that cost (3) more. <i>(They keep their original Cost.)</i>", "manaCost": 3, "attack": 3, "health": 4}
+{"id": 110761, "name": "Imployee of the Month", "text": "<b>Battlecry:</b> Give a friendly minion <b>Lifesteal</b>.", "manaCost": 2, "attack": 3, "health": 2}
+{"id": 106715, "name": "Carry-On Grub", "text": "<b>Battlecry:</b> Get a 1-Cost Suitcase. Pack the top 2 cards of your deck into it.", "manaCost": 4, "attack": 5, "health": 4}
+{"id": 62581, "name": "Burning Blade Acolyte", "text": "<b>Deathrattle:</b> Summon a 5/8 Demonspawn with <b>Taunt</b>.", "manaCost": 5, "attack": 1, "health": 1}
+{"id": 46296, "name": "Lesser Onyx Spellstone", "text": "Destroy 1 random enemy minion. <i>(Play 3 <b>Deathrattle</b> cards to upgrade.)</i>", "manaCost": 5, "attack": null, "health": null}
+{"id": 102628, "name": "Call in the Finishers", "text": "Summon four 1/1 Murlocs.", "manaCost": 3, "attack": null, "health": null}
+{"id": 102674, "name": "Kabal Courier", "text": "<b>Battlecry:</b> <b>Discover</b> a Mage, Priest, or Warlock card.", "manaCost": 2, "attack": 2, "health": 2}
+{"id": 376, "name": "Inner Fire", "text": "Change a minion's Attack to be equal to its Health.", "manaCost": 1, "attack": null, "health": null}
+{"id": 45263, "name": "Sonya Shadowdancer", "text": "After a friendly minion dies, add a 1/1 copy of it to your hand. It costs (1).", "manaCost": 3, "attack": 2, "health": 2}
+{"id": 43419, "name": "Frost Lich Jaina", "text": "<b>Battlecry:</b> Summon a 3/6 Water Elemental. Your Elementals have <b>Lifesteal</b> this game.", "manaCost": 9, "attack": null, "health": 30}
+{"id": 40596, "name": "Aya Blackpaw", "text": "<b>Battlecry and Deathrattle:</b> Summon a <b>Jade Golem</b>.", "manaCost": 6, "attack": 6, "health": 3}
+{"id": 114510, "name": "Web of Deception", "text": "Return a friendly minion to your hand to summon a 4/4 Spider with <b>Stealth</b>.", "manaCost": 2, "attack": null, "health": null}
+{"id": 61187, "name": "Oh My Yogg!", "text": "<b>Secret:</b> When your opponent casts a spell, they instead cast a random one of the same Cost.", "manaCost": 1, "attack": null, "health": null}
+{"id": 120488, "name": "Ruinous Velocidrake", "text": "<b>Rush</b> <b>Battlecry:</b> Cast a Shred of Time from your deck to summon a copy of this.", "manaCost": 5, "attack": 5, "health": 5}
+{"id": 59540, "name": "Combustion", "text": "Deal 4 damage to a minion. Any excess damages both neighbors.", "manaCost": 3, "attack": null, "health": null}
+{"id": 55281, "name": "Learn Draconic", "text": "<b>Sidequest:</b> Spend 8 Mana on spells. <b>Reward:</b> Summon a 6/6 Dragon.", "manaCost": 1, "attack": null, "health": null}
+{"id": 42439, "name": "Bone Drake", "text": "<b>Deathrattle:</b> Add a random Dragon to your hand.", "manaCost": 6, "attack": 6, "health": 5}
+{"id": 72416, "name": "Schooling", "text": "Add three 1/1 Piranha Swarmers to your hand.", "manaCost": 1, "attack": null, "health": null}
+{"id": 61606, "name": "Greybough", "text": "<b>Taunt</b> <b>Deathrattle:</b> Give a random friendly minion \"<b>Deathrattle:</b> Summon Greybough.\"", "manaCost": 5, "attack": 4, "health": 6}
+{"id": 100936, "name": "Stick Up", "text": "<b>Discover</b> a <b>Quickdraw</b> card from another class.", "manaCost": 1, "attack": null, "health": null}
+{"id": 54256, "name": "Spitting Camel", "text": "At the end of your turn, deal 1 damage to another random friendly minion.", "manaCost": 2, "attack": 2, "health": 4}
+{"id": 46390, "name": "Kathrena Winterwisp", "text": "<b>Battlecry and Deathrattle:</b> <b>Recruit</b> a Beast.", "manaCost": 8, "attack": 6, "health": 6}
+{"id": 102158, "name": "Shimmer Shot", "text": "Deal 1 damage. Summon a random minion of that Cost.", "manaCost": 1, "attack": null, "health": null}
+{"id": 523, "name": "Dragonling Mechanic", "text": "<b>Battlecry:</b> Summon a 2/1 Mechanical Dragonling.", "manaCost": 4, "attack": 2, "health": 4}
+{"id": 67894, "name": "Ur'zul Giant", "text": "Costs (1) less for each friendly minion that died this game.", "manaCost": 13, "attack": 8, "health": 8}
+{"id": 59720, "name": "Blood Herald", "text": "Whenever a friendly minion dies while this is in your hand, gain +1/+1.", "manaCost": 5, "attack": 1, "health": 1}
+{"id": 825, "name": "Azure Drake", "text": "<b>Spell Damage +1</b> <b>Battlecry:</b> Draw a card.", "manaCost": 5, "attack": 4, "health": 5}
+{"id": 90543, "name": "The One-Amalgam Band", "text": "<b>Battlecry:</b> Gain a random <b>Bonus Effect</b> for each minion of a different type you've played this game. <i>( )</i>", "manaCost": 7, "attack": 6, "health": 6}
+{"id": 56292, "name": "Eye of the Storm", "text": "Summon three 5/6 Elementals with <b>Taunt</b>. <b>Overload:</b> (3)", "manaCost": 10, "attack": null, "health": null}
+{"id": 46032, "name": "Grand Archivist", "text": "At the end of your turn, cast a spell from your deck <i>(targets chosen randomly)</i>.", "manaCost": 8, "attack": 4, "health": 7}
+{"id": 116376, "name": "Bonechill Stegodon", "text": "<b>Deathrattle:</b> Deal 6 damage to three random enemies.", "manaCost": 6, "attack": 6, "health": 3}
+{"id": 818, "name": "Far Sight", "text": "Draw a card. That card costs (3) less.", "manaCost": 3, "attack": null, "health": null}
+{"id": 60926, "name": "Carnival Clown", "text": "<b>Taunt</b> <b>Battlecry:</b> Summon 2 copies of this. <b>Corrupt:</b> Fill your board with copies.", "manaCost": 9, "attack": 4, "health": 4}
+{"id": 104518, "name": "Lesser Opal Spellstone", "text": "Draw 1 card. <i>(Attack with your hero (time, times) to upgrade.)</i>", "manaCost": 2, "attack": null, "health": null}
+{"id": 38909, "name": "Giant Sand Worm", "text": "Whenever this attacks and kills a minion, it may attack again.", "manaCost": 8, "attack": 8, "health": 8}
+{"id": 103327, "name": "Nostalgic Initiate", "text": "<b>Miniaturize</b> The first time you cast a spell, gain +2/+2.", "manaCost": 3, "attack": 2, "health": 3}
+{"id": 117679, "name": "Story of Galvadon", "text": "Give a minion three random <b>Bonus Effects</b>.", "manaCost": 2, "attack": null, "health": null}
+{"id": 126975, "name": "Khadgar", "text": "Your cards that summon minions summon twice as many.", "manaCost": 2, "attack": 2, "health": 2}
+{"id": 42663, "name": "Deadscale Knight", "text": "<b>Lifesteal</b>", "manaCost": 1, "attack": 1, "health": 1}
+{"id": 43122, "name": "Kobold Librarian", "text": "<b>Battlecry:</b> Draw a card. Deal 2 damage to your hero.", "manaCost": 1, "attack": 2, "health": 1}
+{"id": 2901, "name": "Jeweled Scarab", "text": "<b>Battlecry: Discover</b> a 3-Cost card.", "manaCost": 2, "attack": 1, "health": 1}
+{"id": 48051, "name": "Elementary Reaction", "text": "Draw a card. Copy it if you played an Elemental last turn.", "manaCost": 2, "attack": null, "health": null}
+{"id": 102685, "name": "Timeline Accelerator", "text": "<b>Battlecry:</b> Draw a Mech. It costs (2) less.", "manaCost": 3, "attack": 2, "health": 2}
+{"id": 78355, "name": "Frostwyrm's Fury", "text": "Deal 5 damage. <b>Freeze</b> all enemy minions. Summon a 5/5 Frostwyrm.", "manaCost": 7, "attack": null, "health": null}
+{"id": 86147, "name": "Unliving Champion", "text": "<b>Battlecry:</b> If a friendly Undead died after your last turn, summon two 3/2 Zombies.", "manaCost": 3, "attack": 3, "health": 2}
+{"id": 113822, "name": "Treacherous Tormentor", "text": "<b>Battlecry:</b> <b>Discover</b> a <b>Legendary</b> minion with a <b>Dark Gift</b>.", "manaCost": 4, "attack": 5, "health": 4}
+{"id": 105097, "name": "Table Flip", "text": "Deal 3 damage to all enemy minions. Costs (1) less for each other card in your hand.", "manaCost": 10, "attack": null, "health": null}
+{"id": 38567, "name": "Blood of The Ancient One", "text": "If you control two of these at the end of your turn, merge them into 'The Ancient One'.", "manaCost": 9, "attack": 9, "health": 9}
+{"id": 49170, "name": "Spark Engine", "text": "<b>Battlecry:</b> Add a 1/1 Spark with <b>Rush</b> to your hand.", "manaCost": 2, "attack": 2, "health": 1}
+{"id": 64702, "name": "Stormwind Guard", "text": "<b>Taunt</b> <b>Battlecry:</b> Give adjacent minions +1/+1.", "manaCost": 5, "attack": 4, "health": 5}
+{"id": 1985, "name": "Demonheart", "text": "Deal 5 damage to a minion. If it's a friendly Demon, give it +5/+5 instead.", "manaCost": 5, "attack": null, "health": null}
+{"id": 55276, "name": "Rolling Fireball", "text": "Deal 8 damage to a minion. Any excess damage continues to the left or right.", "manaCost": 5, "attack": null, "health": null}
+{"id": 79772, "name": "Weapons Expert", "text": "<b>Battlecry:</b> If you have a weapon equipped, give it +1/+1. Otherwise, draw a weapon.", "manaCost": 3, "attack": 3, "health": 2}
+{"id": 41427, "name": "Fire Plume's Heart", "text": "<b>Quest:</b> Play 7 <b>Taunt</b> minions. <b>Reward:</b> Sulfuras.", "manaCost": 1, "attack": null, "health": null}
+{"id": 90484, "name": "Death Metal Knight", "text": "<b>Taunt</b> Costs Health instead of Mana if your hero was healed this turn.", "manaCost": 3, "attack": 3, "health": 4}
+{"id": 71250, "name": "Onyxian Drake", "text": "<b>Taunt</b> <b>Battlecry:</b> Deal damage equal to your Armor to an enemy minion.", "manaCost": 4, "attack": 4, "health": 5}
+{"id": 46307, "name": "Lesser Diamond Spellstone", "text": "Resurrect 2 different friendly minions. <i>(Cast 4 spells to upgrade.)</i>", "manaCost": 7, "attack": null, "health": null}
+{"id": 97739, "name": "Furious Furnace", "text": "<b>Magnetic</b> Also damages minions next to whomever this attacks.", "manaCost": 2, "attack": 1, "health": 3}

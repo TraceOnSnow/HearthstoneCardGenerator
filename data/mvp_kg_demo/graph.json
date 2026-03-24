@@ -1,0 +1,2896 @@
+{
+  "nodes": [
+    {
+      "id": "card:50056",
+      "type": "card",
+      "name": "Sul'thraze",
+      "attributes": {
+        "manaCost": 6,
+        "attack": 4,
+        "health": 4
+      }
+    },
+    {
+      "id": "card:120524",
+      "type": "card",
+      "name": "Chillmaw",
+      "attributes": {
+        "manaCost": 7,
+        "attack": 6,
+        "health": 6
+      }
+    },
+    {
+      "id": "card:39215",
+      "type": "card",
+      "name": "Arcane Anomaly",
+      "attributes": {
+        "manaCost": 1,
+        "attack": 2,
+        "health": 1
+      }
+    },
+    {
+      "id": "card:120962",
+      "type": "card",
+      "name": "Wizened Truthseeker",
+      "attributes": {
+        "manaCost": 4,
+        "attack": 4,
+        "health": 5
+      }
+    },
+    {
+      "id": "card:119918",
+      "type": "card",
+      "name": "Gelbin of Tomorrow",
+      "attributes": {
+        "manaCost": 8,
+        "attack": 6,
+        "health": 6
+      }
+    },
+    {
+      "id": "card:64423",
+      "type": "card",
+      "name": "Fire Sale",
+      "attributes": {
+        "manaCost": 4,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:38408",
+      "type": "card",
+      "name": "Evolved Kobold",
+      "attributes": {
+        "manaCost": 4,
+        "attack": 2,
+        "health": 2
+      }
+    },
+    {
+      "id": "card:69661",
+      "type": "card",
+      "name": "Crazed Alchemist",
+      "attributes": {
+        "manaCost": 2,
+        "attack": 2,
+        "health": 2
+      }
+    },
+    {
+      "id": "card:103340",
+      "type": "card",
+      "name": "Wind-Up Musician",
+      "attributes": {
+        "manaCost": 6,
+        "attack": 5,
+        "health": 5
+      }
+    },
+    {
+      "id": "card:61254",
+      "type": "card",
+      "name": "Cascading Disaster",
+      "attributes": {
+        "manaCost": 4,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:41252",
+      "type": "card",
+      "name": "Tortollan Forager",
+      "attributes": {
+        "manaCost": 2,
+        "attack": 2,
+        "health": 2
+      }
+    },
+    {
+      "id": "card:47117",
+      "type": "card",
+      "name": "Witching Hour",
+      "attributes": {
+        "manaCost": 3,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:53967",
+      "type": "card",
+      "name": "Sandstorm Elemental",
+      "attributes": {
+        "manaCost": 2,
+        "attack": 2,
+        "health": 2
+      }
+    },
+    {
+      "id": "card:69672",
+      "type": "card",
+      "name": "Brightwing",
+      "attributes": {
+        "manaCost": 2,
+        "attack": 3,
+        "health": 2
+      }
+    },
+    {
+      "id": "card:118222",
+      "type": "card",
+      "name": "Sizzling Cinder",
+      "attributes": {
+        "manaCost": 1,
+        "attack": 2,
+        "health": 1
+      }
+    },
+    {
+      "id": "card:59643",
+      "type": "card",
+      "name": "Mindrender Illucia",
+      "attributes": {
+        "manaCost": 3,
+        "attack": 1,
+        "health": 3
+      }
+    },
+    {
+      "id": "card:45366",
+      "type": "card",
+      "name": "Arfus",
+      "attributes": {
+        "manaCost": 4,
+        "attack": 2,
+        "health": 2
+      }
+    },
+    {
+      "id": "card:115307",
+      "type": "card",
+      "name": "Archdruid of Thorns",
+      "attributes": {
+        "manaCost": 2,
+        "attack": 3,
+        "health": 2
+      }
+    },
+    {
+      "id": "card:108619",
+      "type": "card",
+      "name": "Buy One, Get One Freeze",
+      "attributes": {
+        "manaCost": 3,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:101877",
+      "type": "card",
+      "name": "Eroded Sediment",
+      "attributes": {
+        "manaCost": 3,
+        "attack": 4,
+        "health": 3
+      }
+    },
+    {
+      "id": "card:95404",
+      "type": "card",
+      "name": "Fanottem, Lord of the Opera",
+      "attributes": {
+        "manaCost": 30,
+        "attack": 15,
+        "health": 15
+      }
+    },
+    {
+      "id": "card:374",
+      "type": "card",
+      "name": "Ragnaros the Firelord",
+      "attributes": {
+        "manaCost": 8,
+        "attack": 8,
+        "health": 8
+      }
+    },
+    {
+      "id": "card:42765",
+      "type": "card",
+      "name": "Snowfury Giant",
+      "attributes": {
+        "manaCost": 11,
+        "attack": 8,
+        "health": 8
+      }
+    },
+    {
+      "id": "card:123692",
+      "type": "card",
+      "name": "Arcane Flow",
+      "attributes": {
+        "manaCost": 4,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:72487",
+      "type": "card",
+      "name": "Serpent Wig",
+      "attributes": {
+        "manaCost": 1,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:692",
+      "type": "card",
+      "name": "Druid of the Claw",
+      "attributes": {
+        "manaCost": 6,
+        "attack": 4,
+        "health": 6
+      }
+    },
+    {
+      "id": "card:59192",
+      "type": "card",
+      "name": "Void Drinker",
+      "attributes": {
+        "manaCost": 5,
+        "attack": 4,
+        "health": 5
+      }
+    },
+    {
+      "id": "card:63218",
+      "type": "card",
+      "name": "Tamsin Roame",
+      "attributes": {
+        "manaCost": 3,
+        "attack": 1,
+        "health": 3
+      }
+    },
+    {
+      "id": "card:117871",
+      "type": "card",
+      "name": "Unleash the Colossus",
+      "attributes": {
+        "manaCost": 1,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:53969",
+      "type": "card",
+      "name": "Sandhoof Waterbearer",
+      "attributes": {
+        "manaCost": 5,
+        "attack": 5,
+        "health": 5
+      }
+    },
+    {
+      "id": "card:38957",
+      "type": "card",
+      "name": "Midnight Drake",
+      "attributes": {
+        "manaCost": 4,
+        "attack": 1,
+        "health": 4
+      }
+    },
+    {
+      "id": "card:57184",
+      "type": "card",
+      "name": "Ethereal Augmerchant",
+      "attributes": {
+        "manaCost": 1,
+        "attack": 2,
+        "health": 1
+      }
+    },
+    {
+      "id": "card:2683",
+      "type": "card",
+      "name": "Nexus-Champion Saraad",
+      "attributes": {
+        "manaCost": 5,
+        "attack": 4,
+        "health": 5
+      }
+    },
+    {
+      "id": "card:116684",
+      "type": "card",
+      "name": "Siphoning Growth",
+      "attributes": {
+        "manaCost": 1,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:102059",
+      "type": "card",
+      "name": "Giant Tumbleweed!!!",
+      "attributes": {
+        "manaCost": 7,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:102175",
+      "type": "card",
+      "name": "Aftershocks",
+      "attributes": {
+        "manaCost": 4,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:114218",
+      "type": "card",
+      "name": "Darkrider",
+      "attributes": {
+        "manaCost": 1,
+        "attack": 2,
+        "health": 1
+      }
+    },
+    {
+      "id": "card:52417",
+      "type": "card",
+      "name": "Underbelly Ooze",
+      "attributes": {
+        "manaCost": 7,
+        "attack": 3,
+        "health": 5
+      }
+    },
+    {
+      "id": "card:73471",
+      "type": "card",
+      "name": "Miracle Growth",
+      "attributes": {
+        "manaCost": 7,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:57191",
+      "type": "card",
+      "name": "Infectious Sporeling",
+      "attributes": {
+        "manaCost": 1,
+        "attack": 1,
+        "health": 2
+      }
+    },
+    {
+      "id": "card:41242",
+      "type": "card",
+      "name": "Giant Mastodon",
+      "attributes": {
+        "manaCost": 9,
+        "attack": 6,
+        "health": 12
+      }
+    },
+    {
+      "id": "card:103194",
+      "type": "card",
+      "name": "Dark Arakkoa",
+      "attributes": {
+        "manaCost": 6,
+        "attack": 5,
+        "health": 7
+      }
+    },
+    {
+      "id": "card:84736",
+      "type": "card",
+      "name": "Energy Shaper",
+      "attributes": {
+        "manaCost": 3,
+        "attack": 3,
+        "health": 4
+      }
+    },
+    {
+      "id": "card:110761",
+      "type": "card",
+      "name": "Imployee of the Month",
+      "attributes": {
+        "manaCost": 2,
+        "attack": 3,
+        "health": 2
+      }
+    },
+    {
+      "id": "card:106715",
+      "type": "card",
+      "name": "Carry-On Grub",
+      "attributes": {
+        "manaCost": 4,
+        "attack": 5,
+        "health": 4
+      }
+    },
+    {
+      "id": "card:62581",
+      "type": "card",
+      "name": "Burning Blade Acolyte",
+      "attributes": {
+        "manaCost": 5,
+        "attack": 1,
+        "health": 1
+      }
+    },
+    {
+      "id": "card:46296",
+      "type": "card",
+      "name": "Lesser Onyx Spellstone",
+      "attributes": {
+        "manaCost": 5,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:102628",
+      "type": "card",
+      "name": "Call in the Finishers",
+      "attributes": {
+        "manaCost": 3,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:102674",
+      "type": "card",
+      "name": "Kabal Courier",
+      "attributes": {
+        "manaCost": 2,
+        "attack": 2,
+        "health": 2
+      }
+    },
+    {
+      "id": "card:376",
+      "type": "card",
+      "name": "Inner Fire",
+      "attributes": {
+        "manaCost": 1,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:45263",
+      "type": "card",
+      "name": "Sonya Shadowdancer",
+      "attributes": {
+        "manaCost": 3,
+        "attack": 2,
+        "health": 2
+      }
+    },
+    {
+      "id": "card:43419",
+      "type": "card",
+      "name": "Frost Lich Jaina",
+      "attributes": {
+        "manaCost": 9,
+        "attack": null,
+        "health": 30
+      }
+    },
+    {
+      "id": "card:40596",
+      "type": "card",
+      "name": "Aya Blackpaw",
+      "attributes": {
+        "manaCost": 6,
+        "attack": 6,
+        "health": 3
+      }
+    },
+    {
+      "id": "card:114510",
+      "type": "card",
+      "name": "Web of Deception",
+      "attributes": {
+        "manaCost": 2,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:61187",
+      "type": "card",
+      "name": "Oh My Yogg!",
+      "attributes": {
+        "manaCost": 1,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:120488",
+      "type": "card",
+      "name": "Ruinous Velocidrake",
+      "attributes": {
+        "manaCost": 5,
+        "attack": 5,
+        "health": 5
+      }
+    },
+    {
+      "id": "card:59540",
+      "type": "card",
+      "name": "Combustion",
+      "attributes": {
+        "manaCost": 3,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:55281",
+      "type": "card",
+      "name": "Learn Draconic",
+      "attributes": {
+        "manaCost": 1,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:42439",
+      "type": "card",
+      "name": "Bone Drake",
+      "attributes": {
+        "manaCost": 6,
+        "attack": 6,
+        "health": 5
+      }
+    },
+    {
+      "id": "card:72416",
+      "type": "card",
+      "name": "Schooling",
+      "attributes": {
+        "manaCost": 1,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:61606",
+      "type": "card",
+      "name": "Greybough",
+      "attributes": {
+        "manaCost": 5,
+        "attack": 4,
+        "health": 6
+      }
+    },
+    {
+      "id": "card:100936",
+      "type": "card",
+      "name": "Stick Up",
+      "attributes": {
+        "manaCost": 1,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:54256",
+      "type": "card",
+      "name": "Spitting Camel",
+      "attributes": {
+        "manaCost": 2,
+        "attack": 2,
+        "health": 4
+      }
+    },
+    {
+      "id": "card:46390",
+      "type": "card",
+      "name": "Kathrena Winterwisp",
+      "attributes": {
+        "manaCost": 8,
+        "attack": 6,
+        "health": 6
+      }
+    },
+    {
+      "id": "card:102158",
+      "type": "card",
+      "name": "Shimmer Shot",
+      "attributes": {
+        "manaCost": 1,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:523",
+      "type": "card",
+      "name": "Dragonling Mechanic",
+      "attributes": {
+        "manaCost": 4,
+        "attack": 2,
+        "health": 4
+      }
+    },
+    {
+      "id": "card:67894",
+      "type": "card",
+      "name": "Ur'zul Giant",
+      "attributes": {
+        "manaCost": 13,
+        "attack": 8,
+        "health": 8
+      }
+    },
+    {
+      "id": "card:59720",
+      "type": "card",
+      "name": "Blood Herald",
+      "attributes": {
+        "manaCost": 5,
+        "attack": 1,
+        "health": 1
+      }
+    },
+    {
+      "id": "card:825",
+      "type": "card",
+      "name": "Azure Drake",
+      "attributes": {
+        "manaCost": 5,
+        "attack": 4,
+        "health": 5
+      }
+    },
+    {
+      "id": "card:90543",
+      "type": "card",
+      "name": "The One-Amalgam Band",
+      "attributes": {
+        "manaCost": 7,
+        "attack": 6,
+        "health": 6
+      }
+    },
+    {
+      "id": "card:56292",
+      "type": "card",
+      "name": "Eye of the Storm",
+      "attributes": {
+        "manaCost": 10,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:46032",
+      "type": "card",
+      "name": "Grand Archivist",
+      "attributes": {
+        "manaCost": 8,
+        "attack": 4,
+        "health": 7
+      }
+    },
+    {
+      "id": "card:116376",
+      "type": "card",
+      "name": "Bonechill Stegodon",
+      "attributes": {
+        "manaCost": 6,
+        "attack": 6,
+        "health": 3
+      }
+    },
+    {
+      "id": "card:818",
+      "type": "card",
+      "name": "Far Sight",
+      "attributes": {
+        "manaCost": 3,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:60926",
+      "type": "card",
+      "name": "Carnival Clown",
+      "attributes": {
+        "manaCost": 9,
+        "attack": 4,
+        "health": 4
+      }
+    },
+    {
+      "id": "card:104518",
+      "type": "card",
+      "name": "Lesser Opal Spellstone",
+      "attributes": {
+        "manaCost": 2,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:38909",
+      "type": "card",
+      "name": "Giant Sand Worm",
+      "attributes": {
+        "manaCost": 8,
+        "attack": 8,
+        "health": 8
+      }
+    },
+    {
+      "id": "card:103327",
+      "type": "card",
+      "name": "Nostalgic Initiate",
+      "attributes": {
+        "manaCost": 3,
+        "attack": 2,
+        "health": 3
+      }
+    },
+    {
+      "id": "card:117679",
+      "type": "card",
+      "name": "Story of Galvadon",
+      "attributes": {
+        "manaCost": 2,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:126975",
+      "type": "card",
+      "name": "Khadgar",
+      "attributes": {
+        "manaCost": 2,
+        "attack": 2,
+        "health": 2
+      }
+    },
+    {
+      "id": "card:42663",
+      "type": "card",
+      "name": "Deadscale Knight",
+      "attributes": {
+        "manaCost": 1,
+        "attack": 1,
+        "health": 1
+      }
+    },
+    {
+      "id": "card:43122",
+      "type": "card",
+      "name": "Kobold Librarian",
+      "attributes": {
+        "manaCost": 1,
+        "attack": 2,
+        "health": 1
+      }
+    },
+    {
+      "id": "card:2901",
+      "type": "card",
+      "name": "Jeweled Scarab",
+      "attributes": {
+        "manaCost": 2,
+        "attack": 1,
+        "health": 1
+      }
+    },
+    {
+      "id": "card:48051",
+      "type": "card",
+      "name": "Elementary Reaction",
+      "attributes": {
+        "manaCost": 2,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:102685",
+      "type": "card",
+      "name": "Timeline Accelerator",
+      "attributes": {
+        "manaCost": 3,
+        "attack": 2,
+        "health": 2
+      }
+    },
+    {
+      "id": "card:78355",
+      "type": "card",
+      "name": "Frostwyrm's Fury",
+      "attributes": {
+        "manaCost": 7,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:86147",
+      "type": "card",
+      "name": "Unliving Champion",
+      "attributes": {
+        "manaCost": 3,
+        "attack": 3,
+        "health": 2
+      }
+    },
+    {
+      "id": "card:113822",
+      "type": "card",
+      "name": "Treacherous Tormentor",
+      "attributes": {
+        "manaCost": 4,
+        "attack": 5,
+        "health": 4
+      }
+    },
+    {
+      "id": "card:105097",
+      "type": "card",
+      "name": "Table Flip",
+      "attributes": {
+        "manaCost": 10,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:38567",
+      "type": "card",
+      "name": "Blood of The Ancient One",
+      "attributes": {
+        "manaCost": 9,
+        "attack": 9,
+        "health": 9
+      }
+    },
+    {
+      "id": "card:49170",
+      "type": "card",
+      "name": "Spark Engine",
+      "attributes": {
+        "manaCost": 2,
+        "attack": 2,
+        "health": 1
+      }
+    },
+    {
+      "id": "card:64702",
+      "type": "card",
+      "name": "Stormwind Guard",
+      "attributes": {
+        "manaCost": 5,
+        "attack": 4,
+        "health": 5
+      }
+    },
+    {
+      "id": "card:1985",
+      "type": "card",
+      "name": "Demonheart",
+      "attributes": {
+        "manaCost": 5,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:55276",
+      "type": "card",
+      "name": "Rolling Fireball",
+      "attributes": {
+        "manaCost": 5,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:79772",
+      "type": "card",
+      "name": "Weapons Expert",
+      "attributes": {
+        "manaCost": 3,
+        "attack": 3,
+        "health": 2
+      }
+    },
+    {
+      "id": "card:41427",
+      "type": "card",
+      "name": "Fire Plume's Heart",
+      "attributes": {
+        "manaCost": 1,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:90484",
+      "type": "card",
+      "name": "Death Metal Knight",
+      "attributes": {
+        "manaCost": 3,
+        "attack": 3,
+        "health": 4
+      }
+    },
+    {
+      "id": "card:71250",
+      "type": "card",
+      "name": "Onyxian Drake",
+      "attributes": {
+        "manaCost": 4,
+        "attack": 4,
+        "health": 5
+      }
+    },
+    {
+      "id": "card:46307",
+      "type": "card",
+      "name": "Lesser Diamond Spellstone",
+      "attributes": {
+        "manaCost": 7,
+        "attack": null,
+        "health": null
+      }
+    },
+    {
+      "id": "card:97739",
+      "type": "card",
+      "name": "Furious Furnace",
+      "attributes": {
+        "manaCost": 2,
+        "attack": 1,
+        "health": 3
+      }
+    },
+    {
+      "id": "mechanic:overkill",
+      "type": "mechanic",
+      "name": "overkill"
+    },
+    {
+      "id": "mechanic:taunt",
+      "type": "mechanic",
+      "name": "taunt"
+    },
+    {
+      "id": "mechanic:deathrattle",
+      "type": "mechanic",
+      "name": "deathrattle"
+    },
+    {
+      "id": "entity:effect:deal_3_damage_to_all_minions",
+      "type": "effect",
+      "name": "deal 3 damage to all minions"
+    },
+    {
+      "id": "entity:condition:holding_a_dragon",
+      "type": "condition",
+      "name": "holding a dragon"
+    },
+    {
+      "id": "entity:effect:give_this_minion_1_health",
+      "type": "effect",
+      "name": "give this minion +1 health"
+    },
+    {
+      "id": "entity:condition:after_you_cast_a_spell",
+      "type": "condition",
+      "name": "after you cast a spell"
+    },
+    {
+      "id": "mechanic:battlecry",
+      "type": "mechanic",
+      "name": "battlecry"
+    },
+    {
+      "id": "entity:effect:set_the_cost_of_every_card_in_both_players_hands_back_to_their_original_costs",
+      "type": "effect",
+      "name": "set the cost of every card in both players hands back to their original costs"
+    },
+    {
+      "id": "mechanic:fabled",
+      "type": "mechanic",
+      "name": "fabled"
+    },
+    {
+      "id": "entity:effect:put_one_of_each_aura_from_your_deck_into_the_battlefield",
+      "type": "effect",
+      "name": "put one of each aura from your deck into the battlefield"
+    },
+    {
+      "id": "mechanic:tradeable",
+      "type": "mechanic",
+      "name": "tradeable"
+    },
+    {
+      "id": "entity:keyword:spell_damage_2",
+      "type": "keyword",
+      "name": "spell damage +2"
+    },
+    {
+      "id": "entity:effect:swap_the_attack_and_health_of_a_minion",
+      "type": "effect",
+      "name": "swap the attack and health of a minion"
+    },
+    {
+      "id": "entity:effect:deal_damage_to_all_enemy_minions",
+      "type": "effect",
+      "name": "deal damage to all enemy minions"
+    },
+    {
+      "id": "entity:other:trade_to_upgrade",
+      "type": "other",
+      "name": "trade to upgrade"
+    },
+    {
+      "id": "entity:effect:destroy_a_random_enemy_minion",
+      "type": "effect",
+      "name": "destroy a random enemy minion"
+    },
+    {
+      "id": "entity:condition:corrupt",
+      "type": "condition",
+      "name": "corrupt"
+    },
+    {
+      "id": "entity:effect:destroy_2",
+      "type": "effect",
+      "name": "destroy 2"
+    },
+    {
+      "id": "entity:condition:corrupt_again",
+      "type": "condition",
+      "name": "corrupt again"
+    },
+    {
+      "id": "entity:effect:destroy_3",
+      "type": "effect",
+      "name": "destroy 3"
+    },
+    {
+      "id": "entity:effect:add_a_random_minion_with_5_or_more_attack_to_your_hand",
+      "type": "effect",
+      "name": "add a random minion with 5 or more attack to your hand"
+    },
+    {
+      "id": "entity:effect:summon_a_random_friendly_beast_that_died_this_game",
+      "type": "effect",
+      "name": "summon a random friendly beast that died this game"
+    },
+    {
+      "id": "mechanic:overload",
+      "type": "mechanic",
+      "name": "overload"
+    },
+    {
+      "id": "entity:effect:deal_1_damage_to_all_enemy_minions",
+      "type": "effect",
+      "name": "deal 1 damage to all enemy minions"
+    },
+    {
+      "id": "entity:effect:add_a_random_legendary_minion_to_your_hand",
+      "type": "effect",
+      "name": "add a random legendary minion to your hand"
+    },
+    {
+      "id": "entity:effect:deal_2_damage_randomly_split_among_all_enemies",
+      "type": "effect",
+      "name": "deal 2 damage randomly split among all enemies"
+    },
+    {
+      "id": "entity:effect:replace_your_hand_with_a_copy_of_your_opponents_until_end_of_turn",
+      "type": "effect",
+      "name": "replace your hand with a copy of your opponents until end of turn"
+    },
+    {
+      "id": "entity:effect:add_a_random_lich_king_card_to_your_hand",
+      "type": "effect",
+      "name": "add a random lich king card to your hand"
+    },
+    {
+      "id": "entity:effect:gain_the_deatheattles_of_your_minions_that_died_this_turn",
+      "type": "effect",
+      "name": "gain the deatheattles of your minions that died this turn"
+    },
+    {
+      "id": "entity:effect:freeze_a_minion",
+      "type": "effect",
+      "name": "freeze a minion"
+    },
+    {
+      "id": "entity:effect:summon_a_frozen_copy_of_it",
+      "type": "effect",
+      "name": "summon a frozen copy of it"
+    },
+    {
+      "id": "entity:condition:if_you_played_an_elemental_last_turn",
+      "type": "condition",
+      "name": "if you played an elemental last turn"
+    },
+    {
+      "id": "entity:effect:discover_any_elemental_from_the_past",
+      "type": "effect",
+      "name": "discover any elemental from the past"
+    },
+    {
+      "id": "mechanic:lifesteal",
+      "type": "mechanic",
+      "name": "lifesteal"
+    },
+    {
+      "id": "entity:other:this_cards_cost_is_equal_to_the_amount_of_cards_in_your_deck",
+      "type": "other",
+      "name": "this cards cost is equal to the amount of cards in your deck"
+    },
+    {
+      "id": "entity:condition:cant_attack",
+      "type": "condition",
+      "name": "cant attack"
+    },
+    {
+      "id": "entity:effect:at_the_end_of_your_turn_deal_8_damage_to_a_random_enemy",
+      "type": "effect",
+      "name": "at the end of your turn deal 8 damage to a random enemy"
+    },
+    {
+      "id": "entity:other:costs_1_less_for_each_mana_crystal_you_ve_overloaded_this_game",
+      "type": "other",
+      "name": "costs (1) less for each mana crystal you've overloaded this game"
+    },
+    {
+      "id": "entity:keyword:shatter",
+      "type": "keyword",
+      "name": "shatter"
+    },
+    {
+      "id": "entity:effect:deal_4_damage",
+      "type": "effect",
+      "name": "deal 4 damage"
+    },
+    {
+      "id": "entity:effect:deal_2_damage_to_all_enemies",
+      "type": "effect",
+      "name": "deal 2 damage to all enemies"
+    },
+    {
+      "id": "entity:effect:give_a_minion_1_2",
+      "type": "effect",
+      "name": "give a minion +1/+2"
+    },
+    {
+      "id": "entity:condition:if_you_played_a_naga_while_holding_this",
+      "type": "condition",
+      "name": "if you played a naga while holding this"
+    },
+    {
+      "id": "entity:effect:add_a_serpent_wig_to_your_hand",
+      "type": "effect",
+      "name": "add a serpent wig to your hand"
+    },
+    {
+      "id": "entity:other:choose_one",
+      "type": "other",
+      "name": "choose one"
+    },
+    {
+      "id": "entity:effect:transform_into_a_7_6_with_rush",
+      "type": "effect",
+      "name": "transform into a 7/6 with rush"
+    },
+    {
+      "id": "entity:effect:transform_into_a_4_9_with_taunt",
+      "type": "effect",
+      "name": "transform into a 4/9 with taunt"
+    },
+    {
+      "id": "entity:effect:destroy_a_soul_fragment_in_your_deck_to_gain_3_3",
+      "type": "effect",
+      "name": "destroy a soul fragment in your deck to gain +3/+3"
+    },
+    {
+      "id": "entity:condition:whenever_you_cast_a_shadow_spell_that_costs_1_or_more",
+      "type": "condition",
+      "name": "whenever you cast a shadow spell that costs (1) or more"
+    },
+    {
+      "id": "entity:effect:add_a_copy_to_your_hand_that_costs_0",
+      "type": "effect",
+      "name": "add a copy to your hand that costs (0)"
+    },
+    {
+      "id": "entity:quest:deal_exactly_2_damage_to_an_enemy_on_your_turn_12_times",
+      "type": "quest",
+      "name": "deal exactly 2 damage to an enemy on your turn, 12 times"
+    },
+    {
+      "id": "entity:reward:gorishi_colossus",
+      "type": "reward",
+      "name": "gorishi colossus"
+    },
+    {
+      "id": "entity:effect:at_the_end_of_your_turn_restore_5_health_to_a_damaged_friendly_character",
+      "type": "effect",
+      "name": "at the end of your turn restore 5 health to a damaged friendly character"
+    },
+    {
+      "id": "entity:effect:gain_1_attack_for_each_other_card_in_your_hand",
+      "type": "effect",
+      "name": "gain +1 attack for each other card in your hand"
+    },
+    {
+      "id": "entity:effect:deal_1_damage_to_a_minion_and_give_it_spell_damage_1",
+      "type": "effect",
+      "name": "deal 1 damage to a minion and give it spell damage +1"
+    },
+    {
+      "id": "mechanic:inspire",
+      "type": "mechanic",
+      "name": "inspire"
+    },
+    {
+      "id": "entity:effect:add_a_random_spell_to_your_hand",
+      "type": "effect",
+      "name": "add a random spell to your hand"
+    },
+    {
+      "id": "entity:effect:destroy_a_friendly_minion_to_gain_8_armor",
+      "type": "effect",
+      "name": "destroy a friendly minion to gain 8 armor"
+    },
+    {
+      "id": "entity:effect:deal_6_damage_to_all_minions",
+      "type": "effect",
+      "name": "deal 6 damage to all minions"
+    },
+    {
+      "id": "entity:effect:summon_a_6_6_tumbleweed",
+      "type": "effect",
+      "name": "summon a 6/6 tumbleweed"
+    },
+    {
+      "id": "entity:effect:deal_1_damage_to_all_minions_three_times",
+      "type": "effect",
+      "name": "deal 1 damage to all minions, three times"
+    },
+    {
+      "id": "entity:condition:costs_2_less_if_you_cast_a_spell_last_turn",
+      "type": "condition",
+      "name": "costs (2) less if you cast a spell last turn"
+    },
+    {
+      "id": "entity:condition:if_you_re_holding_a_dragon",
+      "type": "condition",
+      "name": "if you're holding a dragon"
+    },
+    {
+      "id": "entity:effect:discover_a_dragon_with_a_dark_gift",
+      "type": "effect",
+      "name": "discover a dragon with a dark gift"
+    },
+    {
+      "id": "entity:condition:after_this_minion_survives_damage",
+      "type": "condition",
+      "name": "after this minion survives damage"
+    },
+    {
+      "id": "entity:effect:summon_a_copy_of_it",
+      "type": "effect",
+      "name": "summon a copy of it"
+    },
+    {
+      "id": "entity:effect:draw_3_cards",
+      "type": "effect",
+      "name": "draw 3 cards"
+    },
+    {
+      "id": "entity:effect:summon_a_plant_with_taunt_and_stats_equal_to_your_hand_size",
+      "type": "effect",
+      "name": "summon a plant with taunt and stats equal to your hand size"
+    },
+    {
+      "id": "entity:condition:after_this_damages_a_minion",
+      "type": "condition",
+      "name": "after this damages a minion"
+    },
+    {
+      "id": "entity:effect:turn_it_into_an_infectious_sporeling",
+      "type": "effect",
+      "name": "turn it into an infectious sporeling"
+    },
+    {
+      "id": "entity:effect:give_your_c_thun_4_4",
+      "type": "effect",
+      "name": "give your c'thun +4/+4"
+    },
+    {
+      "id": "entity:effect:transform_all_spells_in_your_hand_into_ones_that_cost_3_more",
+      "type": "effect",
+      "name": "transform all spells in your hand into ones that cost (3) more"
+    },
+    {
+      "id": "entity:other:they_keep_their_original_cost",
+      "type": "other",
+      "name": "they keep their original cost"
+    },
+    {
+      "id": "entity:effect:give_a_friendly_minion_lifesteal",
+      "type": "effect",
+      "name": "give a friendly minion lifesteal"
+    },
+    {
+      "id": "entity:effect:get_a_1_cost_suitcase",
+      "type": "effect",
+      "name": "get a 1-cost suitcase"
+    },
+    {
+      "id": "entity:effect:pack_the_top_2_cards_of_your_deck_into_it",
+      "type": "effect",
+      "name": "pack the top 2 cards of your deck into it"
+    },
+    {
+      "id": "entity:effect:summon_a_5_8_demonspawn_with_taunt",
+      "type": "effect",
+      "name": "summon a 5/8 demonspawn with taunt"
+    },
+    {
+      "id": "entity:effect:destroy_1_random_enemy_minion",
+      "type": "effect",
+      "name": "destroy 1 random enemy minion"
+    },
+    {
+      "id": "entity:other:play_3_deathrattle_cards_to_upgrade",
+      "type": "other",
+      "name": "play 3 deathrattle cards to upgrade"
+    },
+    {
+      "id": "entity:effect:summon_four_1_1_murlocs",
+      "type": "effect",
+      "name": "summon four 1/1 murlocs"
+    },
+    {
+      "id": "entity:effect:discover_a_mage_priest_or_warlock_card",
+      "type": "effect",
+      "name": "discover a mage, priest, or warlock card"
+    },
+    {
+      "id": "entity:effect:change_a_minions_attack_to_be_equal_to_its_health",
+      "type": "effect",
+      "name": "change a minions attack to be equal to its health"
+    },
+    {
+      "id": "entity:effect:add_a_1_1_copy_of_it_to_your_hand",
+      "type": "effect",
+      "name": "add a 1/1 copy of it to your hand"
+    },
+    {
+      "id": "entity:effect:costs_1",
+      "type": "effect",
+      "name": "costs (1)"
+    },
+    {
+      "id": "entity:effect:summon_a_3_6_water_elemental",
+      "type": "effect",
+      "name": "summon a 3/6 Water Elemental"
+    },
+    {
+      "id": "entity:effect:your_elementals_have_lifesteal_this_game",
+      "type": "effect",
+      "name": "Your Elementals have Lifesteal this game"
+    },
+    {
+      "id": "entity:effect:summon_a_jade_golem",
+      "type": "effect",
+      "name": "Summon a Jade Golem"
+    },
+    {
+      "id": "mechanic:stealth",
+      "type": "mechanic",
+      "name": "stealth"
+    },
+    {
+      "id": "entity:effect:return_a_friendly_minion_to_your_hand",
+      "type": "effect",
+      "name": "Return a friendly minion to your hand"
+    },
+    {
+      "id": "entity:effect:summon_a_4_4_spider_with_stealth",
+      "type": "effect",
+      "name": "summon a 4/4 Spider with Stealth"
+    },
+    {
+      "id": "mechanic:secret",
+      "type": "mechanic",
+      "name": "secret"
+    },
+    {
+      "id": "entity:condition:when_your_opponent_casts_a_spell",
+      "type": "condition",
+      "name": "When your opponent casts a spell"
+    },
+    {
+      "id": "entity:effect:they_instead_cast_a_random_one_of_the_same_cost",
+      "type": "effect",
+      "name": "they instead cast a random one of the same Cost"
+    },
+    {
+      "id": "mechanic:rush",
+      "type": "mechanic",
+      "name": "rush"
+    },
+    {
+      "id": "entity:effect:cast_a_shred_of_time_from_your_deck_to_summon_a_copy_of_this",
+      "type": "effect",
+      "name": "Cast a Shred of Time from your deck to summon a copy of this"
+    },
+    {
+      "id": "entity:effect:deal_4_damage_to_a_minion",
+      "type": "effect",
+      "name": "Deal 4 damage to a minion"
+    },
+    {
+      "id": "entity:effect:any_excess_damages_both_neighbors",
+      "type": "effect",
+      "name": "Any excess damages both neighbors"
+    },
+    {
+      "id": "mechanic:sidequest",
+      "type": "mechanic",
+      "name": "sidequest"
+    },
+    {
+      "id": "entity:condition:spend_8_mana_on_spells",
+      "type": "condition",
+      "name": "Spend 8 Mana on spells"
+    },
+    {
+      "id": "entity:effect:summon_a_6_6_dragon",
+      "type": "effect",
+      "name": "Summon a 6/6 Dragon"
+    },
+    {
+      "id": "entity:effect:add_a_random_dragon_to_your_hand",
+      "type": "effect",
+      "name": "Add a random Dragon to your hand"
+    },
+    {
+      "id": "entity:effect:add_three_1_1_piranha_swarmers_to_your_hand",
+      "type": "effect",
+      "name": "Add three 1/1 Piranha Swarmers to your hand"
+    },
+    {
+      "id": "entity:effect:give_a_random_friendly_minion_deathrattle_summon_greybough",
+      "type": "effect",
+      "name": "Give a random friendly minion \"Deathrattle: Summon Greybough.\""
+    },
+    {
+      "id": "mechanic:discover",
+      "type": "mechanic",
+      "name": "discover"
+    },
+    {
+      "id": "mechanic:quickdraw",
+      "type": "mechanic",
+      "name": "quickdraw"
+    },
+    {
+      "id": "entity:effect:discover_a_quickdraw_card_from_another_class",
+      "type": "effect",
+      "name": "Discover a Quickdraw card from another class"
+    },
+    {
+      "id": "entity:condition:at_the_end_of_your_turn",
+      "type": "condition",
+      "name": "At the end of your turn"
+    },
+    {
+      "id": "entity:effect:deal_1_damage_to_another_random_friendly_minion",
+      "type": "effect",
+      "name": "deal 1 damage to another random friendly minion"
+    },
+    {
+      "id": "entity:effect:recruit_a_beast",
+      "type": "effect",
+      "name": "Recruit a Beast"
+    },
+    {
+      "id": "entity:effect:deal_1_damage",
+      "type": "effect",
+      "name": "Deal 1 damage"
+    },
+    {
+      "id": "entity:effect:summon_a_random_minion_of_that_cost",
+      "type": "effect",
+      "name": "Summon a random minion of that Cost"
+    },
+    {
+      "id": "entity:effect:summon_a_2_1_mechanical_dragonling",
+      "type": "effect",
+      "name": "Summon a 2/1 Mechanical Dragonling"
+    },
+    {
+      "id": "entity:effect:costs_1_less_for_each_friendly_minion_that_died_this_game",
+      "type": "effect",
+      "name": "Costs (1) less for each friendly minion that died this game"
+    },
+    {
+      "id": "entity:condition:whenever_a_friendly_minion_dies_while_this_is_in_your_hand",
+      "type": "condition",
+      "name": "Whenever a friendly minion dies while this is in your hand"
+    },
+    {
+      "id": "entity:effect:gain_1_1",
+      "type": "effect",
+      "name": "gain +1/+1"
+    },
+    {
+      "id": "mechanic:spell_damage_1",
+      "type": "mechanic",
+      "name": "spell damage +1"
+    },
+    {
+      "id": "entity:effect:draw_a_card",
+      "type": "effect",
+      "name": "Draw a card"
+    },
+    {
+      "id": "entity:effect:gain_a_random_bonus_effect_for_each_minion_of_a_different_type_you_ve_played_this_game",
+      "type": "effect",
+      "name": "Gain a random Bonus Effect for each minion of a different type you've played this game"
+    },
+    {
+      "id": "entity:effect:summon_three_5_6_elementals_with_taunt",
+      "type": "effect",
+      "name": "Summon three 5/6 Elementals with Taunt"
+    },
+    {
+      "id": "entity:effect:cast_a_spell_from_your_deck_targets_chosen_randomly",
+      "type": "effect",
+      "name": "cast a spell from your deck (targets chosen randomly)"
+    },
+    {
+      "id": "entity:effect:deal_6_damage_to_three_random_enemies",
+      "type": "effect",
+      "name": "Deal 6 damage to three random enemies"
+    },
+    {
+      "id": "entity:effect:that_card_costs_3_less",
+      "type": "effect",
+      "name": "That card costs (3) less"
+    },
+    {
+      "id": "entity:effect:summon_2_copies_of_this",
+      "type": "effect",
+      "name": "Summon 2 copies of this"
+    },
+    {
+      "id": "entity:effect:fill_your_board_with_copies",
+      "type": "effect",
+      "name": "Fill your board with copies"
+    },
+    {
+      "id": "entity:effect:draw_1_card",
+      "type": "effect",
+      "name": "Draw 1 card"
+    },
+    {
+      "id": "entity:condition:attack_with_your_hero_time_times_to_upgrade",
+      "type": "condition",
+      "name": "Attack with your hero (time, times) to upgrade"
+    },
+    {
+      "id": "entity:condition:whenever_this_attacks_and_kills_a_minion",
+      "type": "condition",
+      "name": "Whenever this attacks and kills a minion"
+    },
+    {
+      "id": "entity:effect:it_may_attack_again",
+      "type": "effect",
+      "name": "it may attack again"
+    },
+    {
+      "id": "mechanic:miniaturize",
+      "type": "mechanic",
+      "name": "miniaturize"
+    },
+    {
+      "id": "entity:condition:the_first_time_you_cast_a_spell",
+      "type": "condition",
+      "name": "The first time you cast a spell"
+    },
+    {
+      "id": "entity:effect:gain_2_2",
+      "type": "effect",
+      "name": "gain +2/+2"
+    },
+    {
+      "id": "entity:effect:give_a_minion_three_random_bonus_effects",
+      "type": "effect",
+      "name": "Give a minion three random Bonus Effects"
+    },
+    {
+      "id": "entity:effect:your_cards_that_summon_minions_summon_twice_as_many",
+      "type": "effect",
+      "name": "Your cards that summon minions summon twice as many"
+    },
+    {
+      "id": "entity:effect:deal_2_damage_to_your_hero",
+      "type": "effect",
+      "name": "Deal 2 damage to your hero"
+    },
+    {
+      "id": "entity:effect:discover_a_3_cost_card",
+      "type": "effect",
+      "name": "Discover a 3-Cost card"
+    },
+    {
+      "id": "entity:condition:you_played_an_elemental_last_turn",
+      "type": "condition",
+      "name": "you played an Elemental last turn"
+    },
+    {
+      "id": "entity:effect:copy_it",
+      "type": "effect",
+      "name": "Copy it"
+    },
+    {
+      "id": "entity:effect:draw_a_mech",
+      "type": "effect",
+      "name": "Draw a Mech"
+    },
+    {
+      "id": "entity:effect:it_costs_2_less",
+      "type": "effect",
+      "name": "It costs (2) less"
+    },
+    {
+      "id": "entity:effect:deal_5_damage",
+      "type": "effect",
+      "name": "Deal 5 damage"
+    },
+    {
+      "id": "entity:effect:freeze_all_enemy_minions",
+      "type": "effect",
+      "name": "Freeze all enemy minions"
+    },
+    {
+      "id": "entity:effect:summon_a_5_5_frostwyrm",
+      "type": "effect",
+      "name": "Summon a 5/5 Frostwyrm"
+    },
+    {
+      "id": "entity:condition:if_a_friendly_undead_died_after_your_last_turn",
+      "type": "condition",
+      "name": "If a friendly Undead died after your last turn"
+    },
+    {
+      "id": "entity:effect:summon_two_3_2_zombies",
+      "type": "effect",
+      "name": "summon two 3/2 Zombies"
+    },
+    {
+      "id": "entity:effect:discover_a_legendary_minion_with_a_dark_gift",
+      "type": "effect",
+      "name": "Discover a Legendary minion with a Dark Gift"
+    },
+    {
+      "id": "entity:effect:deal_3_damage_to_all_enemy_minions",
+      "type": "effect",
+      "name": "Deal 3 damage to all enemy minions"
+    },
+    {
+      "id": "entity:effect:costs_1_less_for_each_other_card_in_your_hand",
+      "type": "effect",
+      "name": "Costs (1) less for each other card in your hand"
+    },
+    {
+      "id": "entity:condition:if_you_control_two_of_these_at_the_end_of_your_turn",
+      "type": "condition",
+      "name": "If you control two of these at the end of your turn"
+    },
+    {
+      "id": "entity:effect:merge_them_into_the_ancient_one",
+      "type": "effect",
+      "name": "merge them into 'The Ancient One'"
+    },
+    {
+      "id": "entity:effect:add_a_1_1_spark_with_rush_to_your_hand",
+      "type": "effect",
+      "name": "Add a 1/1 Spark with Rush to your hand"
+    },
+    {
+      "id": "entity:effect:give_adjacent_minions_1_1",
+      "type": "effect",
+      "name": "Give adjacent minions +1/+1"
+    },
+    {
+      "id": "entity:effect:deal_5_damage_to_a_minion",
+      "type": "effect",
+      "name": "Deal 5 damage to a minion"
+    },
+    {
+      "id": "entity:condition:if_it_s_a_friendly_demon",
+      "type": "condition",
+      "name": "If it's a friendly Demon"
+    },
+    {
+      "id": "entity:effect:give_it_5_5_instead",
+      "type": "effect",
+      "name": "give it +5/+5 instead"
+    },
+    {
+      "id": "entity:effect:deal_8_damage_to_a_minion",
+      "type": "effect",
+      "name": "Deal 8 damage to a minion"
+    },
+    {
+      "id": "entity:effect:any_excess_damage_continues_to_the_left_or_right",
+      "type": "effect",
+      "name": "Any excess damage continues to the left or right"
+    },
+    {
+      "id": "entity:condition:if_you_have_a_weapon_equipped",
+      "type": "condition",
+      "name": "If you have a weapon equipped"
+    },
+    {
+      "id": "entity:effect:give_it_1_1",
+      "type": "effect",
+      "name": "give it +1/+1"
+    },
+    {
+      "id": "entity:effect:otherwise_draw_a_weapon",
+      "type": "effect",
+      "name": "Otherwise, draw a weapon"
+    },
+    {
+      "id": "mechanic:quest",
+      "type": "mechanic",
+      "name": "quest"
+    },
+    {
+      "id": "entity:condition:play_7_taunt_minions",
+      "type": "condition",
+      "name": "Play 7 Taunt minions"
+    },
+    {
+      "id": "entity:effect:sulfuras",
+      "type": "effect",
+      "name": "Sulfuras"
+    },
+    {
+      "id": "entity:effect:costs_health_instead_of_mana_if_your_hero_was_healed_this_turn",
+      "type": "effect",
+      "name": "Costs Health instead of Mana if your hero was healed this turn"
+    },
+    {
+      "id": "entity:effect:deal_damage_equal_to_your_armor_to_an_enemy_minion",
+      "type": "effect",
+      "name": "Deal damage equal to your Armor to an enemy minion"
+    },
+    {
+      "id": "entity:effect:resurrect_2_different_friendly_minions",
+      "type": "effect",
+      "name": "Resurrect 2 different friendly minions"
+    },
+    {
+      "id": "entity:condition:cast_4_spells_to_upgrade",
+      "type": "condition",
+      "name": "Cast 4 spells to upgrade"
+    },
+    {
+      "id": "mechanic:magnetic",
+      "type": "mechanic",
+      "name": "magnetic"
+    },
+    {
+      "id": "entity:effect:also_damages_minions_next_to_whomever_this_attacks",
+      "type": "effect",
+      "name": "Also damages minions next to whomever this attacks"
+    }
+  ],
+  "edges": [
+    {
+      "source": "card:50056",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:overkill"
+    },
+    {
+      "source": "card:120524",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:taunt"
+    },
+    {
+      "source": "card:120524",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:deathrattle"
+    },
+    {
+      "source": "card:120524",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:deal_3_damage_to_all_minions"
+    },
+    {
+      "source": "card:120524",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:holding_a_dragon"
+    },
+    {
+      "source": "card:39215",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:give_this_minion_1_health"
+    },
+    {
+      "source": "card:39215",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:after_you_cast_a_spell"
+    },
+    {
+      "source": "card:120962",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:battlecry"
+    },
+    {
+      "source": "card:120962",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:set_the_cost_of_every_card_in_both_players_hands_back_to_their_original_costs"
+    },
+    {
+      "source": "card:119918",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:fabled"
+    },
+    {
+      "source": "card:119918",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:battlecry"
+    },
+    {
+      "source": "card:119918",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:put_one_of_each_aura_from_your_deck_into_the_battlefield"
+    },
+    {
+      "source": "card:64423",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:tradeable"
+    },
+    {
+      "source": "card:64423",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:deal_3_damage_to_all_minions"
+    },
+    {
+      "source": "card:38408",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:keyword:spell_damage_2"
+    },
+    {
+      "source": "card:69661",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:battlecry"
+    },
+    {
+      "source": "card:69661",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:swap_the_attack_and_health_of_a_minion"
+    },
+    {
+      "source": "card:103340",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:tradeable"
+    },
+    {
+      "source": "card:103340",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:battlecry"
+    },
+    {
+      "source": "card:103340",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:deal_damage_to_all_enemy_minions"
+    },
+    {
+      "source": "card:103340",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:other:trade_to_upgrade"
+    },
+    {
+      "source": "card:61254",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:destroy_a_random_enemy_minion"
+    },
+    {
+      "source": "card:61254",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:corrupt"
+    },
+    {
+      "source": "card:61254",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:destroy_2"
+    },
+    {
+      "source": "card:61254",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:corrupt_again"
+    },
+    {
+      "source": "card:61254",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:destroy_3"
+    },
+    {
+      "source": "card:41252",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:battlecry"
+    },
+    {
+      "source": "card:41252",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:add_a_random_minion_with_5_or_more_attack_to_your_hand"
+    },
+    {
+      "source": "card:47117",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:summon_a_random_friendly_beast_that_died_this_game"
+    },
+    {
+      "source": "card:53967",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:battlecry"
+    },
+    {
+      "source": "card:53967",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:overload"
+    },
+    {
+      "source": "card:53967",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:deal_1_damage_to_all_enemy_minions"
+    },
+    {
+      "source": "card:69672",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:battlecry"
+    },
+    {
+      "source": "card:69672",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:add_a_random_legendary_minion_to_your_hand"
+    },
+    {
+      "source": "card:118222",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:deathrattle"
+    },
+    {
+      "source": "card:118222",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:deal_2_damage_randomly_split_among_all_enemies"
+    },
+    {
+      "source": "card:59643",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:battlecry"
+    },
+    {
+      "source": "card:59643",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:replace_your_hand_with_a_copy_of_your_opponents_until_end_of_turn"
+    },
+    {
+      "source": "card:45366",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:deathrattle"
+    },
+    {
+      "source": "card:45366",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:add_a_random_lich_king_card_to_your_hand"
+    },
+    {
+      "source": "card:115307",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:battlecry"
+    },
+    {
+      "source": "card:115307",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:gain_the_deatheattles_of_your_minions_that_died_this_turn"
+    },
+    {
+      "source": "card:108619",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:freeze_a_minion"
+    },
+    {
+      "source": "card:108619",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:summon_a_frozen_copy_of_it"
+    },
+    {
+      "source": "card:101877",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:battlecry"
+    },
+    {
+      "source": "card:101877",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:if_you_played_an_elemental_last_turn"
+    },
+    {
+      "source": "card:101877",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:discover_any_elemental_from_the_past"
+    },
+    {
+      "source": "card:95404",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:taunt"
+    },
+    {
+      "source": "card:95404",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:lifesteal"
+    },
+    {
+      "source": "card:95404",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:other:this_cards_cost_is_equal_to_the_amount_of_cards_in_your_deck"
+    },
+    {
+      "source": "card:374",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:cant_attack"
+    },
+    {
+      "source": "card:374",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:at_the_end_of_your_turn_deal_8_damage_to_a_random_enemy"
+    },
+    {
+      "source": "card:42765",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:other:costs_1_less_for_each_mana_crystal_you_ve_overloaded_this_game"
+    },
+    {
+      "source": "card:123692",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:keyword:shatter"
+    },
+    {
+      "source": "card:123692",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:deal_4_damage"
+    },
+    {
+      "source": "card:123692",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:deal_2_damage_to_all_enemies"
+    },
+    {
+      "source": "card:72487",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:give_a_minion_1_2"
+    },
+    {
+      "source": "card:72487",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:if_you_played_a_naga_while_holding_this"
+    },
+    {
+      "source": "card:72487",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:add_a_serpent_wig_to_your_hand"
+    },
+    {
+      "source": "card:692",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:other:choose_one"
+    },
+    {
+      "source": "card:692",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:transform_into_a_7_6_with_rush"
+    },
+    {
+      "source": "card:692",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:transform_into_a_4_9_with_taunt"
+    },
+    {
+      "source": "card:59192",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:taunt"
+    },
+    {
+      "source": "card:59192",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:battlecry"
+    },
+    {
+      "source": "card:59192",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:destroy_a_soul_fragment_in_your_deck_to_gain_3_3"
+    },
+    {
+      "source": "card:63218",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:whenever_you_cast_a_shadow_spell_that_costs_1_or_more"
+    },
+    {
+      "source": "card:63218",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:add_a_copy_to_your_hand_that_costs_0"
+    },
+    {
+      "source": "card:117871",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:quest:deal_exactly_2_damage_to_an_enemy_on_your_turn_12_times"
+    },
+    {
+      "source": "card:117871",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:reward:gorishi_colossus"
+    },
+    {
+      "source": "card:53969",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:at_the_end_of_your_turn_restore_5_health_to_a_damaged_friendly_character"
+    },
+    {
+      "source": "card:38957",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:battlecry"
+    },
+    {
+      "source": "card:38957",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:gain_1_attack_for_each_other_card_in_your_hand"
+    },
+    {
+      "source": "card:57184",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:battlecry"
+    },
+    {
+      "source": "card:57184",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:deal_1_damage_to_a_minion_and_give_it_spell_damage_1"
+    },
+    {
+      "source": "card:2683",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:inspire"
+    },
+    {
+      "source": "card:2683",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:add_a_random_spell_to_your_hand"
+    },
+    {
+      "source": "card:116684",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:destroy_a_friendly_minion_to_gain_8_armor"
+    },
+    {
+      "source": "card:102059",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:deal_6_damage_to_all_minions"
+    },
+    {
+      "source": "card:102059",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:summon_a_6_6_tumbleweed"
+    },
+    {
+      "source": "card:102175",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:deal_1_damage_to_all_minions_three_times"
+    },
+    {
+      "source": "card:102175",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:costs_2_less_if_you_cast_a_spell_last_turn"
+    },
+    {
+      "source": "card:114218",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:battlecry"
+    },
+    {
+      "source": "card:114218",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:if_you_re_holding_a_dragon"
+    },
+    {
+      "source": "card:114218",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:discover_a_dragon_with_a_dark_gift"
+    },
+    {
+      "source": "card:52417",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:after_this_minion_survives_damage"
+    },
+    {
+      "source": "card:52417",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:summon_a_copy_of_it"
+    },
+    {
+      "source": "card:73471",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:draw_3_cards"
+    },
+    {
+      "source": "card:73471",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:summon_a_plant_with_taunt_and_stats_equal_to_your_hand_size"
+    },
+    {
+      "source": "card:57191",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:after_this_damages_a_minion"
+    },
+    {
+      "source": "card:57191",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:turn_it_into_an_infectious_sporeling"
+    },
+    {
+      "source": "card:41242",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:taunt"
+    },
+    {
+      "source": "card:103194",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:taunt"
+    },
+    {
+      "source": "card:103194",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:battlecry"
+    },
+    {
+      "source": "card:103194",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:give_your_c_thun_4_4"
+    },
+    {
+      "source": "card:84736",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:battlecry"
+    },
+    {
+      "source": "card:84736",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:transform_all_spells_in_your_hand_into_ones_that_cost_3_more"
+    },
+    {
+      "source": "card:84736",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:other:they_keep_their_original_cost"
+    },
+    {
+      "source": "card:110761",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:battlecry"
+    },
+    {
+      "source": "card:110761",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:give_a_friendly_minion_lifesteal"
+    },
+    {
+      "source": "card:106715",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:battlecry"
+    },
+    {
+      "source": "card:106715",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:get_a_1_cost_suitcase"
+    },
+    {
+      "source": "card:106715",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:pack_the_top_2_cards_of_your_deck_into_it"
+    },
+    {
+      "source": "card:62581",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:deathrattle"
+    },
+    {
+      "source": "card:62581",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:summon_a_5_8_demonspawn_with_taunt"
+    },
+    {
+      "source": "card:46296",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:destroy_1_random_enemy_minion"
+    },
+    {
+      "source": "card:46296",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:other:play_3_deathrattle_cards_to_upgrade"
+    },
+    {
+      "source": "card:102628",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:summon_four_1_1_murlocs"
+    },
+    {
+      "source": "card:102674",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:battlecry"
+    },
+    {
+      "source": "card:102674",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:discover_a_mage_priest_or_warlock_card"
+    },
+    {
+      "source": "card:376",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:change_a_minions_attack_to_be_equal_to_its_health"
+    },
+    {
+      "source": "card:45263",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:add_a_1_1_copy_of_it_to_your_hand"
+    },
+    {
+      "source": "card:45263",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:costs_1"
+    },
+    {
+      "source": "card:43419",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:summon_a_3_6_water_elemental"
+    },
+    {
+      "source": "card:43419",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:your_elementals_have_lifesteal_this_game"
+    },
+    {
+      "source": "card:40596",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:summon_a_jade_golem"
+    },
+    {
+      "source": "card:114510",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:stealth"
+    },
+    {
+      "source": "card:114510",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:return_a_friendly_minion_to_your_hand"
+    },
+    {
+      "source": "card:114510",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:summon_a_4_4_spider_with_stealth"
+    },
+    {
+      "source": "card:61187",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:secret"
+    },
+    {
+      "source": "card:61187",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:when_your_opponent_casts_a_spell"
+    },
+    {
+      "source": "card:61187",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:they_instead_cast_a_random_one_of_the_same_cost"
+    },
+    {
+      "source": "card:120488",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:rush"
+    },
+    {
+      "source": "card:120488",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:cast_a_shred_of_time_from_your_deck_to_summon_a_copy_of_this"
+    },
+    {
+      "source": "card:59540",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:deal_4_damage_to_a_minion"
+    },
+    {
+      "source": "card:59540",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:any_excess_damages_both_neighbors"
+    },
+    {
+      "source": "card:55281",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:sidequest"
+    },
+    {
+      "source": "card:55281",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:spend_8_mana_on_spells"
+    },
+    {
+      "source": "card:55281",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:summon_a_6_6_dragon"
+    },
+    {
+      "source": "card:42439",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:add_a_random_dragon_to_your_hand"
+    },
+    {
+      "source": "card:72416",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:add_three_1_1_piranha_swarmers_to_your_hand"
+    },
+    {
+      "source": "card:61606",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:taunt"
+    },
+    {
+      "source": "card:61606",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:give_a_random_friendly_minion_deathrattle_summon_greybough"
+    },
+    {
+      "source": "card:100936",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:discover"
+    },
+    {
+      "source": "card:100936",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:quickdraw"
+    },
+    {
+      "source": "card:100936",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:discover_a_quickdraw_card_from_another_class"
+    },
+    {
+      "source": "card:54256",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:at_the_end_of_your_turn"
+    },
+    {
+      "source": "card:54256",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:deal_1_damage_to_another_random_friendly_minion"
+    },
+    {
+      "source": "card:46390",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:recruit_a_beast"
+    },
+    {
+      "source": "card:102158",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:deal_1_damage"
+    },
+    {
+      "source": "card:102158",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:summon_a_random_minion_of_that_cost"
+    },
+    {
+      "source": "card:523",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:summon_a_2_1_mechanical_dragonling"
+    },
+    {
+      "source": "card:67894",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:costs_1_less_for_each_friendly_minion_that_died_this_game"
+    },
+    {
+      "source": "card:59720",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:whenever_a_friendly_minion_dies_while_this_is_in_your_hand"
+    },
+    {
+      "source": "card:59720",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:gain_1_1"
+    },
+    {
+      "source": "card:825",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:spell_damage_1"
+    },
+    {
+      "source": "card:825",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:draw_a_card"
+    },
+    {
+      "source": "card:90543",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:gain_a_random_bonus_effect_for_each_minion_of_a_different_type_you_ve_played_this_game"
+    },
+    {
+      "source": "card:56292",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:overload"
+    },
+    {
+      "source": "card:56292",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:summon_three_5_6_elementals_with_taunt"
+    },
+    {
+      "source": "card:46032",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:at_the_end_of_your_turn"
+    },
+    {
+      "source": "card:46032",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:cast_a_spell_from_your_deck_targets_chosen_randomly"
+    },
+    {
+      "source": "card:116376",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:deal_6_damage_to_three_random_enemies"
+    },
+    {
+      "source": "card:818",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:draw_a_card"
+    },
+    {
+      "source": "card:818",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:that_card_costs_3_less"
+    },
+    {
+      "source": "card:60926",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:taunt"
+    },
+    {
+      "source": "card:60926",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:summon_2_copies_of_this"
+    },
+    {
+      "source": "card:60926",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:fill_your_board_with_copies"
+    },
+    {
+      "source": "card:104518",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:draw_1_card"
+    },
+    {
+      "source": "card:104518",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:attack_with_your_hero_time_times_to_upgrade"
+    },
+    {
+      "source": "card:38909",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:whenever_this_attacks_and_kills_a_minion"
+    },
+    {
+      "source": "card:38909",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:it_may_attack_again"
+    },
+    {
+      "source": "card:103327",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:miniaturize"
+    },
+    {
+      "source": "card:103327",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:the_first_time_you_cast_a_spell"
+    },
+    {
+      "source": "card:103327",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:gain_2_2"
+    },
+    {
+      "source": "card:117679",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:give_a_minion_three_random_bonus_effects"
+    },
+    {
+      "source": "card:126975",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:your_cards_that_summon_minions_summon_twice_as_many"
+    },
+    {
+      "source": "card:42663",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:lifesteal"
+    },
+    {
+      "source": "card:43122",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:draw_a_card"
+    },
+    {
+      "source": "card:43122",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:deal_2_damage_to_your_hero"
+    },
+    {
+      "source": "card:2901",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:discover"
+    },
+    {
+      "source": "card:2901",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:discover_a_3_cost_card"
+    },
+    {
+      "source": "card:48051",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:draw_a_card"
+    },
+    {
+      "source": "card:48051",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:you_played_an_elemental_last_turn"
+    },
+    {
+      "source": "card:48051",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:copy_it"
+    },
+    {
+      "source": "card:102685",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:draw_a_mech"
+    },
+    {
+      "source": "card:102685",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:it_costs_2_less"
+    },
+    {
+      "source": "card:78355",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:deal_5_damage"
+    },
+    {
+      "source": "card:78355",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:freeze_all_enemy_minions"
+    },
+    {
+      "source": "card:78355",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:summon_a_5_5_frostwyrm"
+    },
+    {
+      "source": "card:86147",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:if_a_friendly_undead_died_after_your_last_turn"
+    },
+    {
+      "source": "card:86147",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:summon_two_3_2_zombies"
+    },
+    {
+      "source": "card:113822",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:discover"
+    },
+    {
+      "source": "card:113822",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:discover_a_legendary_minion_with_a_dark_gift"
+    },
+    {
+      "source": "card:105097",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:deal_3_damage_to_all_enemy_minions"
+    },
+    {
+      "source": "card:105097",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:costs_1_less_for_each_other_card_in_your_hand"
+    },
+    {
+      "source": "card:38567",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:if_you_control_two_of_these_at_the_end_of_your_turn"
+    },
+    {
+      "source": "card:38567",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:merge_them_into_the_ancient_one"
+    },
+    {
+      "source": "card:49170",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:add_a_1_1_spark_with_rush_to_your_hand"
+    },
+    {
+      "source": "card:64702",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:taunt"
+    },
+    {
+      "source": "card:64702",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:give_adjacent_minions_1_1"
+    },
+    {
+      "source": "card:1985",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:deal_5_damage_to_a_minion"
+    },
+    {
+      "source": "card:1985",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:if_it_s_a_friendly_demon"
+    },
+    {
+      "source": "card:1985",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:give_it_5_5_instead"
+    },
+    {
+      "source": "card:55276",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:deal_8_damage_to_a_minion"
+    },
+    {
+      "source": "card:55276",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:any_excess_damage_continues_to_the_left_or_right"
+    },
+    {
+      "source": "card:79772",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:if_you_have_a_weapon_equipped"
+    },
+    {
+      "source": "card:79772",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:give_it_1_1"
+    },
+    {
+      "source": "card:79772",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:otherwise_draw_a_weapon"
+    },
+    {
+      "source": "card:41427",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:quest"
+    },
+    {
+      "source": "card:41427",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:play_7_taunt_minions"
+    },
+    {
+      "source": "card:41427",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:sulfuras"
+    },
+    {
+      "source": "card:90484",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:taunt"
+    },
+    {
+      "source": "card:90484",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:costs_health_instead_of_mana_if_your_hero_was_healed_this_turn"
+    },
+    {
+      "source": "card:71250",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:taunt"
+    },
+    {
+      "source": "card:71250",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:deal_damage_equal_to_your_armor_to_an_enemy_minion"
+    },
+    {
+      "source": "card:46307",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:resurrect_2_different_friendly_minions"
+    },
+    {
+      "source": "card:46307",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:condition:cast_4_spells_to_upgrade"
+    },
+    {
+      "source": "card:97739",
+      "predicate": "HAS_MECHANIC",
+      "target": "mechanic:magnetic"
+    },
+    {
+      "source": "card:97739",
+      "predicate": "HAS_ENTITY",
+      "target": "entity:effect:also_damages_minions_next_to_whomever_this_attacks"
+    }
+  ]
+}
