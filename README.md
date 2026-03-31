@@ -1,5 +1,7 @@
 # 🧠 Graph-RAG Hearthstone Card Generation
 
+Author: Zhiheng Wang, Zicong Zhang, Yiseung Kim
+
 > A data-driven pipeline that integrates Knowledge Graphs, Large Language Models, and Diffusion Models to generate **logically consistent** and **style-aligned** game cards.
 
 ---
