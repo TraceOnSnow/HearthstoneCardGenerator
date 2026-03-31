@@ -1,8 +1,14 @@
 import argparse
+import json
 from pathlib import Path
 from typing import Tuple
 
-from PIL import Image, ImageOps
+from PIL import Image, ImageFilter, ImageOps
+
+CARD_TYPE_TO_MASK_NAME = {
+    4: "minion",  # Minion
+    5: "spell",   # Spell
+}
 
 
 def alpha_bbox(img: Image.Image, alpha_threshold: int = 1) -> Tuple[int, int, int, int]:
@@ -21,11 +27,14 @@ def trim_transparent_border(img: Image.Image, alpha_threshold: int = 1) -> Image
     return img.crop(alpha_bbox(img, alpha_threshold=alpha_threshold))
 
 
-def _build_binary_mask(mask_trim: Image.Image, alpha_threshold: int, invert_mask: bool) -> Image.Image:
+def _build_binary_mask(mask_trim: Image.Image, alpha_threshold: int, invert_mask: bool, erode_pixels: int = 0) -> Image.Image:
     mask_alpha = mask_trim.getchannel("A")
     binary_mask = mask_alpha.point(lambda p: 255 if p >= alpha_threshold else 0)
     if invert_mask:
         binary_mask = ImageOps.invert(binary_mask)
+    if erode_pixels > 0:
+        for _ in range(erode_pixels):
+            binary_mask = binary_mask.filter(ImageFilter.MinFilter(3))
     return binary_mask
 
 
@@ -66,8 +75,9 @@ def extract_art_with_mask(
     alpha_threshold: int = 1,
     add_padding: int = 24,
     keep_transparency: bool = True,
-    invert_mask: bool = False,
-    auto_fix_polarity: bool = True,
+    invert_mask: bool = True,
+    auto_fix_polarity: bool = False,
+    erode_pixels: int = 8,
 ) -> Image.Image:
     """Extract card art by aligning card body and mask body, then apply mask window."""
     card_resized, mask_trim = prepare_aligned_images(
@@ -78,7 +88,7 @@ def extract_art_with_mask(
 
     target_w, target_h = mask_trim.size
 
-    binary_mask = _build_binary_mask(mask_trim, alpha_threshold, invert_mask)
+    binary_mask = _build_binary_mask(mask_trim, alpha_threshold, invert_mask, erode_pixels)
     if auto_fix_polarity:
         binary_mask = _auto_fix_mask_polarity(binary_mask)
 
@@ -112,8 +122,8 @@ def process_one(
     alpha_threshold: int = 1,
     add_padding: int = 24,
     keep_transparency: bool = True,
-    invert_mask: bool = False,
-    auto_fix_polarity: bool = True,
+    invert_mask: bool = True,
+    auto_fix_polarity: bool = False,
 ) -> None:
     card_img = Image.open(card_path).convert("RGBA")
     mask_img = Image.open(mask_path).convert("RGBA")
@@ -130,20 +140,7 @@ def process_one(
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     art.save(output_path)
-
-    aligned_card, aligned_mask = prepare_aligned_images(
-        card_img=card_img,
-        mask_img=mask_img,
-        alpha_threshold=alpha_threshold,
-    )
-    aligned_card_path = output_path.with_name(f"{output_path.stem}_aligned_card.png")
-    aligned_mask_path = output_path.with_name(f"{output_path.stem}_aligned_mask.png")
-    aligned_card.save(aligned_card_path)
-    aligned_mask.save(aligned_mask_path)
-
     print(f"Saved: {output_path}")
-    print(f"Saved: {aligned_card_path}")
-    print(f"Saved: {aligned_mask_path}")
 
 
 def process_folder(
@@ -154,8 +151,8 @@ def process_folder(
     alpha_threshold: int = 1,
     add_padding: int = 24,
     keep_transparency: bool = True,
-    invert_mask: bool = False,
-    auto_fix_polarity: bool = True,
+    invert_mask: bool = True,
+    auto_fix_polarity: bool = False,
 ) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -190,43 +187,108 @@ def process_folder(
             )
             save_path = output_dir / f"{card_file.stem}_art.png"
             art.save(save_path)
-
-            aligned_card, aligned_mask = prepare_aligned_images(
-                card_img=card_img,
-                mask_img=mask_img,
-                alpha_threshold=alpha_threshold,
-            )
-            aligned_card_path = output_dir / f"{card_file.stem}_aligned_card.png"
-            aligned_mask_path = output_dir / f"{card_file.stem}_aligned_mask.png"
-            aligned_card.save(aligned_card_path)
-            aligned_mask.save(aligned_mask_path)
-
             print(f"Saved: {save_path}")
-            print(f"Saved: {aligned_card_path}")
-            print(f"Saved: {aligned_mask_path}")
         except Exception as e:
             print(f"Failed: {card_file.name} -> {e}")
+
+
+def process_bulk(
+    jsonl_path: Path,
+    card_images_dir: Path,
+    mask_dir: Path,
+    output_dir: Path,
+    alpha_threshold: int = 1,
+    add_padding: int = 24,
+    keep_transparency: bool = True,
+    invert_mask: bool = True,
+    auto_fix_polarity: bool = False,
+) -> None:
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    masks: dict[int, Image.Image] = {}
+    for type_id, mask_name in CARD_TYPE_TO_MASK_NAME.items():
+        mask_path = mask_dir / f"{mask_name}_mask.png"
+        if mask_path.exists():
+            masks[type_id] = Image.open(mask_path).convert("RGBA")
+        else:
+            print(f"Warning: mask not found for {mask_name} ({mask_path}), skipping type {type_id}")
+
+    cards: list[dict] = []
+    with jsonl_path.open("r", encoding="utf-8") as f:
+        for line in f:
+            card = json.loads(line)
+            card_id = card.get("id")
+            card_type = card.get("cardTypeId")
+            if isinstance(card_id, int) and card_type in masks:
+                cards.append(card)
+
+    total = len(cards)
+    done = 0
+    skipped = 0
+    failed = 0
+
+    for card in cards:
+        card_id = card["id"]
+        card_type = card["cardTypeId"]
+        card_path = card_images_dir / f"{card_id}.png"
+        out_path = output_dir / f"{card_id}.png"
+
+        if out_path.exists():
+            skipped += 1
+            continue
+
+        if not card_path.exists():
+            skipped += 1
+            continue
+
+        try:
+            card_img = Image.open(card_path).convert("RGBA")
+            art = extract_art_with_mask(
+                card_img=card_img,
+                mask_img=masks[card_type],
+                alpha_threshold=alpha_threshold,
+                add_padding=add_padding,
+                keep_transparency=keep_transparency,
+                invert_mask=invert_mask,
+                auto_fix_polarity=auto_fix_polarity,
+            )
+            art.save(out_path)
+            done += 1
+            if done % 100 == 0:
+                print(f"[{done + skipped + failed}/{total}] Processed {done} cards...")
+        except Exception as e:
+            failed += 1
+            print(f"Failed: {card_id} -> {e}")
+
+    print(f"Done. Processed: {done}, Skipped: {skipped}, Failed: {failed}, Total: {total}")
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Crop Hearthstone art region by transparent mask.")
 
-    parser.add_argument("--mode", choices=["one", "folder"], default="folder")
+    parser.add_argument("--mode", choices=["one", "folder", "bulk"], default="folder")
 
     parser.add_argument("--card", type=Path, help="Single card PNG path (mode=one).")
     parser.add_argument("--mask", type=Path, help="Single mask PNG path (mode=one).")
     parser.add_argument("--out", type=Path, help="Output path (mode=one).")
 
-    parser.add_argument("--input-dir", type=Path, default=Path("cards"))
-    parser.add_argument("--output-dir", type=Path, default=Path("cropped_cards"))
-    parser.add_argument("--minion-mask", type=Path, default=Path("minion_mask.png"))
-    parser.add_argument("--spell-mask", type=Path, default=Path("spell_mask.png"))
+    parser.add_argument("--input-dir", type=Path, default=Path("data/sample_img/cards"))
+    parser.add_argument("--output-dir", type=Path, default=Path("data/cropped_cards"))
+    parser.add_argument("--minion-mask", type=Path, default=Path("data/sample_img/masks/minion_mask.png"))
+    parser.add_argument("--spell-mask", type=Path, default=Path("data/sample_img/masks/spell_mask.png"))
+
+    parser.add_argument("--jsonl", type=Path, default=Path("data/cards_collectible.jsonl"),
+                        help="JSONL file with card data (mode=bulk).")
+    parser.add_argument("--card-images-dir", type=Path, default=Path("data/card_images"),
+                        help="Directory with downloaded card images (mode=bulk).")
+    parser.add_argument("--mask-dir", type=Path, default=Path("data/sample_img/masks"),
+                        help="Directory with mask templates (mode=bulk).")
 
     parser.add_argument("--alpha-threshold", type=int, default=1)
     parser.add_argument("--padding", type=int, default=24)
     parser.add_argument("--solid-bg", action="store_true", help="Output RGB with black background.")
-    parser.add_argument("--invert-mask", action="store_true", help="Force invert mask polarity.")
-    parser.add_argument("--no-auto-fix", action="store_true", help="Disable automatic mask polarity fix.")
+    parser.add_argument("--no-invert-mask", action="store_true", help="Disable default mask inversion.")
+    parser.add_argument("--auto-fix", action="store_true", help="Enable automatic mask polarity fix.")
 
     return parser.parse_args()
 
@@ -234,7 +296,8 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     keep_transparency = not args.solid_bg
-    auto_fix_polarity = not args.no_auto_fix
+    invert_mask = not args.no_invert_mask
+    auto_fix_polarity = args.auto_fix
 
     if args.mode == "one":
         if not args.card or not args.mask or not args.out:
@@ -246,22 +309,33 @@ def main() -> None:
             alpha_threshold=args.alpha_threshold,
             add_padding=args.padding,
             keep_transparency=keep_transparency,
-            invert_mask=args.invert_mask,
+            invert_mask=invert_mask,
             auto_fix_polarity=auto_fix_polarity,
         )
-        return
-
-    process_folder(
-        input_dir=args.input_dir,
-        output_dir=args.output_dir,
-        minion_mask_path=args.minion_mask,
-        spell_mask_path=args.spell_mask,
-        alpha_threshold=args.alpha_threshold,
-        add_padding=args.padding,
-        keep_transparency=keep_transparency,
-        invert_mask=args.invert_mask,
-        auto_fix_polarity=auto_fix_polarity,
-    )
+    elif args.mode == "bulk":
+        process_bulk(
+            jsonl_path=args.jsonl,
+            card_images_dir=args.card_images_dir,
+            mask_dir=args.mask_dir,
+            output_dir=args.output_dir,
+            alpha_threshold=args.alpha_threshold,
+            add_padding=args.padding,
+            keep_transparency=keep_transparency,
+            invert_mask=invert_mask,
+            auto_fix_polarity=auto_fix_polarity,
+        )
+    else:
+        process_folder(
+            input_dir=args.input_dir,
+            output_dir=args.output_dir,
+            minion_mask_path=args.minion_mask,
+            spell_mask_path=args.spell_mask,
+            alpha_threshold=args.alpha_threshold,
+            add_padding=args.padding,
+            keep_transparency=keep_transparency,
+            invert_mask=invert_mask,
+            auto_fix_polarity=auto_fix_polarity,
+        )
 
 
 if __name__ == "__main__":

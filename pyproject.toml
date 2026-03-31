@@ -8,4 +8,5 @@ dependencies = [
     "networkx>=3.6.1",
     "python-dotenv>=1.2.2",
     "pyvis>=0.3.2",
+    "pillow>=11.2.1",
 ]
