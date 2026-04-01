@@ -47,6 +47,8 @@ def main() -> None:
 
             if not isinstance(card_id, int) or not url:
                 continue
+            
+            # for now, support minion, spell only.
             if not args.all_types and card_type not in SUPPORTED_TYPES:
                 skipped_type += 1
                 continue
