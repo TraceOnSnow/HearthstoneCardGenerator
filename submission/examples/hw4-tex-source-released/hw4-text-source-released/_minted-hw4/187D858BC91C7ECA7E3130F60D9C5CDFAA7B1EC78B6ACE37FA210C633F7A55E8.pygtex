@@ -1,0 +1,41 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// State}
+\PYG{n}{watermark}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{n}{windows}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{HashMap}\PYG{o}{\PYGZlt{}}\PYG{n}{Int}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Double}\PYG{+w}{ }\PYG{n}{sum}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Int}\PYG{+w}{ }\PYG{n}{count}\PYG{p}{)}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+\PYG{n}{nextWindowToEmit}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// index of the earliest un\PYGZhy{}emitted window}
+
+\PYG{c+c1}{// Operator interface}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{start}\PYG{p}{(}\PYG{n}{Sink}\PYG{o}{\PYGZlt{}}\PYG{p}{(}\PYG{n}{Real}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Nat}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Nat}\PYG{p}{)}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{sink}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{// do nothing}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{next}\PYG{p}{((}\PYG{n}{Nat}\PYG{+w}{ }\PYG{n}{sensorId}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Real}\PYG{+w}{ }\PYG{n}{val}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Nat}\PYG{+w}{ }\PYG{n}{ts}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{Sink}\PYG{o}{\PYGZlt{}}\PYG{p}{(}\PYG{n}{Real}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Nat}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Nat}\PYG{p}{)}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{sink}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{// 1. Update watermark}
+\PYG{+w}{    }\PYG{n}{watermark}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{max}\PYG{p}{(}\PYG{n}{watermark}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ts}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{c+c1}{// 2. Assign item to its window and update aggregate}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{k}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ts}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{n}{W}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// integer division: window index}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{windows}\PYG{p}{.}\PYG{n+na}{containsKey}\PYG{p}{(}\PYG{n}{k}\PYG{p}{))}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{windows}\PYG{o}{[}\PYG{n}{k}\PYG{o}{]}\PYG{p}{.}\PYG{n+na}{sum}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{n}{val}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{windows}\PYG{o}{[}\PYG{n}{k}\PYG{o}{]}\PYG{p}{.}\PYG{n+na}{count}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{windows}\PYG{o}{[}\PYG{n}{k}\PYG{o}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{val}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+
+\PYG{+w}{	}\PYG{c+c1}{// need to be fixed, store old watermark, the complexity of per item may not be O(1), 如果T, W是 constants 是O(1), variable 是O(T/W)}
+
+\PYG{+w}{    }\PYG{c+c1}{// 3. Emit all windows that are now complete}
+\PYG{+w}{    }\PYG{c+c1}{//    Window k is complete when watermark \PYGZgt{}= (k+1)*W + T}
+\PYG{+w}{    }\PYG{k}{while}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{nextWindowToEmit}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{W}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{W}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{T}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{watermark}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{k}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nextWindowToEmit}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{windows}\PYG{p}{.}\PYG{n+na}{containsKey}\PYG{p}{(}\PYG{n}{k}\PYG{p}{))}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{Real}\PYG{+w}{ }\PYG{n}{avg}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{windows}\PYG{o}{[}\PYG{n}{k}\PYG{o}{]}\PYG{p}{.}\PYG{n+na}{sum}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{n}{windows}\PYG{o}{[}\PYG{n}{k}\PYG{o}{]}\PYG{p}{.}\PYG{n+na}{count}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{sink}\PYG{p}{.}\PYG{n+na}{next}\PYG{p}{((}\PYG{n}{avg}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{k}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{W}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{k}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{W}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{));}
+\PYG{+w}{            }\PYG{n}{windows}\PYG{p}{.}\PYG{n+na}{remove}\PYG{p}{(}\PYG{n}{k}\PYG{p}{);}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{c+c1}{// If no items fell in this window, skip it (no output)}
+\PYG{+w}{        }\PYG{n}{nextWindowToEmit}\PYG{o}{++}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
