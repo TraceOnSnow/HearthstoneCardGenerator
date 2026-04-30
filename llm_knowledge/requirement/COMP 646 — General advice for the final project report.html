@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>COMP 646 — General advice for the final project report</title>
+<style>
+body{font:15.5px/1.6 -apple-system,BlinkMacSystemFont,system-ui,sans-serif;max-width:860px;margin:2rem auto;padding:0 1.2rem;color:#1b1f23}
+h1{margin-bottom:.2rem;color:#0b4a6b}
+h2{margin-top:2.2rem;padding-bottom:.3rem;border-bottom:2px solid #0b4a6b;color:#0b4a6b}
+h3{margin-top:1.4rem;color:#333}
+blockquote{margin:.6rem 0;padding:.6rem 1rem;border-left:3px solid #0b4a6b;background:#f0f6fa;color:#333;font-style:italic;border-radius:0 6px 6px 0}
+ul li, ol li{margin:.3rem 0}
+.preamble{background:#fff8e1;padding:.9rem 1.1rem;border-radius:6px;border:1px solid #d9b64a;margin:1rem 0}
+.deliverables{background:#f5f2fb;padding:.9rem 1.1rem;border-radius:6px;border:1px solid #8470b7;margin:1rem 0}
+.deliverables ul{margin:.3rem 0 .2rem}
+.due{font-weight:600;color:#7a1f1f}
+.rubric{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin:.8rem 0 1.2rem}
+.rubric .cell{background:#f6f8fa;border:1px solid #d0d7de;border-radius:6px;padding:.7rem .9rem}
+.rubric .cell h4{margin:0 0 .25rem;color:#0b4a6b;display:flex;justify-content:space-between;align-items:center}
+.rubric .cell h4 span{background:#0b4a6b;color:#fff;font-size:12px;padding:2px 8px;border-radius:999px}
+.rubric .cell p{margin:.25rem 0 0;font-size:14px;color:#444}
+.deduct{margin:1rem 0}
+.deduct table{border-collapse:collapse;width:100%;font-size:14.5px}
+.deduct th, .deduct td{border:1px solid #d0d7de;padding:.45rem .6rem;text-align:left;vertical-align:top}
+.deduct th{background:#f6f8fa}
+.sev-severe{background:#fdecea;color:#7a1f1f;font-weight:600;white-space:nowrap}
+.sev-modest{background:#fff5d9;color:#6b5412;font-weight:600;white-space:nowrap}
+.sev-high{background:#f9d7d3;color:#6b1010;font-weight:600;white-space:nowrap}
+.checklist{background:#eef6ef;padding:.9rem 1.2rem;border-radius:6px;border:1px solid #86b088}
+.checklist li{list-style:none;margin:.35rem 0;padding-left:1.6rem;position:relative}
+.checklist li:before{content:"\2610";position:absolute;left:0;font-size:1.1rem;color:#2e5d30}
+code{background:#f0f2f4;padding:1px 5px;border-radius:4px;font-size:13.5px}
+.tag{display:inline-block;font-size:12px;padding:1px 7px;border-radius:999px;background:#e1ecf4;color:#0b4a6b;margin-right:.3rem;vertical-align:middle}
+.tag.orig{background:#f4e1ec;color:#6b1e4a}
+.tag.tech{background:#e4f1dc;color:#2e5d30}
+.tag.res{background:#fde9cf;color:#7a4a0d}
+.tag.pres{background:#e1ecf4;color:#0b4a6b}
+@media (max-width:600px){.rubric{grid-template-columns:1fr}}
+</style></head><body>
+
+<h1>General advice for your final project report</h1>
+<p class="preamble">Synthesized from the grading rubric I published in class and from the feedback I actually left on your progress reports. Treat this as the definitive guide to what I reward and what silently costs points. Everything below maps back to one of the four rubric buckets — <span class="tag orig">Originality</span> <span class="tag tech">Technical soundness</span> <span class="tag res">Results</span> <span class="tag pres">Presentation</span>.</p>
+
+<h2>Deliverables &amp; deadline</h2>
+<div class="deliverables">
+<ul>
+<li><b>PDF project report (4 pages).</b> <i>Essential.</i> Use the provided template.</li>
+<li><b>Link to source code</b> — GitHub, Google Drive, or Dropbox. <i>Required, and the link must actually open for me.</i></li>
+<li><b>5-minute video walkthrough</b> (e.g. 5 slides: Motivation → Problem Setup → Model → Experiments → Results). <i>Not required but encouraged</i> — useful if I have trouble running your code or parsing the report.</li>
+</ul>
+<p class="due" style="margin:.4rem 0 0">Due: 11:59PM, May 1st. Firm deadline — latest possible.</p>
+</div>
+
+<h2>How you are graded (60 pts)</h2>
+<div class="rubric">
+  <div class="cell"><h4>Originality <span>15 pts</span></h4>
+    <p>Novelty in the idea, the application, or the experiments. Am I learning something non-obvious from your report? The clearer the "yes," the closer to full points.</p></div>
+  <div class="cell"><h4>Technical soundness <span>15 pts</span></h4>
+    <p>Correct and sufficiently detailed description of your solution and its components. A reader should not have to read your code to understand what you did. Re-using CLIP/Qwen/etc. without showing you understand it costs points.</p></div>
+  <div class="cell"><h4>Results <span>15 pts</span></h4>
+    <p>Results presented clearly — input/output examples <b>and</b> quantitative evidence (plots, tables, metrics). Most projects should have both.</p></div>
+  <div class="cell"><h4>Presentation <span>15 pts</span></h4>
+    <p>Scientific-manuscript quality. Figures from notebooks, unlabeled axes, low-resolution images, or illegible fonts lead to automatic deductions.</p></div>
+</div>
+
+<h2>Common point deductions — at a glance</h2>
+<div class="deduct">
+<table>
+<tr><th>Issue</th><th>Severity</th></tr>
+<tr><td>Including figures borrowed from elsewhere rather than your own</td><td class="sev-severe">Severe</td></tr>
+<tr><td>Screenshots of command line / Jupyter / Colab notebooks used as figures</td><td class="sev-severe">Severe</td></tr>
+<tr><td>Not indicating clearly what is your work vs. not your work (including code)</td><td class="sev-severe">Severe</td></tr>
+<tr><td>No results of your method and no discussion of them</td><td class="sev-high">Highest</td></tr>
+<tr><td>Figures not exported properly → blurry fonts when zooming</td><td class="sev-modest">Modest</td></tr>
+<tr><td>Text in figures not legible without zooming</td><td class="sev-modest">Modest</td></tr>
+<tr><td>Missing references to the original papers of components you rely on</td><td class="sev-modest">Modest</td></tr>
+</table>
+</div>
+
+<h2>On AI assistants &amp; authorship</h2>
+<ul>
+<li>Any code you submit is <b>assumed to be yours</b> unless indicated otherwise. Code from AI assistants counts as your code.</li>
+<li>No explicit point deduction for using AI assistants per se — but over-reliance typically produces vague technical writing and unoriginal ideas, both of which <i>do</i> get deducted under Technical Soundness and Originality.</li>
+<li>Acknowledge AI assistance at the end of the report. Good scholarly practice.</li>
+</ul>
+
+<h2>1. Figures <span class="tag pres">Presentation</span> <span class="tag res">Results</span></h2>
+<p>By far the most frequent complaint across the batch of progress reports.</p>
+<ul>
+<li><b>Fig 1 is the most important figure in your paper.</b> Look at the figures in the <b>MovieGen paper</b> we discussed in class — that is the bar. Not boxes and arrows; a figure that shows real inputs, real outputs, and the structure between them, in one glance.</li>
+<li><b>Export as vector graphics (PDF or SVG).</b> Use <code>savefig("fig.pdf")</code> from matplotlib, or Illustrator/Inkscape. Pixelated PNGs shrunk into a column are visibly low quality on paper.</li>
+<li><b>Axis labels, units, legends.</b> Every axis must say what it is and its units. Every legend entry must be legible at normal reading size. This is non-negotiable.</li>
+<li><b>Print your report before submitting.</b> Many of you had 6-point figure fonts that were readable on a 27" monitor and completely illegible on paper — an automatic Presentation deduction.</li>
+<li><b>Design figures for your column width.</b> If the template is 1-column, design Fig 1 for a single column, or use a 2-column-spanning figure. Do not jam a wide figure into a narrow column.</li>
+<li><b>Screenshots of notebooks are not figures.</b> No Jupyter output, code printouts, or terminal screenshots. Replot cleanly.</li>
+<li><b>Each major figure deserves its own paragraph.</b> Do not lump six unrelated subfigures into "Figure 1." Each experiment gets its own figure and its own discussion.</li>
+</ul>
+
+<h2>2. References &amp; related work <span class="tag tech">Technical</span> <span class="tag orig">Originality</span></h2>
+<ul>
+<li><b>Use <code>\cite</code> with a real bibtex file.</b> A report without a proper references section does not meet the minimum bar for a technical report. If you mention CLIP, Qwen, LoRA, DINOv2, BLIP, diffusion, or any other component — cite it.</li>
+<li><b>Related work must cover <i>your</i> problem, not the broad area.</b> A generic survey of "captioning methods" is not related work for a diagram-understanding project. Find the 5–10 papers that tackle the closest version of your task and engage with them specifically.</li>
+<li><b>Do not outsource related work to AI assistants.</b> They invent citations and miss the papers that matter. Search yourself (Google Scholar, Semantic Scholar, arXiv) and read the abstracts.</li>
+</ul>
+
+<h2>3. Technical writing <span class="tag tech">Technical soundness</span></h2>
+<blockquote>If I need to read your code to understand what you did, your report has not fulfilled its purpose.</blockquote>
+<ul>
+<li><b>Self-contained.</b> A reasonable computer scientist who has not seen your code should be able to read the report and know what you built, what the inputs/outputs are, and how the pieces connect.</li>
+<li><b>Operationalize every vague phrase.</b> "Structured feedback," "prioritize speed," "clever prompting," "some encoders," "a lightweight model," "prior experience" — replace with what you actually did: which loss, which encoder, what format, which hyperparameters.</li>
+<li><b>Define every symbol before using it.</b> If Eq. (1) uses <code>sim(·,·)</code>, define sim. If you introduce a dataset called "Beans," tell me what it is.</li>
+<li><b>Name the exact model.</b> "Qwen" is not a model — <code>Qwen2.5-VL-7B-Instruct</code> is. "A VLM" is not a model. Be specific.</li>
+<li><b>Equations must be correct.</b> A single wrong-looking equation drags the whole Technical Soundness score down.</li>
+<li><b>If you use a pretrained component, show you understand it.</b> Briefly describe what CLIP / Qwen / SAM does and why it is right for your task. Plugging one in with no commentary reads badly.</li>
+</ul>
+
+<h2>4. Results <span class="tag res">Results</span></h2>
+<p>Almost every project needs <b>both</b> qualitative and quantitative results.</p>
+<ul>
+<li><b>Qualitative.</b> Real input/output examples from your system. Aim for at least 6 concrete examples — successes <i>and</i> failures, side by side. Half a page of examples is usually the right amount. A text-only report will not convince me your system works.</li>
+<li><b>Quantitative.</b> Numbers on a benchmark, with the metric clearly defined, a baseline to compare against, and ideally an ablation. "Our model achieves 81%" means nothing without 81% of what, on what data, versus what baseline.</li>
+<li><b>Compare against a sensible baseline.</b> For almost every project in this class, that is a strong off-the-shelf VLM — Qwen2.5-VL, LLaVA-Next, Gemini-Flash. If an off-the-shelf model already solves your task, your project needs to either improve on it or use it to learn something non-obvious.</li>
+<li><b>Evolution matters when relevant.</b> If you are training something, show metrics through training (e.g. R@K over epochs), not only a final number.</li>
+<li><b>Each figure gets a discussion paragraph</b> — what experiment, what the implications are.</li>
+</ul>
+
+<h2>5. Scope &amp; originality <span class="tag orig">Originality</span></h2>
+<ul>
+<li><b>Think carefully before training a model from scratch in 2026.</b> Training a ResNet-18 on 900 samples when Qwen2.5-VL can be prompted or fine-tuned is almost never the right call. If you insist on from-scratch, justify it: what specific insight does that give you that fine-tuning or prompting does not?</li>
+<li><b>Prefer fine-tuning or prompting of a foundation model.</b> SFT, LoRA, or careful prompting almost always gives stronger results within the same compute budget.</li>
+<li><b>Dated backbones are a red flag.</b> If you are using BLIP-1 or similar in 2026, know why. Your insights may apply to modern VLMs but the reader will wonder whether you could have shown the same on Qwen or Gemma.</li>
+<li><b>AI assistants are bad at originality.</b> Use them for brainstorming and proofreading, not for deciding what your project investigates. If the question came straight out of a ChatGPT prompt, it likely has a generic shape — push past it.</li>
+</ul>
+
+<h2>6. Template &amp; structure <span class="tag pres">Presentation</span></h2>
+<ul>
+<li><b>Use the template.</b> Introduction, Related Work, Method, Experiments, Analysis, Conclusion. Reports missing any of these sections were flagged.</li>
+<li><b>Put a real title on your report.</b> "COMP 646 Project" is not a title. The title should describe what you did.</li>
+<li><b>Nothing outside the margins.</b> Tables, figures, code blocks must stay inside the column. Overfull hboxes are a polish deduction.</li>
+<li><b>Fix copy-paste residue.</b> "xxxxxxx", "Lorem ipsum," sentences from a different project — all obvious negative signals.</li>
+<li><b>Acknowledge AI assistance</b> at the end if you used ChatGPT, Gemini, Claude to help write or code.</li>
+</ul>
+
+<h2>7. Final self-check before submitting</h2>
+<div class="checklist">
+<ul>
+<li>Every figure has labeled axes with units and a readable legend, exported as vector (PDF/SVG)</li>
+<li>Figure 1 communicates the method in one glance with real inputs/outputs (MovieGen-level)</li>
+<li>Every external component (CLIP, Qwen, SAM, LoRA, etc.) is cited with <code>\cite</code> + bibtex</li>
+<li>Related work covers neighboring problems specifically, not the whole subfield</li>
+<li>A reader who has not seen my code can reconstruct what I did from the report alone</li>
+<li>Every symbol in an equation is defined before use</li>
+<li>Exact model names (e.g. <code>Qwen2.5-VL-7B-Instruct</code>) are used throughout</li>
+<li>Report includes both qualitative examples (6+, successes and failures) and quantitative numbers</li>
+<li>At least one strong off-the-shelf baseline is compared against</li>
+<li>Each major figure has its own paragraph of discussion</li>
+<li>No content is outside the page margins</li>
+<li>No placeholder text, no notebook screenshots, no Jupyter output masquerading as figures</li>
+<li>I have printed the report and checked that everything is readable on paper</li>
+<li>Report uses the provided template with all required sections, and has a real descriptive title</li>
+<li>Code link opens and clearly indicates what is mine vs. not mine</li>
+<li>Any AI assistance is acknowledged at the end</li>
+<li>The 4-page PDF, code link (and optional 5-min video) are all submitted before 11:59PM May 1st</li>
+</ul>
+</div>
+
+<p style="margin-top:1.5rem;color:#57606a;font-size:13.5px">All the best with your final reports.</p>
+</body></html>
