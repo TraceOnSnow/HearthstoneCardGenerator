@@ -177,6 +177,56 @@ project-root/
 6. Retrieve similar cards (Graph-RAG)
 7. Generate final artwork
 
+## 🧱 KG Pipeline Usage
+
+Build a minimal local smoke-test graph without LLM calls:
+
+```bash
+python3 scripts/fetch_metadata.py
+python3 scripts/run_kg.py smoke --limit 5 --out-dir data/kg_smoke --visualize
+```
+
+Build an explicit metadata KG for all collectible cards without LLM calls:
+
+```bash
+python3 scripts/run_kg.py build \
+  --source data/cards_collectible.jsonl \
+  --out-dir data/kg_collectible_dry_run \
+  --dry-run \
+  --chunk-size 50 \
+  --visualize
+```
+
+Build the full collectible-card KG with Gemini extraction enrichment:
+
+```bash
+GOOGLE_API_KEY=... python3 scripts/run_kg.py build \
+  --source data/cards_collectible.jsonl \
+  --out-dir data/kg_collectible \
+  --chunk-size 50 \
+  --visualize
+```
+
+Build a 200-card semantic KG test with MiniMax:
+
+```bash
+MINIMAX_API_KEY=... python3 scripts/run_kg.py build \
+  --provider minimax \
+  --source data/cards_collectible.jsonl \
+  --out-dir data/kg_minimax_200 \
+  --limit 200 \
+  --chunk-size 20 \
+  --visualize
+```
+
+The KG pipeline writes `cards_selected.jsonl`, `prompts.jsonl`, `llm_outputs.jsonl`,
+`graph.json`, `run_config.json`, and optionally `graph_vis.html` into the output
+directory. LLM runs resume successful batches by default; use `--force-llm` to
+rerun every batch. By default it reads ID-name mappings from
+`data/hearthstone_metadata.json`; regenerate that file with
+`python3 scripts/fetch_metadata.py`. Gemini uses `GOOGLE_API_KEY`; MiniMax uses
+`MINIMAX_API_KEY` and defaults to `MiniMax-M2.7`.
+
 ---
 
 ## 📊 Motivation

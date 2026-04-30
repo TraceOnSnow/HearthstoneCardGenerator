@@ -2,6 +2,7 @@ from pathlib import Path
 
 # Data
 SOURCE_JSONL = Path("data/cards_collectible.jsonl")
+METADATA_JSON = Path("data/hearthstone_metadata.json")
 WORK_DIR = Path("data/mvp_kg_demo")
 SAMPLED_JSONL = WORK_DIR / "sampled_1000_cards.jsonl"
 PROMPTS_JSONL = WORK_DIR / "prompts_50_cards.jsonl"
@@ -20,4 +21,4 @@ LLM_TEMPERATURE = 0.1
 DRY_RUN = False  # Set False to call Google AI Studio.
 
 # Prompt template
-PROMPT_TEMPLATE_PATH = Path("app/kg_demo/prompts/kg_entity_extraction_prompt.md")
+PROMPT_TEMPLATE_PATH = Path("app/kg/prompts/kg_entity_extraction_prompt.md")
