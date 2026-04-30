@@ -209,3 +209,10 @@ __marimo__/
 llm_knowledge/
 .codex
 .codex/
+
+# Data outputs and local datasets. Keep only small reproducible fixtures tracked.
+data/*
+!data/cards_all.jsonl
+!data/cards_collectible.jsonl
+!data/sample_img/
+!data/sample_img/**
