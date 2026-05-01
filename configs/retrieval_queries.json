@@ -1,0 +1,102 @@
+{
+  "queries": [
+    {
+      "query_id": "warlock_lifesteal_damage",
+      "text": "Warlock spell that deals damage to a minion and heals through Lifesteal.",
+      "classes": ["Warlock"],
+      "card_types": ["Spell"],
+      "keywords": ["Lifesteal"],
+      "actions": ["deal_damage"],
+      "targets": ["minion"],
+      "resources": ["health"],
+      "spell_schools": ["Fel"],
+      "mechanic_tags": ["lifesteal_damage"]
+    },
+    {
+      "query_id": "druid_solar_lunar_generation",
+      "text": "Druid card that gives or generates Solar Eclipse and Lunar Eclipse.",
+      "classes": ["Druid"],
+      "actions": ["add_to_hand"],
+      "generated_card_names": ["Solar Eclipse", "Lunar Eclipse"],
+      "related_card_names": ["Solar Eclipse", "Lunar Eclipse"],
+      "mechanic_tags": ["spell_synergy"]
+    },
+    {
+      "query_id": "deathrattle_taunt_token",
+      "text": "Deathrattle minion that summons another Taunt minion token.",
+      "card_types": ["Minion"],
+      "keywords": ["Deathrattle", "Taunt"],
+      "actions": ["summon"],
+      "generated_roles": ["summoned_token", "deathrattle_token"],
+      "triggers": ["deathrattle"],
+      "mechanic_tags": ["token_generation"]
+    },
+    {
+      "query_id": "warlock_aoe_self_damage",
+      "text": "Warlock spell that damages all minions and excess damage hurts your own hero.",
+      "classes": ["Warlock"],
+      "card_types": ["Spell"],
+      "actions": ["deal_damage"],
+      "targets": ["all_minions", "hero"],
+      "resources": ["health"],
+      "constraints": ["excess_damage_hits_hero"],
+      "mechanic_tags": ["aoe_damage", "self_damage"]
+    },
+    {
+      "query_id": "deathrattle_discount_if_target_dies",
+      "text": "Warlock spell that damages a minion and discounts your next Deathrattle minion if the target dies.",
+      "classes": ["Warlock"],
+      "card_types": ["Spell"],
+      "actions": ["deal_damage", "reduce_cost"],
+      "targets": ["minion", "deathrattle_minion"],
+      "conditions": ["target_dies"],
+      "mechanic_tags": ["deathrattle_synergy", "conditional_cost_reduction"]
+    },
+    {
+      "query_id": "sacrifice_friendly_minion_draw",
+      "text": "Warlock spell that destroys a friendly minion as a cost to draw cards.",
+      "classes": ["Warlock"],
+      "card_types": ["Spell"],
+      "actions": ["destroy", "draw"],
+      "targets": ["friendly_minion", "card"],
+      "constraints": ["requires_friendly_minion", "sacrifice_to_draw"],
+      "mechanic_tags": ["sacrifice_effect", "card_draw"]
+    },
+    {
+      "query_id": "choose_one_demon_or_destroy",
+      "text": "Choose One spell that can summon Taunt Demons that cannot attack or destroy an enemy minion.",
+      "card_types": ["Spell"],
+      "keywords": ["Taunt"],
+      "actions": ["summon", "destroy"],
+      "minion_types": ["Demon"],
+      "constraints": ["cannot_attack", "enemy_only"],
+      "mechanic_tags": ["choose_one", "token_generation"]
+    },
+    {
+      "query_id": "while_in_hand_choose_one_accumulation",
+      "text": "Minion that gains or accumulates random Choose One choices while it is in your hand.",
+      "card_types": ["Minion"],
+      "conditions": ["while_in_hand"],
+      "constraints": ["while_in_hand"],
+      "mechanic_tags": ["choose_one_synergy", "accumulating_choices"]
+    },
+    {
+      "query_id": "armor_gain_warrior",
+      "text": "Warrior card that gains Armor for defense.",
+      "classes": ["Warrior"],
+      "actions": ["gain_armor"],
+      "resources": ["armor"],
+      "mechanic_tags": ["armor_gain"]
+    },
+    {
+      "query_id": "freeze_enemy_mage_spell",
+      "text": "Mage spell that freezes enemies or enemy minions.",
+      "classes": ["Mage"],
+      "card_types": ["Spell"],
+      "keywords": ["Freeze"],
+      "actions": ["freeze"],
+      "targets": ["enemy_minion", "all_enemies"],
+      "spell_schools": ["Frost"]
+    }
+  ]
+}
