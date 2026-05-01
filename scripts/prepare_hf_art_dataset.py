@@ -2,8 +2,16 @@ import argparse
 import json
 import os
 import shutil
+import sys
 from pathlib import Path
 from typing import Any
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from app.diffusion.lora_data import build_caption
 
 
 def read_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -56,7 +64,7 @@ you have the rights to redistribute the images.
 ## Contents
 
 - `images/`: downloaded 512x512 JPG art images.
-- `metadata.jsonl`: one row per image, with `file_name`, card metadata, source URL, and file size.
+- `metadata.jsonl`: one row per image, with `file_name`, LoRA `text`, card metadata, source URL, and file size.
 - `splits/train.txt`: relative paths for the training split.
 - `download_manifest.jsonl`: original downloader manifest, including failed rows.
 
@@ -71,6 +79,7 @@ you have the rights to redistribute the images.
 Each `metadata.jsonl` row includes:
 
 - `file_name`
+- `text`
 - `card_id`
 - `dbf_id`
 - `name`
@@ -89,7 +98,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--art-dir", type=Path, default=Path("data/hs_art_512"))
     parser.add_argument("--manifest", type=Path, default=Path("data/hs_art_512/manifest.jsonl"))
     parser.add_argument("--output-dir", type=Path, default=Path("data/hf_hearthstone_art_512"))
-    parser.add_argument("--dataset-name", default="TraceOnSnow/hearthstone-art-512")
+    parser.add_argument("--dataset-name", default="comp646/hearthstone-art-512")
+    parser.add_argument("--trigger-token", default="hsart")
     parser.add_argument("--copy", action="store_true", help="Copy images instead of hardlinking when possible.")
     return parser.parse_args()
 
@@ -114,20 +124,20 @@ def main() -> None:
         target_path = args.output_dir / file_name
         link_or_copy(source_path, target_path, copy=args.copy)
 
-        metadata_rows.append(
-            {
-                "file_name": file_name,
-                "card_id": row.get("id"),
-                "dbf_id": row.get("dbfId"),
-                "name": row.get("name"),
-                "set": row.get("set"),
-                "type": row.get("type"),
-                "card_class": row.get("cardClass"),
-                "artist": row.get("artist"),
-                "source_url": row.get("url"),
-                "size_bytes": row.get("size_bytes"),
-            }
-        )
+        metadata = {
+            "file_name": file_name,
+            "card_id": row.get("id"),
+            "dbf_id": row.get("dbfId"),
+            "name": row.get("name"),
+            "set": row.get("set"),
+            "type": row.get("type"),
+            "card_class": row.get("cardClass"),
+            "artist": row.get("artist"),
+            "source_url": row.get("url"),
+            "size_bytes": row.get("size_bytes"),
+        }
+        metadata["text"] = build_caption(metadata, caption_column="text", trigger_token=args.trigger_token)
+        metadata_rows.append(metadata)
         train_paths.append(file_name)
 
     metadata_rows.sort(key=lambda row: str(row.get("card_id") or ""))

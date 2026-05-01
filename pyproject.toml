@@ -10,3 +10,15 @@ dependencies = [
     "pyvis>=0.3.2",
     "pillow>=11.2.1",
 ]
+
+[project.optional-dependencies]
+diffusion = [
+    "accelerate>=1.6.0",
+    "diffusers>=0.33.0",
+    "huggingface-hub>=0.30.0",
+    "numpy>=2.0.0",
+    "peft>=0.15.0",
+    "safetensors>=0.5.0",
+    "torch>=2.6.0",
+    "transformers>=4.49.0",
+]

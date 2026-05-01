@@ -209,11 +209,19 @@ __marimo__/
 .codex
 .codex/
 
+# Local private notes.
+kim_notes/
+
 # Data outputs and local datasets. Keep only small reproducible fixtures tracked.
 data/*
 data/hf_hearthstone_art_512/
 data/hs_art_512/
+images/
 !data/cards_all.jsonl
 !data/cards_collectible.jsonl
 !data/sample_img/
 !data/sample_img/**
+
+# Local model artifacts and generated samples.
+models/
+outputs/

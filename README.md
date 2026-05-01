@@ -227,6 +227,63 @@ rerun every batch. By default it reads ID-name mappings from
 `python3 scripts/fetch_metadata.py`. Gemini uses `GOOGLE_API_KEY`; MiniMax uses
 `MINIMAX_API_KEY` and defaults to `MiniMax-M2.7`.
 
+## 🎨 Stable Diffusion 1.5 LoRA Fine-tuning
+
+The repo can fine-tune a Stable Diffusion 1.5 LoRA adapter from the private
+Hugging Face Hearthstone art dataset. The training script reads
+`metadata.jsonl` rows with `file_name` and `text` fields.
+
+Install the optional diffusion stack:
+
+```bash
+uv sync --extra diffusion
+```
+
+Fetch the HF dataset locally:
+
+```bash
+export HF_TOKEN=...
+python3 scripts/fetch_hf_art_dataset.py \
+  --repo-id comp646/hearthstone-art-512 \
+  --output-dir data/hf_hearthstone_art_512
+```
+
+The fetch helper validates `images/`, and if the downloaded `metadata.jsonl`
+does not already include LoRA text prompts, it adds a `text` field locally from
+the card metadata.
+
+Train a UNet LoRA adapter with Diffusers:
+
+```bash
+python3 scripts/train_lora_sd15.py \
+  --pretrained-model stable-diffusion-v1-5/stable-diffusion-v1-5 \
+  --metadata data/hf_hearthstone_art_512/metadata.jsonl \
+  --image-root data/hf_hearthstone_art_512 \
+  --caption-column text \
+  --image-column file_name \
+  --output-dir models/sd15-hearthstone-lora \
+  --train-batch-size 1 \
+  --gradient-accumulation-steps 4 \
+  --learning-rate 1e-4 \
+  --rank 16 \
+  --mixed-precision fp16
+```
+
+The final adapter is saved in `models/sd15-hearthstone-lora/`. The lowest
+logged training-loss adapter is also saved in
+`models/sd15-hearthstone-lora/best/` with `training_state.json`.
+
+The default trigger token is `hsart`, so include it when sampling:
+
+```bash
+python3 scripts/generate_with_lora_sd15.py \
+  --lora-dir models/sd15-hearthstone-lora \
+  --prompt "hsart Hearthstone card art, legendary mage minion, arcane magic"
+```
+
+If the base model is gated in your Hugging Face account, authenticate first with
+`huggingface-cli login` or set `HF_TOKEN`.
+
 ---
 
 ## 📊 Motivation
