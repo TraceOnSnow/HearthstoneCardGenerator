@@ -1,0 +1,34 @@
+{
+  "prompts": [
+    {
+      "prompt_id": "warlock_lifesteal_damage",
+      "query_id": "warlock_lifesteal_damage",
+      "prompt": "Hearthstone card art, Warlock Fel spell, Lifesteal, single-target damage, dark healing magic, green fel energy, fantasy illustration"
+    },
+    {
+      "prompt_id": "druid_solar_lunar_generation",
+      "query_id": "druid_solar_lunar_generation",
+      "prompt": "Hearthstone card art, Druid spell, Solar Eclipse and Lunar Eclipse magic, moonlight and sunlight, nature spell synergy, fantasy illustration"
+    },
+    {
+      "prompt_id": "deathrattle_taunt_token",
+      "query_id": "deathrattle_taunt_token",
+      "prompt": "Hearthstone card art, Deathrattle minion, summons a Taunt token, protective undead guardian, fantasy creature illustration"
+    },
+    {
+      "prompt_id": "sacrifice_friendly_minion_draw",
+      "query_id": "sacrifice_friendly_minion_draw",
+      "prompt": "Hearthstone card art, Warlock spell, sacrificing a friendly minion to draw cards, dark ritual, demonic magic, fantasy illustration"
+    },
+    {
+      "prompt_id": "choose_one_demon_or_destroy",
+      "query_id": "choose_one_demon_or_destroy",
+      "prompt": "Hearthstone card art, Choose One spell, Taunt demons that cannot attack or destroying an enemy minion, nightmare magic, fantasy illustration"
+    },
+    {
+      "prompt_id": "freeze_enemy_mage_spell",
+      "query_id": "freeze_enemy_mage_spell",
+      "prompt": "Hearthstone card art, Mage Frost spell, freezing enemy minions, icy blue magic, snowstorm, fantasy illustration"
+    }
+  ]
+}
