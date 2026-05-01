@@ -213,6 +213,7 @@ __marimo__/
 data/*
 data/hf_hearthstone_art_512/
 data/hs_art_512/
+results/
 !data/cards_all.jsonl
 !data/cards_collectible.jsonl
 !data/sample_img/

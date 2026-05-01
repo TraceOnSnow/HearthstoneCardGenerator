@@ -1,0 +1,122 @@
+[
+  {
+    "query_id": "warlock_lifesteal_damage",
+    "text": "Warlock spell that deals damage and has Lifesteal",
+    "classes": ["Warlock"],
+    "card_types": ["Spell"],
+    "keywords": ["Lifesteal"],
+    "actions": ["deal_damage"],
+    "targets": ["minion"],
+    "spell_schools": ["Fel"],
+    "mechanic_tags": ["lifesteal_damage"],
+    "visual_tags": ["fel magic"]
+  },
+  {
+    "query_id": "paladin_summon_tokens",
+    "text": "Paladin card that summons minions",
+    "classes": ["Paladin"],
+    "card_types": ["Minion", "Spell"],
+    "keywords": [],
+    "actions": ["summon"],
+    "targets": ["minion"],
+    "spell_schools": ["Holy"],
+    "mechanic_tags": ["token_generation"],
+    "visual_tags": ["holy light"]
+  },
+  {
+    "query_id": "warrior_gain_armor",
+    "text": "Warrior card that gains Armor",
+    "classes": ["Warrior"],
+    "card_types": ["Minion", "Spell"],
+    "keywords": [],
+    "actions": ["gain_armor"],
+    "targets": ["self"],
+    "spell_schools": [],
+    "mechanic_tags": ["armor_gain"],
+    "visual_tags": ["armored warrior"]
+  },
+  {
+    "query_id": "mage_freeze_spell",
+    "text": "Mage spell that freezes enemies",
+    "classes": ["Mage"],
+    "card_types": ["Spell"],
+    "keywords": ["Freeze"],
+    "actions": ["freeze"],
+    "targets": ["enemy"],
+    "spell_schools": ["Frost"],
+    "mechanic_tags": ["freeze"],
+    "visual_tags": ["frost magic"]
+  },
+  {
+    "query_id": "deathrattle_summon_minion",
+    "text": "Deathrattle minion that summons another minion",
+    "classes": [],
+    "card_types": ["Minion"],
+    "keywords": ["Deathrattle"],
+    "actions": ["summon"],
+    "targets": ["minion"],
+    "spell_schools": [],
+    "mechanic_tags": ["deathrattle_summon"],
+    "visual_tags": ["undead minion"]
+  },
+  {
+    "query_id": "priest_healing_card",
+    "text": "Priest card that restores Health",
+    "classes": ["Priest"],
+    "card_types": ["Minion", "Spell"],
+    "keywords": [],
+    "actions": ["heal"],
+    "targets": ["friendly_character"],
+    "spell_schools": ["Holy"],
+    "mechanic_tags": ["healing"],
+    "visual_tags": ["holy healing"]
+  },
+  {
+    "query_id": "shaman_elemental_spell",
+    "text": "Shaman card with elemental or Nature magic",
+    "classes": ["Shaman"],
+    "card_types": ["Spell", "Minion"],
+    "keywords": [],
+    "actions": [],
+    "targets": [],
+    "spell_schools": ["Nature"],
+    "mechanic_tags": ["elemental_synergy"],
+    "visual_tags": ["elemental magic", "nature magic"]
+  },
+  {
+    "query_id": "hunter_beast_synergy",
+    "text": "Hunter card that supports Beasts",
+    "classes": ["Hunter"],
+    "card_types": ["Minion", "Spell"],
+    "keywords": [],
+    "actions": ["summon", "buff"],
+    "targets": ["beast"],
+    "spell_schools": [],
+    "mechanic_tags": ["beast_synergy"],
+    "visual_tags": ["beast companion"]
+  },
+  {
+    "query_id": "rogue_weapon_or_attack",
+    "text": "Rogue card about weapons or attacking",
+    "classes": ["Rogue"],
+    "card_types": ["Weapon", "Minion", "Spell"],
+    "keywords": [],
+    "actions": ["equip", "attack"],
+    "targets": ["enemy"],
+    "spell_schools": [],
+    "mechanic_tags": ["weapon_synergy", "attack_synergy"],
+    "visual_tags": ["dagger", "shadow attack"]
+  },
+  {
+    "query_id": "druid_nature_buff",
+    "text": "Druid Nature card that buffs friendly minions",
+    "classes": ["Druid"],
+    "card_types": ["Spell", "Minion"],
+    "keywords": [],
+    "actions": ["buff"],
+    "targets": ["friendly_minion"],
+    "spell_schools": ["Nature"],
+    "mechanic_tags": ["buff", "wide_board"],
+    "visual_tags": ["nature magic", "forest growth"]
+  }
+]
