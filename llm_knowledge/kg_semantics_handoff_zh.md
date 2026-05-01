@@ -40,7 +40,7 @@ HearthGen 是一个面向 Hearthstone 原画生成的检索增强系统。项目
 
 私有 Hugging Face dataset：
 
-- `TraceOnSnow/hearthstone-art-512`
+- `comp646/hearthstone-art-512`
 - 约 7889 张 512x512 HearthstoneJSON art-only JPG
 - 包含 `metadata.jsonl`
 
@@ -83,7 +83,7 @@ data/cards_all.jsonl 里的 id
 MiniMax 使用 OpenAI-compatible endpoint：
 
 ```text
-https://api.minimax.io/v1/chat/completions
+https://api.minimaxi.com/v1/chat/completions
 ```
 
 环境变量：
@@ -353,4 +353,3 @@ LoRA + KG reference, if ready
 4. 输出 `results/retrieval_eval/results.jsonl`、`summary.csv`、`retrieval_grid.png`。
 5. 把图和表放进报告。
 6. 只有在 retrieval 结果稳定后，再做 LLM enrichment 或 LoRA caption 优化。
-

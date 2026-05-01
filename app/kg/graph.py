@@ -264,6 +264,7 @@ def _optional_str(value: Any) -> str | None:
 
 
 def parse_json_response(raw: str) -> dict[str, Any] | None:
+    raw = _strip_thinking_blocks(raw)
     try:
         return json.loads(raw)
     except json.JSONDecodeError:
@@ -284,3 +285,9 @@ def parse_json_response(raw: str) -> dict[str, Any] | None:
         except json.JSONDecodeError:
             return None
     return None
+
+
+def _strip_thinking_blocks(raw: str) -> str:
+    # MiniMax OpenAI-compatible responses may include visible <think> blocks before JSON.
+    text = re.sub(r"<think>.*?</think>", "", raw, flags=re.DOTALL | re.IGNORECASE).strip()
+    return text or raw

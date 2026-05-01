@@ -18,7 +18,22 @@ try:
     from dotenv import load_dotenv
 except ModuleNotFoundError:
     def load_dotenv() -> bool:
-        return False
+        loaded = False
+        env_path = ".env"
+        if not os.path.exists(env_path):
+            return False
+        with open(env_path, encoding="utf-8") as f:
+            for line in f:
+                text = line.strip()
+                if not text or text.startswith("#") or "=" not in text:
+                    continue
+                key, value = text.split("=", 1)
+                key = key.strip()
+                value = value.strip().strip('"').strip("'")
+                if key and key not in os.environ:
+                    os.environ[key] = value
+                    loaded = True
+        return loaded
 
 
 def google_generate_content(
@@ -71,11 +86,12 @@ def minimax_generate_content(
     temperature: float,
     timeout_seconds: int,
 ) -> str:
-    url = "https://api.minimax.io/v1/chat/completions"
+    url = "https://api.minimaxi.com/v1/chat/completions"
     payload = {
         "model": model,
-        "messages": [{"role": "user", "content": prompt}],
+        "max_tokens": 16384,
         "temperature": temperature,
+        "messages": [{"role": "user", "content": prompt}],
     }
     req = urllib.request.Request(
         url=url,
@@ -190,6 +206,11 @@ def run_llm_batches(
                 )
                 status = "ok"
                 error = ""
+            except urllib.error.HTTPError as exc:
+                result_text = ""
+                status = "failed"
+                error_body = exc.read().decode("utf-8", errors="replace")
+                error = f"HTTP {exc.code}: {error_body}"
             except (urllib.error.URLError, RuntimeError, TimeoutError, json.JSONDecodeError) as exc:
                 result_text = ""
                 status = "failed"

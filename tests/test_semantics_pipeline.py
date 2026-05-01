@@ -7,6 +7,7 @@ from pathlib import Path
 
 from app.kg.io import read_jsonl
 from app.semantics.builder import build_semantics
+from app.semantics.enrichment import build_enrichment_prompts
 from app.semantics.enrichment import run_enrichment
 from app.semantics.rule_extractors import extract_actions
 from app.semantics.text import clean_card_text
@@ -116,6 +117,53 @@ class SemanticsPipelineTest(unittest.TestCase):
         self.assertEqual(root_record["source"]["art_image"], "images/TEST_001.jpg")
         self.assertEqual([row["image"] for row in captions], ["images/TEST_001.jpg"])
 
+    def test_enrichment_prompts_group_by_set_and_class(self) -> None:
+        records = [
+            self._semantic_record(1, "A", "Set A", ["Mage"]),
+            self._semantic_record(2, "B", "Set A", ["Warlock"]),
+            self._semantic_record(3, "C", "Set A", ["Mage"]),
+            self._semantic_record(4, "D", "Set B", ["Mage"]),
+        ]
+
+        prompts = build_enrichment_prompts(
+            records,
+            template="Cards:\n{{CARDS_JSON}}",
+            chunk_size=2,
+            chunk_strategy="set_class",
+        )
+
+        self.assertEqual([row["card_ids"] for row in prompts], [[1, 3], [2], [4]])
+        self.assertEqual(prompts[0]["chunk_key"], "set=Set A|class=Mage|part=1")
+
+    def test_run_enrichment_filters_card_ids(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            semantics = root / "cards_semantics_base.jsonl"
+            out_dir = root / "enriched"
+            prompt = root / "prompt.md"
+            self._write_jsonl(
+                semantics,
+                [
+                    self._semantic_record(1, "A", "Set A", ["Mage"]),
+                    self._semantic_record(2, "B", "Set A", ["Mage"]),
+                ],
+            )
+            prompt.write_text("Cards:\n{{CARDS_JSON}}", encoding="utf-8")
+
+            stats = run_enrichment(
+                semantics_path=semantics,
+                out_dir=out_dir,
+                prompt_template=prompt,
+                card_ids={2},
+                dry_run=True,
+                resume=False,
+                force_llm=True,
+            )
+            records = read_jsonl(out_dir / "cards_semantics_enriched.jsonl")
+
+        self.assertEqual(stats["cards"], 1)
+        self.assertEqual(records[0]["card_id"], 2)
+
     def test_build_semantics_can_include_special_modes(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -208,6 +256,22 @@ class SemanticsPipelineTest(unittest.TestCase):
                 "minionTypeId": {},
                 "keywordIds": {},
             }
+        }
+
+    def _semantic_record(self, card_id: int, name: str, set_name: str, classes: list[str]) -> dict:
+        return {
+            "card_id": card_id,
+            "name": name,
+            "collectible": True,
+            "identity": {"set": set_name, "card_class": classes, "card_type": "Spell"},
+            "stats": {},
+            "text": {"clean": ""},
+            "keywords": [],
+            "actions": [],
+            "mechanic_tags": [],
+            "visual_tags": [],
+            "child_card_ids": [],
+            "derived_cards": [],
         }
 
 

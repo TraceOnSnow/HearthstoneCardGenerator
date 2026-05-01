@@ -26,6 +26,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--prompt-template", type=Path, default=Path(DEFAULT_PROMPT_TEMPLATE))
     parser.add_argument("--limit", type=int, help="Enrich only first N semantic records.")
     parser.add_argument("--chunk-size", type=int, default=20)
+    parser.add_argument("--chunk-strategy", default="set_class", choices=["set_class", "sequential"])
+    parser.add_argument("--set-name", help="Only enrich cards from this expansion/set name.")
+    parser.add_argument("--class-name", help="Only enrich cards containing this Hearthstone class name.")
+    parser.add_argument("--card-id", type=int, action="append", help="Only enrich these card IDs. Can be repeated.")
+    parser.add_argument("--collectible-only", action="store_true", help="Only enrich collectible cards.")
     parser.add_argument("--dry-run", action="store_true", help="Write prompts and merged base outputs without API calls.")
     parser.add_argument("--provider", default="minimax", choices=["google", "minimax"])
     parser.add_argument("--model", help="LLM model name. Defaults by provider.")
@@ -45,6 +50,11 @@ def main() -> None:
         prompt_template=args.prompt_template,
         limit=args.limit,
         chunk_size=args.chunk_size,
+        chunk_strategy=args.chunk_strategy,
+        set_name=args.set_name,
+        class_name=args.class_name,
+        card_ids=set(args.card_id or []) or None,
+        collectible_only=args.collectible_only,
         dry_run=args.dry_run,
         provider=args.provider,
         model=model,
@@ -60,4 +70,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

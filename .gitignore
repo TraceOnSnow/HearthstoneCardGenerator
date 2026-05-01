@@ -225,3 +225,4 @@ images/
 # Local model artifacts and generated samples.
 models/
 outputs/
+results/
