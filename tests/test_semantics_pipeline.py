@@ -65,6 +65,18 @@ class SemanticsPipelineTest(unittest.TestCase):
                         "keywordIds": [],
                         "slug": "2-imp",
                     },
+                    {
+                        "id": 3,
+                        "name": "Battlegrounds Spell",
+                        "collectible": 0,
+                        "classId": 12,
+                        "cardTypeId": 42,
+                        "cardSetId": 1453,
+                        "manaCost": 1,
+                        "text": "Discover a minion.",
+                        "keywordIds": [],
+                        "slug": "3-bg-spell",
+                    },
                 ],
             )
             metadata.write_text(json.dumps(self._metadata()), encoding="utf-8")
@@ -91,7 +103,10 @@ class SemanticsPipelineTest(unittest.TestCase):
 
         root_record = next(row for row in records if row["card_id"] == 1)
         child_record = next(row for row in records if row["card_id"] == 2)
+        self.assertEqual(stats["source_cards"], 3)
+        self.assertEqual(stats["excluded_special_mode_cards"], 1)
         self.assertEqual(stats["cards"], 2)
+        self.assertNotIn(3, {row["card_id"] for row in records})
         self.assertEqual(root_record["child_card_ids"], [2])
         self.assertEqual(child_record["parent_card_ids"], [1])
         self.assertEqual(child_record["root_collectible_ids"], [1])
@@ -100,6 +115,41 @@ class SemanticsPipelineTest(unittest.TestCase):
         self.assertIn("Hearthstone card art", root_record["lora_caption"])
         self.assertEqual(root_record["source"]["art_image"], "images/TEST_001.jpg")
         self.assertEqual([row["image"] for row in captions], ["images/TEST_001.jpg"])
+
+    def test_build_semantics_can_include_special_modes(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            cards = root / "cards.jsonl"
+            out_dir = root / "semantics"
+            self._write_jsonl(
+                cards,
+                [
+                    {
+                        "id": 3,
+                        "name": "Battlegrounds Spell",
+                        "collectible": 0,
+                        "classId": 12,
+                        "cardTypeId": 42,
+                        "cardSetId": 1453,
+                        "manaCost": 1,
+                        "text": "Discover a minion.",
+                        "keywordIds": [],
+                        "slug": "3-bg-spell",
+                    }
+                ],
+            )
+
+            stats = build_semantics(
+                cards_path=cards,
+                metadata_path=None,
+                art_metadata_path=None,
+                exclude_special_modes=False,
+                out_dir=out_dir,
+            )
+            records = read_jsonl(out_dir / "cards_semantics_base.jsonl")
+
+        self.assertEqual(stats["excluded_special_mode_cards"], 0)
+        self.assertEqual([row["card_id"] for row in records], [3])
 
     def test_enrichment_dry_run_writes_merged_outputs(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

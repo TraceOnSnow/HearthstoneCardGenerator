@@ -12,15 +12,32 @@ from app.semantics.rule_extractors import extract_actions, infer_mechanic_tags, 
 from app.semantics.text import clean_card_text
 
 
+SPECIAL_MODE_CARD_SET_IDS = {
+    2,  # Missions/debug-only cards in the Blizzard API payload.
+    17,  # Hero skins.
+    1453,  # Battlegrounds.
+    1586,  # Mercenaries.
+}
+
+SPECIAL_MODE_CARD_TYPE_IDS = {
+    42,  # Battlegrounds Tavern spell / upgrade-style cards.
+    43,  # Battlegrounds anomaly / quest reward-style cards.
+    44,  # Battlegrounds trinkets.
+    999,  # Timewarp system card type.
+}
+
+
 def build_semantics(
     *,
     cards_path: Path,
     metadata_path: Path | None,
     out_dir: Path,
     art_metadata_path: Path | None = None,
+    exclude_special_modes: bool = True,
     limit: int | None = None,
 ) -> dict[str, Any]:
-    cards = _read_cards(cards_path, limit=limit)
+    raw_cards = _read_cards(cards_path, limit=limit)
+    cards = _filter_cards(raw_cards, exclude_special_modes=exclude_special_modes)
     metadata = load_metadata(metadata_path)
     art_index = _load_art_index(art_metadata_path)
     by_id = {card["id"]: card for card in cards if isinstance(card.get("id"), int)}
@@ -48,6 +65,9 @@ def build_semantics(
         json.dumps(
             {
                 "cards": len(records),
+                "source_cards": len(raw_cards),
+                "excluded_special_mode_cards": len(raw_cards) - len(cards),
+                "exclude_special_modes": exclude_special_modes,
                 "collectible_cards": sum(1 for row in records if row["collectible"]),
                 "derived_cards": sum(1 for row in records if row["is_derived"]),
                 "derived_edges": len(edges),
@@ -60,6 +80,8 @@ def build_semantics(
     )
 
     return {
+        "source_cards": len(raw_cards),
+        "excluded_special_mode_cards": len(raw_cards) - len(cards),
         "cards": len(records),
         "edges": len(edges),
         "captions": len(captions),
@@ -81,19 +103,33 @@ def _read_cards(path: Path, *, limit: int | None) -> list[dict[str, Any]]:
     return cards
 
 
+def _filter_cards(cards: list[dict[str, Any]], *, exclude_special_modes: bool) -> list[dict[str, Any]]:
+    if not exclude_special_modes:
+        return cards
+    return [card for card in cards if not _is_special_mode_card(card)]
+
+
+def _is_special_mode_card(card: dict[str, Any]) -> bool:
+    return (
+        card.get("cardSetId") in SPECIAL_MODE_CARD_SET_IDS
+        or card.get("cardTypeId") in SPECIAL_MODE_CARD_TYPE_IDS
+    )
+
+
 def _build_edges(cards: list[dict[str, Any]]) -> tuple[dict[int, set[int]], dict[int, set[int]]]:
     parent_index: dict[int, set[int]] = defaultdict(set)
     child_index: dict[int, set[int]] = defaultdict(set)
+    card_ids = {card["id"] for card in cards if isinstance(card.get("id"), int)}
     for card in cards:
         card_id = card.get("id")
         if not isinstance(card_id, int):
             continue
         parent_id = card.get("parentId")
-        if isinstance(parent_id, int):
+        if isinstance(parent_id, int) and parent_id in card_ids:
             parent_index[card_id].add(parent_id)
             child_index[parent_id].add(card_id)
         for child_id in card.get("childIds") or []:
-            if isinstance(child_id, int):
+            if isinstance(child_id, int) and child_id in card_ids:
                 parent_index[child_id].add(card_id)
                 child_index[card_id].add(child_id)
     return parent_index, child_index

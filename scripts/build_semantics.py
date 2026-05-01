@@ -19,6 +19,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--metadata", type=Path, default=Path("data/hearthstone_metadata.json"))
     parser.add_argument("--art-metadata", type=Path, default=Path("data/hf_hearthstone_art_512/metadata.jsonl"))
     parser.add_argument("--out-dir", type=Path, default=Path("data/semantics"))
+    parser.add_argument(
+        "--include-special-modes",
+        action="store_true",
+        help="Keep Battlegrounds, Mercenaries, hero skins, and other special-mode cards.",
+    )
     parser.add_argument("--limit", type=int, help="Build only first N cards for a quick test.")
     return parser.parse_args()
 
@@ -35,6 +40,7 @@ def main() -> None:
         cards_path=args.cards,
         metadata_path=metadata,
         art_metadata_path=art_metadata,
+        exclude_special_modes=not args.include_special_modes,
         out_dir=args.out_dir,
         limit=args.limit,
     )
