@@ -1,0 +1,3 @@
+method,rows,clip_prompt_alignment_mean,style_similarity_mean,reference_similarity_mean
+lora_text_only,10,0.297267,0.860593,0.0
+sd_text_only,10,0.303301,0.794243,0.0

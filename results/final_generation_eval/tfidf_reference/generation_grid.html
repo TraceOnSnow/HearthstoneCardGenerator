@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Generation Comparison Grid</title>
+<style>
+body { font-family: ui-sans-serif, system-ui, sans-serif; margin: 24px; background: #f5f1e8; color: #1f2933; }
+.prompt { margin-bottom: 36px; padding: 20px; background: white; border: 1px solid #d8cbb2; border-radius: 16px; }
+.methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; }
+.method { background: #fbfaf6; border-radius: 12px; padding: 12px; border: 1px solid #eadfca; }
+.method img.main { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 10px; background: #e5e7eb; }
+.ref { display: grid; grid-template-columns: 48px 1fr; gap: 8px; align-items: center; margin-top: 8px; font-size: 12px; color: #58616f; }
+.ref img { width: 48px; height: 48px; object-fit: cover; border-radius: 6px; background: #e5e7eb; }
+.missing { display: grid; place-items: center; width: 100%; aspect-ratio: 1 / 1; border-radius: 10px; background: #ece6d8; color: #766b5c; font-size: 13px; text-align: center; }
+h3 { margin: 0 0 8px; }
+</style>
+</head>
+<body>
+<h1>Generation Comparison Grid</h1>
+<section class='prompt'><h2>warlock_lifesteal_damage</h2><p>Hearthstone card art, Warlock Fel spell, Lifesteal, single-target damage, dark healing magic, green fel energy, fantasy illustration</p><div class='methods'><section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/final_generation_eval/tfidf_reference/images/warlock_lifesteal_damage/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/VAC_951.jpg" alt="">
+<div>&quot;Health&quot; Drink<br>tfidf_baseline</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>druid_solar_lunar_generation</h2><p>Hearthstone card art, Druid Nature spell, living vines, forest magic, emerald natural energy, ancient druidic ritual, fantasy illustration</p><div class='methods'><section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/final_generation_eval/tfidf_reference/images/druid_solar_lunar_generation/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/EX1_155.jpg" alt="">
+<div>Mark of Nature<br>tfidf_baseline</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>deathrattle_taunt_token</h2><p>Hearthstone card art, Deathrattle minion, summons a Taunt token, dark necromantic magic, fantasy creature illustration</p><div class='methods'><section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/final_generation_eval/tfidf_reference/images/deathrattle_taunt_token/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/FP1_028.jpg" alt="">
+<div>Undertaker<br>tfidf_baseline</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>sacrifice_friendly_minion_draw</h2><p>Hearthstone card art, Warlock spell, sacrificing a friendly minion to draw cards, dark ritual, demonic magic, fantasy illustration</p><div class='methods'><section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/final_generation_eval/tfidf_reference/images/sacrifice_friendly_minion_draw/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/VAC_939.jpg" alt="">
+<div>Eat! The! Imp!<br>tfidf_baseline</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>choose_one_demon_or_destroy</h2><p>Hearthstone card art, Choose One spell, Taunt demons that cannot attack or destroying an enemy minion, nightmare magic, fantasy illustration</p><div class='methods'><section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/final_generation_eval/tfidf_reference/images/choose_one_demon_or_destroy/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/EDR_490.jpg" alt="">
+<div>Sleep Paralysis<br>tfidf_baseline</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>freeze_enemy_mage_spell</h2><p>Hearthstone card art, Mage Frost spell, freezing enemy minions, icy blue magic, fantasy illustration</p><div class='methods'><section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/final_generation_eval/tfidf_reference/images/freeze_enemy_mage_spell/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/CS2_026.jpg" alt="">
+<div>Frost Nova<br>tfidf_baseline</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>paladin_token_summoner</h2><p>Hearthstone card art, Paladin holy spell, summoning small silver hand recruits, golden light, heroic fantasy illustration</p><div class='methods'><section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/final_generation_eval/tfidf_reference/images/paladin_token_summoner/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/AT_100.jpg" alt="">
+<div>Silver Hand Regent<br>tfidf_baseline</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>warrior_armor_guardian</h2><p>Hearthstone card art, Warrior gaining armor, heavy shield, forged steel, defensive battle stance, fantasy illustration</p><div class='methods'><section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/final_generation_eval/tfidf_reference/images/warrior_armor_guardian/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/ICC_062.jpg" alt="">
+<div>Mountainfire Armor<br>tfidf_baseline</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>hunter_beast_pack</h2><p>Hearthstone card art, Hunter summoning a powerful charging beast, wild beast magic, dynamic fantasy illustration</p><div class='methods'><section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/final_generation_eval/tfidf_reference/images/hunter_beast_pack/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/ULD_429.jpg" alt="">
+<div>Hunter&#x27;s Pack<br>tfidf_baseline</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>rogue_shadow_dagger</h2><p>Hearthstone card art, Rogue attacking with poisoned daggers, shadow magic, stealthy assassin, fantasy illustration</p><div class='methods'><section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/final_generation_eval/tfidf_reference/images/rogue_shadow_dagger/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/VAC_924.jpg" alt="">
+<div>Weapons Attendant<br>tfidf_baseline</div>
+</div>
+</section></div></section>
+</body>
+</html>

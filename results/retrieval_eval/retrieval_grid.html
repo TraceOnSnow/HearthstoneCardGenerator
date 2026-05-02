@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Retrieval Evaluation Grid</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; color: #1f2937; background: #f8fafc; }
+    h1 { margin-bottom: 4px; }
+    .query { margin: 28px 0; padding: 20px; background: #fff; border: 1px solid #d1d5db; border-radius: 8px; }
+    .query-text { color: #4b5563; }
+    .methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; }
+    .method h3 { margin: 0 0 10px; }
+    .cards { display: grid; gap: 12px; }
+    .card { display: grid; grid-template-columns: 96px 1fr; gap: 12px; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px; background: #ffffff; }
+    .card img { width: 96px; min-height: 96px; object-fit: cover; border-radius: 6px; background: #e5e7eb; }
+    .missing { width: 96px; min-height: 96px; display: grid; place-items: center; background: #e5e7eb; border-radius: 6px; color: #6b7280; font-size: 12px; text-align: center; }
+    .rank { color: #6b7280; font-size: 12px; }
+    h4 { margin: 3px 0 6px; }
+    p { margin: 0 0 6px; line-height: 1.35; }
+    .reasons { color: #0369a1; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <h1>Retrieval Evaluation Grid</h1>
+  
+            <section class="query">
+              <h2>deathrattle_summon_minion</h2>
+              <p class="query-text">Deathrattle minion that summons another minion</p>
+              <div class="methods">
+                <section class="method">
+                  <h3>tfidf_baseline</h3>
+                  <div class="cards">
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#1 · score 168.855657</div>
+          <h4>Oaken Summons</h4>
+          <p>Hearthstone card art, 2, 4 spell, gain armor hero, summon minion from your deck that costs or less, gain_armor, summon, token_generation, armor_synergy, hearthstone fantasy art, 4, summoned creatures, defensive armor</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#2 · score 168.855657</div>
+          <h4>Oaken Summons</h4>
+          <p>Hearthstone card art, 2, 4 spell, gain armor hero, summon minion from your deck that costs or less, gain_armor, summon, token_generation, armor_synergy, hearthstone fantasy art, 4, summoned creatures, defensive armor</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#3 · score 133.488212</div>
+          <h4>Construct Quarter</h4>
+          <p>Hearthstone card art, 1, 39, 53, Rush, summon 4 5 undead with rush, destroy friendly minion to summon a 4 5 undead with rush, destroy, summon, token_generation, has_derived_cards, hearthstone fantasy art, summoned creatures, destructive magic</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#4 · score 129.532567</div>
+          <h4>Delayed Product</h4>
+          <p>Hearthstone card art, 6, 5, 21, summon minion that costs or more, discover and summon a minion that costs or more, discover, summon, token_generation, hearthstone fantasy art, summoned creatures</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#5 · score 128.511065</div>
+          <h4>Story of Umbra</h4>
+          <p>Hearthstone card art, 1, 5, 12, 21, Deathrattle, discover deathrattle minion that costs or more, summon it and trigger its deathrattle, discover, summon, token_generation, hearthstone fantasy art, summoned creatures</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    </div>
+                </section>
+                </div>
+            </section>
+            
+            <section class="query">
+              <h2>druid_nature_buff</h2>
+              <p class="query-text">Druid Nature card that buffs friendly minions</p>
+              <div class="methods">
+                <section class="method">
+                  <h3>tfidf_baseline</h3>
+                  <div class="cards">
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#1 · score 206.508735</div>
+          <h4>Gift of Nature</h4>
+          <p>Hearthstone card art, 4, 5, 21, discover druid spell, discover, hearthstone fantasy art</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#2 · score 190.857486</div>
+          <h4>Freya, Keeper of Nature</h4>
+          <p>Hearthstone card art, 2, 4, summon copies of all other friendly minions, summon, token_generation, hearthstone fantasy art, summoned creatures</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#3 · score 159.149664</div>
+          <h4>History Buff</h4>
+          <p>Hearthstone card art, 12, 4, hearthstone fantasy art</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#4 · score 151.695577</div>
+          <h4>Siphoning Growth</h4>
+          <p>Hearthstone card art, 10, 5, gain armor hero, destroy friendly minion to gain 8 armor, destroy, gain_armor, armor_synergy, hearthstone fantasy art, defensive armor, destructive magic</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#5 · score 135.796113</div>
+          <h4>Nature Studies</h4>
+          <p>Hearthstone card art, 2, 4 spell, 21, discover spell, discover, hearthstone fantasy art, 4</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    </div>
+                </section>
+                </div>
+            </section>
+            
+            <section class="query">
+              <h2>hunter_beast_synergy</h2>
+              <p class="query-text">Hunter card that supports Beasts</p>
+              <div class="methods">
+                <section class="method">
+                  <h3>tfidf_baseline</h3>
+                  <div class="cards">
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#1 · score 213.7557</div>
+          <h4>Hunter&#x27;s Pack</h4>
+          <p>Hearthstone card art, 3, 5, add to hand random hunter beast secret and weapon, add_to_hand, hearthstone fantasy art</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#2 · score 196.88871</div>
+          <h4>Animal Companion</h4>
+          <p>Hearthstone card art, 3, 5, summon beast companion, summon, token_generation, has_derived_cards, hearthstone fantasy art, summoned creatures</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#3 · score 196.88871</div>
+          <h4>Animal Companion</h4>
+          <p>Hearthstone card art, 3, 5, summon beast companion, summon, token_generation, has_derived_cards, hearthstone fantasy art, summoned creatures</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#4 · score 140.917859</div>
+          <h4>Tame Beast (Rank 1)</h4>
+          <p>Hearthstone card art, 3, 5, 53, Rush, summon 2 2 beast with rush, summon, token_generation, has_derived_cards, hearthstone fantasy art, summoned creatures</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#5 · score 140.917859</div>
+          <h4>Tame Beast (Rank 2)</h4>
+          <p>Hearthstone card art, 3, 5, 53, Rush, summon 4 4 beast with rush, summon, token_generation, has_derived_cards, hearthstone fantasy art, summoned creatures</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    </div>
+                </section>
+                </div>
+            </section>
+            
+            <section class="query">
+              <h2>mage_freeze_spell</h2>
+              <p class="query-text">Mage spell that freezes enemies</p>
+              <div class="methods">
+                <section class="method">
+                  <h3>tfidf_baseline</h3>
+                  <div class="cards">
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#1 · score 326.382474</div>
+          <h4>Frost Lich Cross-Stitch</h4>
+          <p>Hearthstone card art, 4, 3 spell, 10, deal damage character, summon 3 6 water elemental that freezes, freeze target, deal_damage, freeze, summon, token_generation, has_derived_cards, hearthstone fantasy art, 3, magical impact, summoned creatures, ice magic</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#2 · score 275.982276</div>
+          <h4>Frost Shock</h4>
+          <p>Hearthstone card art, 8, 3 spell, 10, deal damage enemy character and freeze it, freeze it, deal_damage, freeze, hearthstone fantasy art, 3, magical impact, ice magic</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#3 · score 261.931095</div>
+          <h4>Frost Blast</h4>
+          <p>Hearthstone card art, 12, 10, 18, deal damage enemy hero and freeze it, freeze it, deal_damage, freeze, has_derived_cards, hearthstone fantasy art, magical impact, ice magic</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#4 · score 261.931095</div>
+          <h4>Frost Blast</h4>
+          <p>Hearthstone card art, 12, 10, 18, deal damage enemy hero and freeze it, freeze it, deal_damage, freeze, hearthstone fantasy art, magical impact, ice magic</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#5 · score 249.091235</div>
+          <h4>Frost Nova</h4>
+          <p>Hearthstone card art, 4, 3 spell, 10, freeze all enemy minions, freeze, hearthstone fantasy art, 3, ice magic</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    </div>
+                </section>
+                </div>
+            </section>
+            
+            <section class="query">
+              <h2>paladin_summon_tokens</h2>
+              <p class="query-text">Paladin card that summons minions</p>
+              <div class="methods">
+                <section class="method">
+                  <h3>tfidf_baseline</h3>
+                  <div class="cards">
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#1 · score 193.356253</div>
+          <h4>A Light in the Darkness</h4>
+          <p>Hearthstone card art, 5, 5 spell, 21, discover paladin minion, discover, hearthstone fantasy art</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#2 · score 193.356253</div>
+          <h4>A Light in the Darkness</h4>
+          <p>Hearthstone card art, 5, 5 spell, 21, discover paladin minion, discover, hearthstone fantasy art</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#3 · score 174.200554</div>
+          <h4>Oaken Summons</h4>
+          <p>Hearthstone card art, 2, 4 spell, gain armor hero, summon minion from your deck that costs or less, gain_armor, summon, token_generation, armor_synergy, hearthstone fantasy art, 4, summoned creatures, defensive armor</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#4 · score 174.200554</div>
+          <h4>Oaken Summons</h4>
+          <p>Hearthstone card art, 2, 4 spell, gain armor hero, summon minion from your deck that costs or less, gain_armor, summon, token_generation, armor_synergy, hearthstone fantasy art, 4, summoned creatures, defensive armor</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#5 · score 159.474237</div>
+          <h4>Holy Book</h4>
+          <p>Hearthstone card art, 12, 5 spell, 15, destroy minion, silence and destroy a minion, summon 10 10 copy of it, destroy, silence, summon, token_generation, hearthstone fantasy art, 5, summoned creatures, destructive magic</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    </div>
+                </section>
+                </div>
+            </section>
+            
+            <section class="query">
+              <h2>priest_healing_card</h2>
+              <p class="query-text">Priest card that restores Health</p>
+              <div class="methods">
+                <section class="method">
+                  <h3>tfidf_baseline</h3>
+                  <div class="cards">
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#1 · score 216.154288</div>
+          <h4>Holy Maki Roll</h4>
+          <p>Hearthstone card art, 5, 5 spell, heal character, heal, hearthstone fantasy art, healing energy</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#2 · score 216.154288</div>
+          <h4>Holy Springwater</h4>
+          <p>Hearthstone card art, 6, 5 spell, heal damaged character, heal, has_derived_cards, hearthstone fantasy art, 5, healing energy</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#3 · score 213.376344</div>
+          <h4>Holy Nova</h4>
+          <p>Hearthstone card art, 6, 5 spell, deal damage all enemy minions, heal all friendly characters, deal_damage, heal, hearthstone fantasy art, 5, magical impact, healing energy</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#4 · score 213.376344</div>
+          <h4>Holy Ripple</h4>
+          <p>Hearthstone card art, 6, 5 spell, deal damage all enemies, heal all friendly characters, deal_damage, heal, hearthstone fantasy art, 5, magical impact, healing energy</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#5 · score 213.376344</div>
+          <h4>Holy Nova</h4>
+          <p>Hearthstone card art, 6, 5 spell, deal damage all enemy minions, heal all friendly characters, deal_damage, heal, hearthstone fantasy art, 5, magical impact, healing energy</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    </div>
+                </section>
+                </div>
+            </section>
+            
+            <section class="query">
+              <h2>rogue_weapon_or_attack</h2>
+              <p class="query-text">Rogue card about weapons or attacking</p>
+              <div class="methods">
+                <section class="method">
+                  <h3>tfidf_baseline</h3>
+                  <div class="cards">
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#1 · score 264.505899</div>
+          <h4>Weapons Project</h4>
+          <p>Hearthstone card art, 10, 5, gain armor hero, equip 2 3 weapon and gains 6 armor, equip, gain_armor, armor_synergy, has_derived_cards, hearthstone fantasy art, defensive armor</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#2 · score 213.611487</div>
+          <h4>Weapons Attendant</h4>
+          <p>Hearthstone card art, 12, 4, 23, 8, Battlecry, equip random weapon from your deck, equip, hearthstone fantasy art</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#3 · score 187.971856</div>
+          <h4>Spiked Shield</h4>
+          <p>Hearthstone card art, 10, 5, gain armor hero, equip 5 2 weapon, equip, gain_armor, armor_synergy, has_derived_cards, hearthstone fantasy art, defensive armor</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#4 · score 182.641269</div>
+          <h4>Shadow Word: Forbid</h4>
+          <p>Hearthstone card art, 6, 6 spell, 91, 97, Tradeable, destroy 4 attack minion, destroy all 4 attack minions, destroy, has_derived_cards, hearthstone fantasy art, destructive magic</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#5 · score 179.485685</div>
+          <h4>Dagger Mastery</h4>
+          <p>Hearthstone card art, 7, 10, equip 1 2 dagger, equip, hearthstone fantasy art</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    </div>
+                </section>
+                </div>
+            </section>
+            
+            <section class="query">
+              <h2>shaman_elemental_spell</h2>
+              <p class="query-text">Shaman card with elemental or Nature magic</p>
+              <div class="methods">
+                <section class="method">
+                  <h3>tfidf_baseline</h3>
+                  <div class="cards">
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#1 · score 140.123934</div>
+          <h4>Nature&#x27;s Grasp</h4>
+          <p>Hearthstone card art, 2, 10, 1, Taunt, summon 2 2 treant with taunt, summon, token_generation, has_derived_cards, hearthstone fantasy art, summoned creatures</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#2 · score 135.796113</div>
+          <h4>Nature Studies</h4>
+          <p>Hearthstone card art, 2, 4 spell, 21, discover spell, discover, hearthstone fantasy art, 4</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#3 · score 135.796113</div>
+          <h4>Lightning Reflexes</h4>
+          <p>Hearthstone card art, 8, 4 spell, 21, discover nature spell, discover another, discover, hearthstone fantasy art, 4</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#4 · score 135.796113</div>
+          <h4>Horn of Plenty</h4>
+          <p>Hearthstone card art, 2, 4 spell, 21, discover nature spell, discover, hearthstone fantasy art, 4</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#5 · score 130.043786</div>
+          <h4>Mark of Nature</h4>
+          <p>Hearthstone card art, 2, 4 spell, 1, Taunt, hearthstone fantasy art, 4</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    </div>
+                </section>
+                </div>
+            </section>
+            
+            <section class="query">
+              <h2>warlock_lifesteal_damage</h2>
+              <p class="query-text">Warlock spell that deals damage and has Lifesteal</p>
+              <div class="methods">
+                <section class="method">
+                  <h3>tfidf_baseline</h3>
+                  <div class="cards">
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#1 · score 254.434858</div>
+          <h4>Unleash Fel</h4>
+          <p>Hearthstone card art, 14, 7 spell, 38, 257, Lifesteal, deal damage all enemies, deal_damage, lifesteal_damage, hearthstone fantasy art, 7, magical impact</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#2 · score 204.041394</div>
+          <h4>Felscream Blast</h4>
+          <p>Hearthstone card art, 14, 7 spell, 38, Lifesteal, deal damage minion and its neighbors, deal_damage, lifesteal_damage, hearthstone fantasy art, 7, magical impact</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#3 · score 186.57405</div>
+          <h4>Lesser Amethyst Spellstone</h4>
+          <p>Hearthstone card art, 9, 6 spell, 38, Lifesteal, deal damage minion, deal_damage, lifesteal_damage, has_derived_cards, hearthstone fantasy art, 6, magical impact</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#4 · score 186.57405</div>
+          <h4>Amethyst Spellstone</h4>
+          <p>Hearthstone card art, 9, 6 spell, 38, Lifesteal, deal damage minion, deal_damage, lifesteal_damage, has_derived_cards, hearthstone fantasy art, 6, magical impact</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#5 · score 186.57405</div>
+          <h4>&quot;Health&quot; Drink</h4>
+          <p>Hearthstone card art, 9, 7 spell, 38, Lifesteal, deal damage minion, deal_damage, lifesteal_damage, has_derived_cards, hearthstone fantasy art, 7, magical impact</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    </div>
+                </section>
+                </div>
+            </section>
+            
+            <section class="query">
+              <h2>warrior_gain_armor</h2>
+              <p class="query-text">Warrior card that gains Armor</p>
+              <div class="methods">
+                <section class="method">
+                  <h3>tfidf_baseline</h3>
+                  <div class="cards">
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#1 · score 311.890204</div>
+          <h4>Weapons Project</h4>
+          <p>Hearthstone card art, 10, 5, gain armor hero, equip 2 3 weapon and gains 6 armor, equip, gain_armor, armor_synergy, has_derived_cards, hearthstone fantasy art, defensive armor</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#2 · score 308.058383</div>
+          <h4>Armored Goon</h4>
+          <p>Hearthstone card art, 10, 4, gain armor hero, gain_armor, armor_synergy, hearthstone fantasy art, defensive armor</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#3 · score 274.781551</div>
+          <h4>Oaken Summons</h4>
+          <p>Hearthstone card art, 2, 4 spell, gain armor hero, summon minion from your deck that costs or less, gain_armor, summon, token_generation, armor_synergy, hearthstone fantasy art, 4, summoned creatures, defensive armor</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#4 · score 274.781551</div>
+          <h4>Oaken Summons</h4>
+          <p>Hearthstone card art, 2, 4 spell, gain armor hero, summon minion from your deck that costs or less, gain_armor, summon, token_generation, armor_synergy, hearthstone fantasy art, 4, summoned creatures, defensive armor</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <div class="missing">No image path</div>
+        <div class="meta">
+          <div class="rank">#5 · score 272.78312</div>
+          <h4>Siphoning Growth</h4>
+          <p>Hearthstone card art, 10, 5, gain armor hero, destroy friendly minion to gain 8 armor, destroy, gain_armor, armor_synergy, hearthstone fantasy art, defensive armor, destructive magic</p>
+          <p class="reasons"></p>
+        </div>
+      </article>
+    </div>
+                </section>
+                </div>
+            </section>
+            
+</body>
+</html>
