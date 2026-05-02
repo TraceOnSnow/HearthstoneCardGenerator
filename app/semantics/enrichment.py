@@ -60,6 +60,9 @@ def run_enrichment(
     timeout_seconds: int = 90,
     resume: bool = True,
     force_llm: bool = False,
+    concurrency: int = 1,
+    max_retries: int = 0,
+    retry_backoff_seconds: float = 10.0,
 ) -> dict[str, Any]:
     out_dir.mkdir(parents=True, exist_ok=True)
     prompts_path = out_dir / "enrichment_prompts.jsonl"
@@ -97,6 +100,9 @@ def run_enrichment(
         timeout_seconds=timeout_seconds,
         resume=resume,
         force=force_llm,
+        concurrency=concurrency,
+        max_retries=max_retries,
+        retry_backoff_seconds=retry_backoff_seconds,
     )
 
     outputs = read_jsonl(outputs_path)
@@ -118,6 +124,8 @@ def run_enrichment(
                 "class_name": class_name,
                 "card_ids": sorted(card_ids) if card_ids else None,
                 "collectible_only": collectible_only,
+                "concurrency": concurrency,
+                "max_retries": max_retries,
             },
             ensure_ascii=False,
             indent=2,

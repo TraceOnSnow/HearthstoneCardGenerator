@@ -36,6 +36,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--model", help="LLM model name. Defaults by provider.")
     parser.add_argument("--temperature", type=float, default=0.1)
     parser.add_argument("--timeout-seconds", type=int, default=90)
+    parser.add_argument("--concurrency", type=int, default=1, help="Number of concurrent LLM requests. Start with 4 for MiniMax.")
+    parser.add_argument("--max-retries", type=int, default=0, help="Retries per failed LLM batch.")
+    parser.add_argument("--retry-backoff-seconds", type=float, default=10.0)
     parser.add_argument("--no-resume", action="store_true")
     parser.add_argument("--force-llm", action="store_true")
     return parser.parse_args()
@@ -60,6 +63,9 @@ def main() -> None:
         model=model,
         temperature=args.temperature,
         timeout_seconds=args.timeout_seconds,
+        concurrency=args.concurrency,
+        max_retries=args.max_retries,
+        retry_backoff_seconds=args.retry_backoff_seconds,
         resume=not args.no_resume,
         force_llm=args.force_llm,
     )

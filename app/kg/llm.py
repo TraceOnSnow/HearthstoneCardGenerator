@@ -6,6 +6,9 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from pathlib import Path
+from threading import Lock
 from typing import Any
 
 from app.kg.io import append_jsonl
@@ -172,6 +175,9 @@ def run_llm_batches(
     timeout_seconds: int,
     resume: bool,
     force: bool,
+    concurrency: int = 1,
+    max_retries: int = 0,
+    retry_backoff_seconds: float = 10.0,
 ) -> list[dict[str, Any]]:
     load_dotenv()
     completed_status = "dry_run" if dry_run else "ok"
@@ -183,17 +189,84 @@ def run_llm_batches(
     outputs: list[dict[str, Any]] = list(existing_outputs) if resume and not force else []
 
     api_key = "" if dry_run else _api_key_for_provider(provider)
+    pending_rows = [
+        row
+        for row in prompt_rows
+        if not (resume and not force and row["batch_id"] in completed_by_batch)
+    ]
 
-    for row in prompt_rows:
-        batch_id = row["batch_id"]
-        if resume and not force and batch_id in completed_by_batch:
-            continue
+    if concurrency <= 1 or dry_run:
+        for row in pending_rows:
+            output_row = _run_one_llm_batch(
+                row,
+                dry_run=dry_run,
+                provider=provider,
+                api_key=api_key,
+                model=model,
+                temperature=temperature,
+                timeout_seconds=timeout_seconds,
+                max_retries=max_retries,
+                retry_backoff_seconds=retry_backoff_seconds,
+            )
+            outputs.append(output_row)
+            append_jsonl(output_path, output_row)
+            print(f"batch={row['batch_id']} cards={row['card_count']} status={output_row['status']}")
+        return outputs
 
+    output_path = Path(output_path)
+    write_lock = Lock()
+    with ThreadPoolExecutor(max_workers=concurrency) as executor:
+        futures = [
+            executor.submit(
+                _run_one_llm_batch,
+                row,
+                dry_run=dry_run,
+                provider=provider,
+                api_key=api_key,
+                model=model,
+                temperature=temperature,
+                timeout_seconds=timeout_seconds,
+                max_retries=max_retries,
+                retry_backoff_seconds=retry_backoff_seconds,
+            )
+            for row in pending_rows
+        ]
+        for future in as_completed(futures):
+            output_row = future.result()
+            with write_lock:
+                outputs.append(output_row)
+                append_jsonl(output_path, output_row)
+            print(f"batch={output_row['batch_id']} cards={output_row['card_count']} status={output_row['status']}")
+
+    return outputs
+
+
+def _run_one_llm_batch(
+    row: dict[str, Any],
+    *,
+    dry_run: bool,
+    provider: str,
+    api_key: str,
+    model: str,
+    temperature: float,
+    timeout_seconds: int,
+    max_retries: int,
+    retry_backoff_seconds: float,
+) -> dict[str, Any]:
+    batch_id = row["batch_id"]
+    attempts = max(1, max_retries + 1)
+    last_error = ""
+    result_text = ""
+    status = "failed"
+    started_at = time.time()
+
+    for attempt in range(1, attempts + 1):
         started_at = time.time()
         if dry_run:
             result_text = json.dumps({"cards": []}, ensure_ascii=False)
             status = "dry_run"
             error = ""
+            break
         else:
             try:
                 result_text = _generate_content(
@@ -206,6 +279,7 @@ def run_llm_batches(
                 )
                 status = "ok"
                 error = ""
+                break
             except urllib.error.HTTPError as exc:
                 result_text = ""
                 status = "failed"
@@ -215,18 +289,17 @@ def run_llm_batches(
                 result_text = ""
                 status = "failed"
                 error = str(exc)
+        last_error = error
+        if attempt < attempts:
+            time.sleep(retry_backoff_seconds * attempt)
 
-        output_row = {
-            "batch_id": batch_id,
-            "card_count": row["card_count"],
-            "card_ids": row["card_ids"],
-            "status": status,
-            "error": error,
-            "raw_response": result_text,
-            "elapsed_seconds": round(time.time() - started_at, 3),
-        }
-        outputs.append(output_row)
-        append_jsonl(output_path, output_row)
-        print(f"batch={batch_id} cards={row['card_count']} status={status}")
-
-    return outputs
+    return {
+        "batch_id": batch_id,
+        "card_count": row["card_count"],
+        "card_ids": row["card_ids"],
+        "status": status,
+        "error": last_error if status == "failed" else "",
+        "raw_response": result_text,
+        "attempts": attempts if status == "failed" else attempt,
+        "elapsed_seconds": round(time.time() - started_at, 3),
+    }
