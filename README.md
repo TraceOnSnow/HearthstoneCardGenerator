@@ -38,6 +38,7 @@ uv run python scripts/fetch_hf_art_dataset.py \
   --output-dir data/hf_hearthstone_art_512
 ```
 
+
 If the Hugging Face dataset is private, authenticate first with `huggingface-cli login` or set `HF_TOKEN`.
 
 ## Environment
