@@ -12,12 +12,14 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from app.generation.comparison import (  # noqa: E402
+    GENERATION_METHODS,
     build_generation_plan,
     load_generation_prompts,
     load_top_references,
     make_contact_sheet,
     render_generation_grid,
     write_generation_judging_template,
+    write_prompt_review_template,
     write_plan,
 )
 
@@ -43,7 +45,15 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--width", type=int, default=512)
     parser.add_argument("--height", type=int, default=512)
     parser.add_argument("--limit", type=int, help="Only process the first N prompts.")
-    parser.add_argument("--run", action="store_true", help="Actually run diffusion. Without this, only writes plan, HTML, and judging CSV.")
+    parser.add_argument(
+        "--methods",
+        nargs="+",
+        choices=GENERATION_METHODS,
+        default=GENERATION_METHODS,
+        help="Generation methods to include. Use `--methods sd_text_only lora_text_only` for LoRA-vs-base text-only.",
+    )
+    parser.add_argument("--run", action="store_true", help="Actually run diffusion. Without this, only writes plan, HTML, contact sheet, and prompt review CSV.")
+    parser.add_argument("--write-judging-template", action="store_true", help="Also write the old human scoring template.")
     parser.add_argument("--skip-existing", action="store_true", default=True)
     parser.add_argument("--overwrite", action="store_true", help="Regenerate images even if output files already exist.")
     return parser.parse_args()
@@ -64,19 +74,24 @@ def main() -> None:
         negative_prompt=args.negative_prompt,
         seed=args.seed,
     )
+    rows = [row for row in rows if row["method"] in set(args.methods)]
 
     if args.run:
         rows = _run_generation(rows, args)
 
     write_plan(args.out_dir / "generation_plan.jsonl", rows)
-    write_generation_judging_template(rows, args.out_dir / "generation_judging_template.csv")
+    write_prompt_review_template(prompts, args.out_dir / "prompt_review.csv")
+    if args.write_judging_template:
+        write_generation_judging_template(rows, args.out_dir / "generation_judging_template.csv")
     render_generation_grid(rows, out_path=args.out_dir / "generation_grid.html")
     make_contact_sheet(rows, out_path=args.out_dir / "generation_contact_sheet.png")
     print(f"prompts={len(prompts)}")
     print(f"rows={len(rows)}")
     print(f"plan={args.out_dir / 'generation_plan.jsonl'}")
     print(f"grid={args.out_dir / 'generation_grid.html'}")
-    print(f"judging={args.out_dir / 'generation_judging_template.csv'}")
+    print(f"prompt_review={args.out_dir / 'prompt_review.csv'}")
+    if args.write_judging_template:
+        print(f"judging={args.out_dir / 'generation_judging_template.csv'}")
 
 
 def _run_generation(rows: list[dict[str, Any]], args: argparse.Namespace) -> list[dict[str, Any]]:

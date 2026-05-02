@@ -32,6 +32,14 @@ JUDGING_FIELDS = [
     "notes",
 ]
 
+PROMPT_REVIEW_FIELDS = [
+    "prompt_id",
+    "query_id",
+    "prompt",
+    "approved",
+    "notes",
+]
+
 
 @dataclass(frozen=True)
 class GenerationPrompt:
@@ -138,6 +146,23 @@ def write_generation_judging_template(plan_rows: list[dict[str, Any]], out_path:
             )
 
 
+def write_prompt_review_template(prompts: list[GenerationPrompt], out_path: Path) -> None:
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with out_path.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=PROMPT_REVIEW_FIELDS)
+        writer.writeheader()
+        for prompt in prompts:
+            writer.writerow(
+                {
+                    "prompt_id": prompt.prompt_id,
+                    "query_id": prompt.query_id,
+                    "prompt": prompt.prompt,
+                    "approved": "",
+                    "notes": "",
+                }
+            )
+
+
 def render_generation_grid(plan_rows: list[dict[str, Any]], *, out_path: Path) -> None:
     by_prompt: dict[str, list[dict[str, Any]]] = {}
     for row in plan_rows:
@@ -184,7 +209,7 @@ def make_contact_sheet(plan_rows: list[dict[str, Any]], *, out_path: Path, cell_
         return
 
     prompt_ids = list(dict.fromkeys(str(row["prompt_id"]) for row in plan_rows))
-    methods = GENERATION_METHODS
+    methods = [method for method in GENERATION_METHODS if any(row.get("method") == method for row in plan_rows)]
     width = cell_size * len(methods)
     header_h = 80
     row_h = cell_size + 70
@@ -204,7 +229,7 @@ def make_contact_sheet(plan_rows: list[dict[str, Any]], *, out_path: Path, cell_
             row = rows_by_key.get((prompt_id, method), {})
             image_path = Path(str(row.get("output_image", "")))
             x = col * cell_size
-            if image_path.exists():
+            if image_path.is_file():
                 image = Image.open(image_path).convert("RGB").resize((cell_size, cell_size))
                 sheet.paste(image, (x, y + 28))
             else:
