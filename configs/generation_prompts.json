@@ -7,13 +7,13 @@
     },
     {
       "prompt_id": "druid_solar_lunar_generation",
-      "query_id": "druid_solar_lunar_generation",
-      "prompt": "Hearthstone card art, Druid spell, Solar Eclipse and Lunar Eclipse magic, moonlight and sunlight, nature spell synergy, fantasy illustration"
+      "query_id": "druid_nature_spell",
+      "prompt": "Hearthstone card art, Druid Nature spell, living vines, forest magic, emerald natural energy, ancient druidic ritual, fantasy illustration"
     },
     {
       "prompt_id": "deathrattle_taunt_token",
       "query_id": "deathrattle_taunt_token",
-      "prompt": "Hearthstone card art, Deathrattle minion, summons a Taunt token, protective undead guardian, fantasy creature illustration"
+      "prompt": "Hearthstone card art, Deathrattle minion, summons a Taunt token, dark necromantic magic, fantasy creature illustration"
     },
     {
       "prompt_id": "sacrifice_friendly_minion_draw",
@@ -28,7 +28,27 @@
     {
       "prompt_id": "freeze_enemy_mage_spell",
       "query_id": "freeze_enemy_mage_spell",
-      "prompt": "Hearthstone card art, Mage Frost spell, freezing enemy minions, icy blue magic, snowstorm, fantasy illustration"
+      "prompt": "Hearthstone card art, Mage Frost spell, freezing enemy minions, icy blue magic, fantasy illustration"
+    },
+    {
+      "prompt_id": "paladin_token_summoner",
+      "query_id": "paladin_summon_tokens",
+      "prompt": "Hearthstone card art, Paladin holy spell, summoning small silver hand recruits, golden light, heroic fantasy illustration"
+    },
+    {
+      "prompt_id": "warrior_armor_guardian",
+      "query_id": "armor_gain_warrior",
+      "prompt": "Hearthstone card art, Warrior gaining armor, heavy shield, forged steel, defensive battle stance, fantasy illustration"
+    },
+    {
+      "prompt_id": "hunter_beast_pack",
+      "query_id": "hunter_beast_synergy",
+      "prompt": "Hearthstone card art, Hunter summoning a powerful charging beast, wild beast magic, dynamic fantasy illustration"
+    },
+    {
+      "prompt_id": "rogue_shadow_dagger",
+      "query_id": "rogue_weapon_or_attack",
+      "prompt": "Hearthstone card art, Rogue attacking with poisoned daggers, shadow magic, stealthy assassin, fantasy illustration"
     }
   ]
 }

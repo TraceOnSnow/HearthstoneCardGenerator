@@ -13,13 +13,12 @@
       "mechanic_tags": ["lifesteal_damage"]
     },
     {
-      "query_id": "druid_solar_lunar_generation",
-      "text": "Druid card that gives or generates Solar Eclipse and Lunar Eclipse.",
+      "query_id": "druid_nature_spell",
+      "text": "Druid Nature spell with forest magic and natural energy.",
       "classes": ["Druid"],
-      "actions": ["add_to_hand"],
-      "generated_card_names": ["Solar Eclipse", "Lunar Eclipse"],
-      "related_card_names": ["Solar Eclipse", "Lunar Eclipse"],
-      "mechanic_tags": ["spell_synergy"]
+      "card_types": ["Spell"],
+      "spell_schools": ["Nature"],
+      "mechanic_tags": ["nature_spell", "spell_synergy"]
     },
     {
       "query_id": "deathrattle_taunt_token",
@@ -87,6 +86,35 @@
       "actions": ["gain_armor"],
       "resources": ["armor"],
       "mechanic_tags": ["armor_gain"]
+    },
+    {
+      "query_id": "paladin_summon_tokens",
+      "text": "Paladin holy spell that summons Silver Hand Recruit tokens.",
+      "classes": ["Paladin"],
+      "card_types": ["Spell", "Minion"],
+      "actions": ["summon"],
+      "targets": ["minion"],
+      "spell_schools": ["Holy"],
+      "mechanic_tags": ["token_generation"]
+    },
+    {
+      "query_id": "hunter_beast_synergy",
+      "text": "Hunter card that summons or supports a powerful charging Beast.",
+      "classes": ["Hunter"],
+      "card_types": ["Spell", "Minion"],
+      "actions": ["summon"],
+      "targets": ["beast"],
+      "minion_types": ["Beast"],
+      "mechanic_tags": ["beast_synergy"]
+    },
+    {
+      "query_id": "rogue_weapon_or_attack",
+      "text": "Rogue card about attacking with poisoned daggers or shadow weapons.",
+      "classes": ["Rogue"],
+      "card_types": ["Weapon", "Spell", "Minion"],
+      "actions": ["attack", "equip"],
+      "targets": ["enemy"],
+      "mechanic_tags": ["weapon_synergy", "attack_synergy"]
     },
     {
       "query_id": "freeze_enemy_mage_spell",
