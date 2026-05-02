@@ -8,12 +8,14 @@
 \usepackage{amssymb}
 \usepackage{booktabs}
 \usepackage{multirow}
+\usepackage[table]{xcolor}
 \usepackage[breaklinks=true,bookmarks=false]{hyperref}
 
 \cvprfinalcopy
 \def\cvprPaperID{****}
 \def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
 \setcounter{page}{1}
+\definecolor{blue300}{HTML}{9FD2F5}
 
 \newcommand{\figplaceholder}[2]{
 \fbox{\begin{minipage}[c][#2][c]{#1}
@@ -22,6 +24,33 @@
 \small Replace with exported PDF/SVG figure.\\
 Do not use notebook or terminal screenshots.
 \end{minipage}}
+}
+
+\newcommand{\flowbox}[2]{
+\setlength{\fboxsep}{4pt}
+\fbox{\begin{minipage}[t]{#1}
+\vspace{0.25em}
+#2
+\vspace{0.25em}
+\end{minipage}}
+}
+
+\newcommand{\refcard}[3]{
+\begin{minipage}[t]{0.23\textwidth}
+\centering
+\includegraphics[height=0.82in]{#1}\\[-0.15em]
+{\scriptsize \textbf{#2}\\#3}
+\end{minipage}
+}
+
+\newcommand{\resultcase}[4]{
+\begin{minipage}[t]{0.31\textwidth}
+\centering
+\includegraphics[width=0.92\linewidth]{#1}\\[0.15em]
+{\scriptsize \textbf{#2}}\\[-0.1em]
+{\scriptsize #3}\\[0.05em]
+{\scriptsize \emph{#4}}
+\end{minipage}
 }
 
 \begin{document}
@@ -68,9 +97,16 @@ We optionally enrich this base representation using MiniMax-M2.7~\cite{minimaxm2
 
 \subsection{Semantic Knowledge Graph}
 
-The KG contains card nodes and value nodes. Important node types include class, card type, keyword, action, target, resource, mechanic tag, generated card name, and related card name. Edges include \texttt{HAS\_CLASS}, \texttt{HAS\_KEYWORD}, \texttt{PERFORMS\_ACTION}, \texttt{AFFECTS\_RESOURCE}, \texttt{GENERATES\_CARD}, and \texttt{HAS\_CHILD\_CARD}. Visual tags are intentionally excluded from the KG facts because they are derived from text and should not be double-counted as gameplay evidence.
+The KG is built from structured semantics rather than directly from raw card text. It is close to a bipartite graph: card nodes connect to typed semantic attribute nodes. Important attribute node types include class, card type, keyword, action, target, resource, spell school, generated card name, and related card name. Edges include \texttt{HAS\_CLASS}, \texttt{HAS\_CARD\_TYPE}, \texttt{HAS\_KEYWORD}, \texttt{PERFORMS\_ACTION}, \texttt{TARGETS}, \texttt{AFFECTS\_RESOURCE}, \texttt{GENERATES\_CARD}, and \texttt{HAS\_CHILD\_CARD}. Visual tags are intentionally excluded from the KG facts because they are derived from text and should not be double-counted as gameplay evidence.
 
 Natural-language requests are parsed into structured queries. A query contains fields such as class, card type, actions, resources, keywords, generated card names, and related card names. Retrieval first scores cards by matching query fields to KG nodes. However, a single flat ranking can over-rank repeated mechanic matches. Therefore, for card design we return a faceted evidence package: family/name anchors, mechanic matches, identity matches, and a diversified shortlist. This is important for requests such as a Rager meme card, where a lower-ranked Magma Rager anchor may be more useful than another high-scoring Warrior armor card.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/kg/health_drink_kg_neighborhood.pdf}
+\caption{\textbf{Semantic KG neighborhood sampled from the real graph.} The card node ``Health'' Drink connects to typed semantic attributes such as class, card type, spell school, keyword, action, and target. User queries are mapped into the same attribute space, so retrieval can match gameplay semantics rather than only raw text or visual similarity.}
+\label{fig:semantic_kg}
+\end{figure}
 
 \subsection{Generation Pipeline}
 
@@ -78,8 +114,67 @@ For image generation we compare Stable Diffusion v1.5 text-only generation, LoRA
 
 \begin{figure*}[t]
 \centering
-\figplaceholder{0.96\textwidth}{2.15in}
-\caption{\textbf{System overview placeholder.} Replace with a MovieGen-style figure using real examples. Row 1: user request and structured KG query. Row 2: KG evidence such as Magma Rager and Warrior armor cards, followed by the generated structured card Iron Rager. Row 3: artwork generation outputs showing SD text-only, LoRA text-only, LoRA+TF-IDF reference, and LoRA+KG reference.}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{p{0.47\textwidth}p{0.47\textwidth}}
+\rowcolor{blue300}
+\multicolumn{2}{c}{\textbf{From natural language to structured card-art generation}}\\[0.25em]
+\flowbox{0.45\textwidth}{
+\textbf{Natural-language request}\\
+``DIY a new Rager meme card inspired by Magma Rager's 3-mana 5/1 statline, but make it a defensive Control Warrior card that gains Armor.''
+}
+&
+\flowbox{0.45\textwidth}{
+\textbf{Structured KG query}\\
+class: Warrior; type: Minion; action: gain\_armor; related cards: Magma Rager, Rager; constraints: 5/1 statline, defensive Control Warrior, simple meme card.
+}
+\\[0.75em]
+\rowcolor{blue300}
+\multicolumn{2}{c}{\textbf{Faceted KG evidence: family anchor + mechanic anchor + class identity}}\\[0.25em]
+\multicolumn{2}{c}{
+\refcard{figures/figure1/magma_rager.jpg}{Magma Rager}{family/statline anchor}
+\hfill
+\refcard{figures/figure1/hookfist_3000.jpg}{Hookfist-3000}{Warrior armor mechanic}
+\hfill
+\refcard{figures/figure1/armorsmith.jpg}{Armorsmith}{class identity}
+\hfill
+\refcard{figures/figure1/eternium_rover.jpg}{Eternium Rover}{defensive flavor}
+}
+\\[0.75em]
+\rowcolor{blue300}
+\multicolumn{2}{c}{\textbf{Card design and generation prompt}}\\[0.25em]
+\flowbox{0.45\textwidth}{
+\textbf{Generated card text}\\
+\textit{Iron Rager}. 3 Mana Warrior Minion, 5/1.\\
+Battlecry: Gain 3 Armor.\\
+Flavor: Molten fury tempered by iron will.
+}
+&
+\flowbox{0.45\textwidth}{
+\textbf{LoRA caption}\\
+Hearthstone card art, a burly elemental rager forged from molten rock and clad in iron armor, Warrior class, glowing embers and metallic plates.
+}
+\\[0.75em]
+\rowcolor{blue300}
+\multicolumn{2}{c}{\textbf{Generated artwork and final playable-card composition}}\\[0.25em]
+\begin{minipage}[t]{0.47\textwidth}
+\centering
+\includegraphics[height=1.25in]{figures/figure1/iron_rager_generated.png}\\[-0.2em]
+{\scriptsize LoRA + KG reference output}
+\end{minipage}
+&
+\begin{minipage}[t]{0.47\textwidth}
+\centering
+\fbox{\begin{minipage}[c][1.25in][c]{0.78\linewidth}
+\centering
+HearthDIY final card placeholder\\
+\scriptsize Replace with exported framed card image.
+\end{minipage}}\\[-0.2em]
+{\scriptsize External HearthDIY composition}
+\end{minipage}
+\end{tabular}
+\caption{\textbf{End-to-end HearthGen case study.} A vague community-style request is converted into structured semantics, matched against faceted KG evidence, turned into a playable card design and LoRA caption, and finally rendered as Hearthstone-style artwork.}
 \label{fig:overview}
 \end{figure*}
 
@@ -93,12 +188,26 @@ We compare three retrieval methods: TF-IDF over captions, CLIP text-to-image nea
 
 \subsection{Generation Evaluation}
 
-For generation, we compare SD text-only, LoRA text-only, LoRA with TF-IDF references, and LoRA with KG references on the same prompts. We report automatic proxy metrics: CLIP prompt alignment, style similarity to Hearthstone references, and reference similarity. These metrics do not fully measure card-design correctness, so we also include qualitative side-by-side examples and failure analysis.
+For generation, we compare SD text-only, SD with references, LoRA text-only, and LoRA with KG references on the same prompts. We report automatic proxy metrics: CLIP prompt alignment, style similarity to Hearthstone references, and reference similarity. These metrics do not fully measure card-design correctness, so we also include qualitative side-by-side examples and failure analysis.
 
 \begin{figure*}[t]
 \centering
-\figplaceholder{0.96\textwidth}{2.3in}
-\caption{\textbf{Qualitative generation placeholder.} Replace with a grid of 4--6 prompts. Columns should be: prompt, SD text-only, LoRA text-only, LoRA+TF-IDF reference, LoRA+KG reference. Use real generated images from \texttt{results/final\_generation\_eval/}.}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{ccc}
+\resultcase{figures/figure2/rager.png}{Iron Rager}{3 Mana Warrior Minion, 5/1. Battlecry: Gain 3 Armor.}{Vague meme/family request}
+&
+\resultcase{figures/figure2/druid_eclipse.png}{Eclipse Weaver}{4 Mana Druid Minion, 3/5. Battlecry: Add Solar Eclipse and Lunar Eclipse to your hand.}{Implicit related-card request}
+&
+\resultcase{figures/figure2/paladin_recruits.png}{Silver Hand Commander}{5 Mana Paladin Minion, 4/5. Battlecry: Summon two 1/1 Silver Hand Recruits. Your Silver Hand Recruits have +1 Attack.}{Token/archetype request}
+\\[0.9em]
+\resultcase{figures/figure2/mage_freeze.png}{Frozen Tempest}{5 Mana Mage Spell. Deal 2 damage to all enemy minions. Freeze them until end of turn.}{Mechanic-first request}
+&
+\resultcase{figures/figure2/warrior_weapon.png}{Iron Oathbreaker}{3 Mana Warrior Weapon, 3/2. After your hero gains Armor, this weapon has +1 Attack until end of turn.}{Fully specified card}
+&
+\resultcase{figures/figure2/bronze_dragon.png}{Chrono-Bronze Drake}{6 Mana Neutral Dragon, 5/7. Battlecry: Discover a card. If you control a Mech, reduce its Cost by (2).}{Art-first request}
+\end{tabular}
+\caption{\textbf{LoRA + KG-reference qualitative outputs.} Six representative user prompts are shown as final generated artwork with the corresponding card description. The set intentionally mixes vague creative requests, implicit Hearthstone references, mechanic-first briefs, fully specified card text, and art-first requests.}
 \label{fig:qualitative}
 \end{figure*}
 
@@ -109,13 +218,13 @@ For generation, we compare SD text-only, LoRA text-only, LoRA with TF-IDF refere
 \toprule
 \textbf{Method} & \textbf{Align.}$\uparrow$ & \textbf{Style}$\uparrow$ & \textbf{Ref.}$\uparrow$ \\
 \midrule
-SD text-only & XX & XX & -- \\
-LoRA text-only & XX & XX & -- \\
-LoRA + TF-IDF ref & XX & XX & XX \\
-LoRA + KG ref & XX & XX & XX \\
+SD text-only & 0.296 & 0.750 & -- \\
+SD + KG ref & 0.295 & 0.837 & 0.796 \\
+LoRA text-only & 0.301 & 0.858 & -- \\
+LoRA + KG ref & 0.297 & 0.861 & 0.830 \\
 \bottomrule
 \end{tabular}
-\caption{Generation metrics placeholder. Fill from \texttt{generation\_metrics\_summary.csv}. Alignment is CLIP prompt-image similarity; Style is similarity to Hearthstone art references; Ref. is similarity to the selected reference image.}
+\caption{Generation proxy metrics on 19 DIY prompts. Alignment is CLIP prompt-image similarity; Style is similarity to Hearthstone art references; Ref. is similarity to the selected KG reference image.}
 \label{tab:generation}
 \end{table}
 
@@ -126,12 +235,12 @@ LoRA + KG ref & XX & XX & XX \\
 \toprule
 \textbf{Retrieval} & \textbf{Rel.@5}$\uparrow$ & \textbf{Main failure mode} \\
 \midrule
-TF-IDF & XX & literal keywords \\
-CLIP & XX & visual but not mechanic match \\
-KG & XX & repeated facet over-ranking \\
+TF-IDF & 0.679 & literal keywords \\
+CLIP & 0.456 & visual but not mechanic match \\
+KG & 0.806 & repeated facet over-ranking \\
 \bottomrule
 \end{tabular}
-\caption{Retrieval evaluation placeholder. Fill with human review or proxy scores. KG returns interpretable reasons and faceted evidence, which is useful even when a flat ranking is imperfect.}
+\caption{Retrieval proxy evaluation on 19 DIY prompts. KG returns interpretable reasons and faceted evidence, which is useful even when a flat ranking is imperfect.}
 \label{tab:retrieval}
 \end{table}
 

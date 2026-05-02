@@ -1,0 +1,4 @@
+method,rows,class_match_at5,action_match_at5,relation_match_at5,type_match_at5,overall_relevance_at5
+tfidf_baseline,95,0.7105,0.5337,0.7033,0.7842,0.6788
+clip_baseline,95,0.4463,0.1258,0.5421,0.7137,0.4557
+semantic_kg,95,0.8105,0.8145,0.6188,0.8547,0.8061

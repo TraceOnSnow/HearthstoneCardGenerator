@@ -1,0 +1,2263 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Retrieval Evaluation Grid</title>
+<style>
+body { font-family: ui-sans-serif, system-ui, sans-serif; margin: 24px; background: #f7f3ea; color: #1f2933; }
+.query { margin-bottom: 36px; padding: 20px; background: white; border: 1px solid #ddd2bd; border-radius: 16px; }
+.methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.method { background: #fbfaf7; border-radius: 12px; padding: 12px; }
+.card { display: grid; grid-template-columns: 88px 1fr; gap: 10px; margin: 10px 0; align-items: start; }
+.card img { width: 88px; height: 88px; object-fit: cover; border-radius: 8px; background: #e5e7eb; }
+.meta { font-size: 13px; line-height: 1.35; }
+.name { font-weight: 700; }
+.reason { color: #58616f; font-size: 12px; }
+</style>
+</head>
+<body>
+<h1>Retrieval Evaluation Grid</h1>
+<section class='query'><h2>art_first_card_later_dragon</h2><p>I mainly want a cool Hearthstone dragon artwork first: an ancient bronze dragon sleeping inside a clockwork observatory. After that, help me turn it into a balanced card.</p><div class='methods'><section class='method'><h3>clip_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/CATA_723.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Drakeadon Mongrel</div>
+<div>card_id=122641 score=0.354334</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TOY_356.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Toyrannosaurus</div>
+<div>card_id=103162 score=0.350101</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/GDB_111.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Biopod</div>
+<div>card_id=110239 score=0.348014</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DINO_412.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Tortotem</div>
+<div>card_id=118500 score=0.347198</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/WORK_006.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Robocaller</div>
+<div>card_id=110757 score=0.346724</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div></section><section class='method'><h3>semantic_kg</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/FIR_927.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Emberscarred Whelp</div>
+<div>card_id=115656 score=6.8</div>
+<div class="reason">card_types=Minion; actions=discover; minion_types=Dragon</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/WON_066.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Murozond, Thief of Time</div>
+<div>card_id=102601 score=6.8</div>
+<div class="reason">card_types=Minion; actions=discover; minion_types=Dragon</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DRG_229.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Bronze Explorer</div>
+<div>card_id=55056 score=6.6</div>
+<div class="reason">card_types=Minion; actions=discover; minion_types=Dragon</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CFM_605.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Drakonid Operative</div>
+<div>card_id=40378 score=6.6</div>
+<div class="reason">card_types=Minion; actions=discover; minion_types=Dragon</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DAL_609.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Kalecgos</div>
+<div>card_id=53002 score=6.6</div>
+<div class="reason">card_types=Minion; actions=discover; minion_types=Dragon</div>
+</div>
+</div></section><section class='method'><h3>tfidf_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/DRG_229.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Bronze Explorer</div>
+<div>card_id=55056 score=0.380032</div>
+<div class="reason">token_overlap=bronze,card,discover,dragon,hearthstone,minion</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/WON_066.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Murozond, Thief of Time</div>
+<div>card_id=102601 score=0.341051</div>
+<div class="reason">token_overlap=card,discover,dragon,hearthstone,minion,time</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/VAC_511.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Dozing Dragon</div>
+<div>card_id=105810 score=0.321752</div>
+<div class="reason">token_overlap=card,dragon,hearthstone,minion,turn</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/LOOT_137.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Sleepy Dragon</div>
+<div>card_id=43494 score=0.298965</div>
+<div class="reason">token_overlap=card,dragon,hearthstone,minion</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_LOOT_137.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Sleepy Dragon</div>
+<div>card_id=69726 score=0.298965</div>
+<div class="reason">token_overlap=card,dragon,hearthstone,minion</div>
+</div>
+</div></section></div></section>
+<section class='query'><h2>art_only_token</h2><p>I just need art for a generated token: a 1/1 Mechanical Sheep for a Gnome-themed Mage card. Cute, tiny, blue arcane sparks, toy-like but still Hearthstone fantasy.</p><div class='methods'><section class='method'><h3>clip_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/GVG_076.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Explosive Sheep</div>
+<div>card_id=2044 score=0.35884</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/AT_093.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Frigid Snobold</div>
+<div>card_id=2532 score=0.350951</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/GVG_062.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Cobalt Guardian</div>
+<div>card_id=2030 score=0.344916</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/WORK_006.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Robocaller</div>
+<div>card_id=110757 score=0.342306</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/REV_946.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Steamcleaner</div>
+<div>card_id=78079 score=0.341504</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div></section><section class='method'><h3>semantic_kg</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/TSC_054.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Mecha-Shark</div>
+<div>card_id=72649 score=8.4</div>
+<div class="reason">classes=Mage; card_types=Minion; actions=summon</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/GIL_664.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Vex Crow</div>
+<div>card_id=47554 score=8.4</div>
+<div class="reason">classes=Mage; card_types=Minion; actions=summon</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TRL_316.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Jan&#x27;alai, the Dragonhawk</div>
+<div>card_id=50088 score=8.2</div>
+<div class="reason">classes=Mage; card_types=Minion; actions=summon</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DED_517.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Arcane Overflow</div>
+<div>card_id=65684 score=7.1</div>
+<div class="reason">classes=Mage; actions=summon; spell_schools=Arcane</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TIME_859.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Anomalize</div>
+<div>card_id=119691 score=6.9</div>
+<div class="reason">classes=Mage; actions=summon; spell_schools=Arcane</div>
+</div>
+</div></section><section class='method'><h3>tfidf_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/DINO_429.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Sheep Mask</div>
+<div>card_id=118651 score=0.26374</div>
+<div class="reason">token_overlap=arcane,art,card,fantasy,hearthstone,mage,sheep</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DED_506.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Need for Greed</div>
+<div>card_id=65608 score=0.262645</div>
+<div class="reason">token_overlap=art,card,fantasy,for,hearthstone,need</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/EDR_416.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Shepherd&#x27;s Crook</div>
+<div>card_id=113568 score=0.258224</div>
+<div class="reason">token_overlap=art,card,fantasy,for,hearthstone,sheep,summon,token</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TSC_054.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Mecha-Shark</div>
+<div>card_id=72649 score=0.258122</div>
+<div class="reason">token_overlap=arcane,art,card,fantasy,hearthstone,mage,mech,mechanical,minion,summon,token</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/SC_758.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Colossus</div>
+<div>card_id=113177 score=0.245415</div>
+<div class="reason">token_overlap=arcane,art,card,fantasy,hearthstone,mage,mech,mechanical,minion</div>
+</div>
+</div></section></div></section>
+<section class='query'><h2>community_balance_rework</h2><p>I want to redesign a boring pack filler card into something people would actually discuss on Custom Hearthstone. It should still be a Common, not too flashy, but it needs one clean mechanical hook and art that makes the card memorable.</p><div class='methods'><section class='method'><h3>clip_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/WW_391.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Gold Panner</div>
+<div>card_id=101966 score=0.326025</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CFM_653.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Hired Gun</div>
+<div>card_id=40911 score=0.321717</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/UNG_846.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Shimmering Tempest</div>
+<div>card_id=41927 score=0.317435</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/RLK_572.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Potionmaster Putricide</div>
+<div>card_id=86120 score=0.317052</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/GIL_145.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Sound the Bells!</div>
+<div>card_id=46713 score=0.316931</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div></section><section class='method'><h3>semantic_kg</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/ETC_080.jpg" alt="">
+<div class="meta">
+<div class="name">#1 E.T.C., Band Manager</div>
+<div>card_id=90749 score=1.0</div>
+<div class="reason">text_overlap=5</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/EDR_882.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Jumpscare!</div>
+<div>card_id=114337 score=1.0</div>
+<div class="reason">text_overlap=5</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_KAR_061.jpg" alt="">
+<div class="meta">
+<div class="name">#3 The Curator</div>
+<div>card_id=120180 score=1.0</div>
+<div class="reason">text_overlap=5</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/WORK_004.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Agency Espionage</div>
+<div>card_id=110754 score=0.8</div>
+<div class="reason">text_overlap=4</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/NEW1_010.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Al&#x27;Akir the Windlord</div>
+<div>card_id=32 score=0.8</div>
+<div class="reason">text_overlap=4</div>
+</div>
+</div></section><section class='method'><h3>tfidf_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/VAC_932.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Climbing Hook</div>
+<div>card_id=106618 score=0.361642</div>
+<div class="reason">token_overlap=art,card,hearthstone,hook</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/OG_312.jpg" alt="">
+<div class="meta">
+<div class="name">#2 N&#x27;Zoth&#x27;s First Mate</div>
+<div>card_id=38914 score=0.233044</div>
+<div class="reason">token_overlap=art,card,hearthstone,hook</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/ULD_256.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Into the Fray</div>
+<div>card_id=53796 score=0.208281</div>
+<div class="reason">token_overlap=art,card,hearthstone,into,the</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/NX2_008.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Blazing Transmutation</div>
+<div>card_id=86504 score=0.1955</div>
+<div class="reason">token_overlap=art,card,hearthstone,into,one,that</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/OG_173.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Blood of The Ancient One</div>
+<div>card_id=38567 score=0.16988</div>
+<div class="reason">token_overlap=art,card,hearthstone,one,the</div>
+</div>
+</div></section></div></section>
+<section class='query'><h2>community_keyword_showcase</h2><p>I am trying a custom keyword for a fan expansion. The keyword is Echoing: this triggers again if you played a spell last turn. Make one Mage example card that introduces the idea without being broken.</p><div class='methods'><section class='method'><h3>clip_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/NEW1_026.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Violet Teacher</div>
+<div>card_id=1029 score=0.320875</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/RLK_950.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Translocation Instructor</div>
+<div>card_id=85597 score=0.320605</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/SW_462.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Hot Streak</div>
+<div>card_id=65140 score=0.31667</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/REV_239.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Suffocating Shadows</div>
+<div>card_id=76922 score=0.316088</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/END_036.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Morchie</div>
+<div>card_id=121202 score=0.315743</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div></section><section class='method'><h3>semantic_kg</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/TIME_852.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Azure Queen Sindragosa</div>
+<div>card_id=119524 score=4.7</div>
+<div class="reason">classes=Mage; card_types=Minion; text_overlap=6</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DAL_603.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Mana Cyclone</div>
+<div>card_id=52706 score=4.7</div>
+<div class="reason">classes=Mage; card_types=Minion; text_overlap=6</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DRG_109.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Mana Giant</div>
+<div>card_id=54909 score=4.7</div>
+<div class="reason">classes=Mage; card_types=Minion; text_overlap=6</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DINO_409.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Techysaurus</div>
+<div>card_id=118485 score=4.7</div>
+<div class="reason">classes=Mage; card_types=Minion; text_overlap=6</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TTN_475.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Unchained Gladiator</div>
+<div>card_id=98097 score=4.7</div>
+<div class="reason">classes=Mage; card_types=Minion; text_overlap=6</div>
+</div>
+</div></section><section class='method'><h3>tfidf_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/FP1_003.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Echoing Ooze</div>
+<div>card_id=1858 score=0.297725</div>
+<div class="reason">token_overlap=card,echoing,minion,the,this,turn</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/WW_424.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Overflow Surger</div>
+<div>card_id=101873 score=0.280386</div>
+<div class="reason">token_overlap=card,for,mage,minion,played,spell,this,turn,you</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/ICC_910.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Spectral Pillager</div>
+<div>card_id=45975 score=0.260111</div>
+<div class="reason">token_overlap=card,for,minion,played,this,turn,you</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DMF_519.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Prize Plunderer</div>
+<div>card_id=61171 score=0.249719</div>
+<div class="reason">token_overlap=card,for,minion,played,this,turn,you</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TIME_714.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Chrono-Lord Epoch</div>
+<div>card_id=120817 score=0.226349</div>
+<div class="reason">token_overlap=card,last,minion,played,that,turn</div>
+</div>
+</div></section></div></section>
+<section class='query'><h2>community_set_theme_request</h2><p>For a fan-made desert archaeology set, I need a Rogue card about stealing a cursed relic from a tomb. It should support the set flavor but still read like a normal Hearthstone card.</p><div class='methods'><section class='method'><h3>clip_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/TRL_524.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Shieldbreaker</div>
+<div>card_id=50410 score=0.334922</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/BAR_542.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Refreshing Spring Water</div>
+<div>card_id=63057 score=0.334536</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/LOE_016.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Rumbling Elemental</div>
+<div>card_id=2888 score=0.332042</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TIME_444.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Time-Lost Glaive</div>
+<div>card_id=120993 score=0.328324</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TIME_617.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Chronochiller</div>
+<div>card_id=121017 score=0.327805</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div></section><section class='method'><h3>semantic_kg</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/GDB_841.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Rangari Scout</div>
+<div>card_id=110869 score=8.5</div>
+<div class="reason">card_types=Minion; actions=add_to_hand; actions=discover</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DEEP_037.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Maruut Stonebinder</div>
+<div>card_id=102741 score=8.3</div>
+<div class="reason">card_types=Minion; actions=add_to_hand; actions=discover</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TSC_052.jpg" alt="">
+<div class="meta">
+<div class="name">#3 School Teacher</div>
+<div>card_id=72598 score=8.3</div>
+<div class="reason">card_types=Minion; actions=add_to_hand; actions=discover</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/EDR_517.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Q&#x27;onzu</div>
+<div>card_id=114287 score=8.1</div>
+<div class="reason">card_types=Minion; actions=add_to_hand; actions=discover</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/FIR_924.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Shadowflame Stalker</div>
+<div>card_id=115651 score=8.1</div>
+<div class="reason">card_types=Minion; actions=add_to_hand; actions=discover</div>
+</div>
+</div></section><section class='method'><h3>tfidf_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/TOY_514.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Thistle Tea Set</div>
+<div>card_id=103433 score=0.321148</div>
+<div class="reason">token_overlap=card,discover,from,hearthstone,rogue,set,spell</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/BAR_323.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Yoink!</div>
+<div>card_id=62894 score=0.288777</div>
+<div class="reason">token_overlap=card,discover,hearthstone,rogue,set,spell</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/SW_001.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Celestial Ink Set</div>
+<div>card_id=63673 score=0.263985</div>
+<div class="reason">token_overlap=card,hearthstone,set,spell</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TOY_512.jpg" alt="">
+<div class="meta">
+<div class="name">#4 The Crystal Cove</div>
+<div>card_id=103346 score=0.234321</div>
+<div class="reason">token_overlap=card,hearthstone,rogue,set,the</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CFM_781.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Shaku, the Collector</div>
+<div>card_id=40905 score=0.189082</div>
+<div class="reason">token_overlap=add,card,from,hand,hearthstone,minion,rogue,the</div>
+</div>
+</div></section></div></section>
+<section class='query'><h2>complete_demon_hunter_rush</h2><p>The card is: Felrunner Adept. Demon Hunter Common Minion. 2 Mana 2/2. Rush. After this attacks, if it survived, give your hero +1 Attack this turn. I need art of a fast fel-powered fighter lunging through green flames.</p><div class='methods'><section class='method'><h3>clip_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/TTN_960.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Sargeras, the Destroyer</div>
+<div>card_id=97702 score=0.316705</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CATA_697.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Malevolent Mutant</div>
+<div>card_id=123604 score=0.315455</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/ULD_138.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Anubisath Defender</div>
+<div>card_id=53615 score=0.311839</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/BT_211.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Imprisoned Felmaw</div>
+<div>card_id=56482 score=0.310626</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/FIR_952.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Scorchreaver</div>
+<div>card_id=115749 score=0.310543</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div></section><section class='method'><h3>semantic_kg</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/BT_814.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Illidari Felblade</div>
+<div>card_id=58524 score=13.1</div>
+<div class="reason">classes=Demon Hunter; card_types=Minion; keywords=Rush</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/BT_487.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Hulking Overfiend</div>
+<div>card_id=58244 score=11.8</div>
+<div class="reason">classes=Demon Hunter; card_types=Minion; keywords=Rush</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CS3_020.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Illidari Inquisitor</div>
+<div>card_id=66176 score=11.4</div>
+<div class="reason">classes=Demon Hunter; card_types=Minion; keywords=Rush</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/VAC_927.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Adrenaline Fiend</div>
+<div>card_id=106584 score=11.3</div>
+<div class="reason">classes=Demon Hunter; card_types=Minion; actions=gain_attack</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/VAC_930.jpg" alt="">
+<div class="meta">
+<div class="name">#5 All Terrain Voidhound</div>
+<div>card_id=106615 score=11.1</div>
+<div class="reason">classes=Demon Hunter; card_types=Minion; actions=gain_attack</div>
+</div>
+</div></section><section class='method'><h3>tfidf_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/SCH_704.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Soulshard Lapidary</div>
+<div>card_id=59732 score=0.397583</div>
+<div class="reason">token_overlap=art,attack,card,demon,fel,fighter,give,hero,hunter,minion,this,turn</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/JAM_017.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Through Fel and Flames</div>
+<div>card_id=94820 score=0.35152</div>
+<div class="reason">token_overlap=art,card,demon,fel,fighter,flames,green,hunter,rush,through</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/ETC_200.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Rush the Stage</div>
+<div>card_id=97003 score=0.311583</div>
+<div class="reason">token_overlap=art,card,demon,fel,fighter,hunter,rush,the</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/SCH_618.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Blood Herald</div>
+<div>card_id=59720 score=0.297123</div>
+<div class="reason">token_overlap=art,card,demon,fel,fighter,hunter,minion</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/AV_204.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Kurtrus, Demon-Render</div>
+<div>card_id=66951 score=0.293958</div>
+<div class="reason">token_overlap=art,card,demon,fel,fighter,hero,hunter,rush</div>
+</div>
+</div></section></div></section>
+<section class='query'><h2>complete_hunter_beastmaster</h2><p>Card is already designed. Name: Packcaller Renna. Class: Hunter. Type: Legendary Minion. Cost: 4. Stats: 3/5. Text: Battlecry: Summon a 1/1 Beast. If you played a Beast last turn, summon a 3/3 Beast instead. I only need Hearthstone-style art for it.</p><div class='methods'><section class='method'><h3>clip_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/BT_334.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Lady Liadrin</div>
+<div>card_id=57476 score=0.32649</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/SCH_603.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Star Student Stelina</div>
+<div>card_id=59395 score=0.325754</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/ULD_156.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Dinotamer Brann</div>
+<div>card_id=53926 score=0.325602</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_KAR_062.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Netherspite Historian</div>
+<div>card_id=120172 score=0.325243</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/RLK_213.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Vengeful Walloper</div>
+<div>card_id=84244 score=0.323245</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div></section><section class='method'><h3>semantic_kg</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/WW_814.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Spurfang</div>
+<div>card_id=100179 score=11.0</div>
+<div class="reason">classes=Hunter; card_types=Minion; keywords=Battlecry</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/EDR_481.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Mythical Runebear</div>
+<div>card_id=114298 score=10.8</div>
+<div class="reason">classes=Hunter; card_types=Minion; keywords=Battlecry</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CFM_315.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Alleycat</div>
+<div>card_id=40426 score=10.6</div>
+<div class="reason">classes=Hunter; card_types=Minion; keywords=Battlecry</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/VAC_412.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Catch of the Day</div>
+<div>card_id=106636 score=10.6</div>
+<div class="reason">classes=Hunter; card_types=Minion; keywords=Battlecry</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/ULD_154.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Hyena Alpha</div>
+<div>card_id=53922 score=10.6</div>
+<div class="reason">classes=Hunter; card_types=Minion; keywords=Battlecry</div>
+</div>
+</div></section><section class='method'><h3>tfidf_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/WW_814.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Spurfang</div>
+<div>card_id=100179 score=0.41255</div>
+<div class="reason">token_overlap=art,battlecry,beast,card,cost,hearthstone,hunter,minion,summon,token</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/SCH_244.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Teacher&#x27;s Pet</div>
+<div>card_id=59026 score=0.401878</div>
+<div class="reason">token_overlap=art,beast,card,cost,hearthstone,hunter,minion,summon,token</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DINO_430.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Beast Speaker Taka</div>
+<div>card_id=118653 score=0.394867</div>
+<div class="reason">token_overlap=art,battlecry,beast,card,class,hearthstone,legendary,minion,stats,summon,token</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/EX1_577.jpg" alt="">
+<div class="meta">
+<div class="name">#4 The Beast</div>
+<div>card_id=962 score=0.378333</div>
+<div class="reason">token_overlap=art,beast,card,for,hearthstone,minion,summon,token</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/OG_313.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Addled Grizzly</div>
+<div>card_id=38916 score=0.373287</div>
+<div class="reason">token_overlap=art,beast,card,hearthstone,minion,summon,token</div>
+</div>
+</div></section></div></section>
+<section class='query'><h2>complete_neutral_funny_murloc</h2><p>I made a silly Neutral Murloc: Suspicious Fishmonger, 3 Mana 2/4. Battlecry: Add a random Fish to your hand. It should look funny and a bit shady, like a Murloc selling fish from a trench coat.</p><div class='methods'><section class='method'><h3>clip_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/CFM_650.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Grimscale Chum</div>
+<div>card_id=40531 score=0.353553</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/BAR_860.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Firemancer Flurgl</div>
+<div>card_id=63272 score=0.347525</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TSC_908.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Sir Finley, Sea Guide</div>
+<div>card_id=71781 score=0.346739</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TLC_444.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Story of Galvadon</div>
+<div>card_id=117679 score=0.343788</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/WW_331.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Miracle Salesman</div>
+<div>card_id=100101 score=0.341602</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div></section><section class='method'><h3>semantic_kg</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/ULD_289.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Fishflinger</div>
+<div>card_id=54191 score=11.0</div>
+<div class="reason">classes=Neutral; card_types=Minion; keywords=Battlecry</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_EX1_189.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Brightwing</div>
+<div>card_id=69672 score=9.9</div>
+<div class="reason">classes=Neutral; card_types=Minion; keywords=Battlecry</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/EX1_189.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Brightwing</div>
+<div>card_id=54839 score=9.7</div>
+<div class="reason">classes=Neutral; card_types=Minion; keywords=Battlecry</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TTN_742.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Celestial Projectionist</div>
+<div>card_id=98403 score=9.7</div>
+<div class="reason">classes=Neutral; card_types=Minion; keywords=Battlecry</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TIME_102.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Circadiamancer</div>
+<div>card_id=121671 score=9.7</div>
+<div class="reason">classes=Neutral; card_types=Minion; keywords=Battlecry</div>
+</div>
+</div></section><section class='method'><h3>tfidf_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/DAL_049.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Underbelly Angler</div>
+<div>card_id=51724 score=0.513278</div>
+<div class="reason">token_overlap=add,hand,minion,murloc,random</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DMF_707.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Magicfin</div>
+<div>card_id=61229 score=0.437961</div>
+<div class="reason">token_overlap=add,hand,minion,murloc,random</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/EX1_509.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Murloc Tidecaller</div>
+<div>card_id=475 score=0.430164</div>
+<div class="reason">token_overlap=generation,minion,murloc,neutral</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_EX1_509.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Murloc Tidecaller</div>
+<div>card_id=69675 score=0.430164</div>
+<div class="reason">token_overlap=generation,minion,murloc,neutral</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/EX1_506.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Murloc Tidehunter</div>
+<div>card_id=976 score=0.41142</div>
+<div class="reason">token_overlap=battlecry,generation,minion,murloc,neutral</div>
+</div>
+</div></section></div></section>
+<section class='query'><h2>complete_priest_spell</h2><p>Finished card: Gentle Reprieve. Priest spell, 2 Mana, Holy. Restore 4 Health to a character. If it was damaged this turn, draw a card. Please generate art: warm chapel light, a wounded ally being protected, no text or card frame.</p><div class='methods'><section class='method'><h3>clip_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/TOY_880.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Wind-Up Enforcer</div>
+<div>card_id=104796 score=0.315006</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/AV_328.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Spirit Guide</div>
+<div>card_id=70024 score=0.314157</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/RLK_539.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Dar&#x27;Khan Drathir</div>
+<div>card_id=84302 score=0.312531</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/EX1_625.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Shadowform</div>
+<div>card_id=1368 score=0.311943</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/UNG_021.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Steam Surger</div>
+<div>card_id=41154 score=0.309864</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div></section><section class='method'><h3>semantic_kg</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/AV_330.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Gift of the Naaru</div>
+<div>card_id=70026 score=12.0</div>
+<div class="reason">classes=Priest; card_types=Spell; actions=heal</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CFM_604.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Greater Healing Potion</div>
+<div>card_id=40375 score=12.0</div>
+<div class="reason">classes=Priest; card_types=Spell; actions=heal</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_CFM_604.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Greater Healing Potion</div>
+<div>card_id=120459 score=12.0</div>
+<div class="reason">classes=Priest; card_types=Spell; actions=heal</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CATA_302.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Mend</div>
+<div>card_id=122779 score=11.8</div>
+<div class="reason">classes=Priest; card_types=Spell; actions=heal</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TRL_307.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Flash of Light</div>
+<div>card_id=50028 score=10.6</div>
+<div class="reason">card_types=Spell; actions=heal; actions=draw</div>
+</div>
+</div></section><section class='method'><h3>tfidf_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/TRL_307.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Flash of Light</div>
+<div>card_id=50028 score=0.385496</div>
+<div class="reason">token_overlap=art,card,character,draw,heal,holy,light,spell</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_TRL_307.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Flash of Light</div>
+<div>card_id=76306 score=0.385496</div>
+<div class="reason">token_overlap=art,card,character,draw,heal,holy,light,spell</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CFM_604.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Greater Healing Potion</div>
+<div>card_id=40375 score=0.373737</div>
+<div class="reason">token_overlap=art,card,character,draw,heal,holy,light,priest,spell</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_CFM_604.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Greater Healing Potion</div>
+<div>card_id=120459 score=0.373737</div>
+<div class="reason">token_overlap=art,card,character,draw,heal,holy,light,priest,spell</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/WW_395.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Holy Springwater</div>
+<div>card_id=102054 score=0.362055</div>
+<div class="reason">token_overlap=art,card,character,damaged,heal,holy,light,priest,spell</div>
+</div>
+</div></section></div></section>
+<section class='query'><h2>complete_warrior_weapon</h2><p>I already have the card text: Iron Oathbreaker, 3 Mana Warrior Weapon, 3 Attack / 2 Durability. After your hero gains Armor, gain +1 Attack this turn. I need art that looks like a heavy forged weapon from a fortress armory.</p><div class='methods'><section class='method'><h3>clip_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/ICC_858.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Bolvar, Fireblood</div>
+<div>card_id=45392 score=0.324174</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/BOT_312.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Replicating Menace</div>
+<div>card_id=48536 score=0.32191</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/BOT_102.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Spark Drill</div>
+<div>card_id=47979 score=0.320742</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/LOE_119.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Animated Armor</div>
+<div>card_id=36111 score=0.320681</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CATA_472.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Inspiring Maul</div>
+<div>card_id=123106 score=0.319917</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div></section><section class='method'><h3>semantic_kg</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/FIR_956.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Dragon Turtle</div>
+<div>card_id=115755 score=12.1</div>
+<div class="reason">classes=Warrior; actions=gain_armor; actions=gain_attack</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/EDR_471.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Tortolla</div>
+<div>card_id=114353 score=11.9</div>
+<div class="reason">classes=Warrior; actions=gain_armor; actions=gain_attack</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/WC_026.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Kresh, Lord of Turtling</div>
+<div>card_id=63375 score=11.1</div>
+<div class="reason">classes=Warrior; actions=gain_armor; actions=equip</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/BOT_042.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Weapons Project</div>
+<div>card_id=47860 score=11.1</div>
+<div class="reason">classes=Warrior; actions=gain_armor; actions=equip</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TTN_467.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Craftsman&#x27;s Hammer</div>
+<div>card_id=97680 score=9.8</div>
+<div class="reason">classes=Warrior; card_types=Weapon; actions=gain_armor</div>
+</div>
+</div></section><section class='method'><h3>tfidf_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/UNG_923.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Iron Hide</div>
+<div>card_id=41401 score=0.553754</div>
+<div class="reason">token_overlap=armor,art,card,gain,hero,iron,synergy,warrior,weapon</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/SW_094.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Heavy Plate</div>
+<div>card_id=65656 score=0.553249</div>
+<div class="reason">token_overlap=armor,art,card,gain,heavy,hero,synergy,warrior,weapon</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/BOT_042.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Weapons Project</div>
+<div>card_id=47860 score=0.54689</div>
+<div class="reason">token_overlap=armor,art,card,equip,gain,gains,hero,synergy,warrior,weapon</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/EX1_402.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Armorsmith</div>
+<div>card_id=596 score=0.534176</div>
+<div class="reason">token_overlap=armor,art,card,gain,hero,synergy,warrior,weapon</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/ICC_837.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Bring It On!</div>
+<div>card_id=43505 score=0.527775</div>
+<div class="reason">token_overlap=armor,art,card,gain,hero,synergy,warrior,weapon</div>
+</div>
+</div></section></div></section>
+<section class='query'><h2>semi_death_knight_corpse_giant</h2><p>Make a Death Knight card where a huge undead giant gets cheaper as you spend Corpses. It should look massive and stitched together, like something raised from a battlefield.</p><div class='methods'><section class='method'><h3>clip_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/tt_004.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Flesheating Ghoul</div>
+<div>card_id=397 score=0.331383</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/ICC_238.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Animated Berserker</div>
+<div>card_id=42810 score=0.331314</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/BRM_008.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Dark Iron Skulker</div>
+<div>card_id=2291 score=0.33124</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TIME_714.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Chrono-Lord Epoch</div>
+<div>card_id=120817 score=0.330723</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/WON_073.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Dark Iron Skulker</div>
+<div>card_id=102609 score=0.33058</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div></section><section class='method'><h3>semantic_kg</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/MIS_006.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Toysnatching Geist</div>
+<div>card_id=106063 score=9.0</div>
+<div class="reason">classes=Death Knight; card_types=Minion; actions=reduce_cost</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_RLK_505.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Marrow Manipulator</div>
+<div>card_id=111323 score=8.6</div>
+<div class="reason">classes=Death Knight; card_types=Minion; actions=spend_corpse</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_RLK_066.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Hematurge</div>
+<div>card_id=111320 score=7.1</div>
+<div class="reason">classes=Death Knight; card_types=Minion; actions=spend_corpse</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/OG_138.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Nerubian Prophet</div>
+<div>card_id=38517 score=7.0</div>
+<div class="reason">card_types=Minion; actions=reduce_cost; minion_types=Undead</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/RLK_591.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Bonelord Frostwhisper</div>
+<div>card_id=86317 score=6.6</div>
+<div class="reason">card_types=Minion; actions=reduce_cost; minion_types=Undead</div>
+</div>
+</div></section><section class='method'><h3>tfidf_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/WW_354.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Fistful of Corpses</div>
+<div>card_id=100611 score=0.408942</div>
+<div class="reason">token_overlap=card,corpse,corpses,death,knight,undead</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/RLK_061.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Battlefield Necromancer</div>
+<div>card_id=78353 score=0.396529</div>
+<div class="reason">token_overlap=battlefield,card,corpse,death,knight,minion,undead</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/ETC_523.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Death Metal Knight</div>
+<div>card_id=90484 score=0.393261</div>
+<div class="reason">token_overlap=card,death,knight,minion,undead</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_ETC_523.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Death Metal Knight</div>
+<div>card_id=117395 score=0.393261</div>
+<div class="reason">token_overlap=card,death,knight,minion,undead</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/JAM_005.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Yelling Yodeler</div>
+<div>card_id=95344 score=0.346714</div>
+<div class="reason">token_overlap=card,death,knight,minion,undead</div>
+</div>
+</div></section></div></section>
+<section class='query'><h2>semi_druid_solar_lunar_payoff</h2><p>Make a Druid card that rewards players for using both Solar Eclipse and Lunar Eclipse. It should feel like celestial nature magic, and it should probably generate or care about those two spells.</p><div class='methods'><section class='method'><h3>clip_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/DMF_058.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Solar Eclipse</div>
+<div>card_id=61450 score=0.352255</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DMF_057.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Lunar Eclipse</div>
+<div>card_id=61449 score=0.336241</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/GDB_304.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Saruun</div>
+<div>card_id=111938 score=0.335926</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/GDB_118.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Xor&#x27;toth, Breaker of Stars</div>
+<div>card_id=110923 score=0.328508</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/FIR_916.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Smoldering Ascent</div>
+<div>card_id=115640 score=0.326751</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div></section><section class='method'><h3>semantic_kg</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/EDR_848.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Photosynthesis</div>
+<div>card_id=114914 score=8.8</div>
+<div class="reason">classes=Druid; card_types=Spell; actions=add_to_hand</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/BAR_549.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Mark of the Spikeshell</div>
+<div>card_id=63114 score=8.6</div>
+<div class="reason">classes=Druid; card_types=Spell; actions=add_to_hand</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/GIL_663.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Witchwood Apple</div>
+<div>card_id=47553 score=8.6</div>
+<div class="reason">classes=Druid; card_types=Spell; actions=add_to_hand</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DMF_733.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Kiri, Chosen of Elune</div>
+<div>card_id=61605 score=7.7</div>
+<div class="reason">classes=Druid; card_types=Minion; actions=add_to_hand</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/YOP_024.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Guidance</div>
+<div>card_id=61962 score=7.5</div>
+<div class="reason">classes=Druid; card_types=Spell; actions=add_to_hand</div>
+</div>
+</div></section><section class='method'><h3>tfidf_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/DMF_733.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Kiri, Chosen of Elune</div>
+<div>card_id=61605 score=0.70191</div>
+<div class="reason">token_overlap=add,and,card,druid,eclipse,hand,lunar,magic,minion,nature,solar</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DMF_058.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Solar Eclipse</div>
+<div>card_id=61450 score=0.612736</div>
+<div class="reason">token_overlap=card,druid,eclipse,magic,nature,solar,spell</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DMF_057.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Lunar Eclipse</div>
+<div>card_id=61449 score=0.5155</div>
+<div class="reason">token_overlap=card,druid,eclipse,lunar,magic,minion,nature,spell</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/GDB_863.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Lunar Trailblazer</div>
+<div>card_id=111183 score=0.205541</div>
+<div class="reason">token_overlap=card,lunar,minion</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CFM_811.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Lunar Visions</div>
+<div>card_id=40615 score=0.204762</div>
+<div class="reason">token_overlap=card,druid,lunar,magic,nature,spell</div>
+</div>
+</div></section></div></section>
+<section class='query'><h2>semi_mage_freeze_board_tool</h2><p>I need art and maybe a balanced design for a Mage freeze card. The feeling is a sudden blizzard that stops enemy minions, but it should not be as frustrating as permanent board lock.</p><div class='methods'><section class='method'><h3>clip_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/AV_328.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Spirit Guide</div>
+<div>card_id=70024 score=0.330846</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/ICC_252.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Coldwraith</div>
+<div>card_id=42836 score=0.32958</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/ULD_293.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Cloud Prince</div>
+<div>card_id=54493 score=0.328026</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/END_003.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Finality</div>
+<div>card_id=121271 score=0.327693</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/YOD_008.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Arcane Amplifier</div>
+<div>card_id=56072 score=0.327113</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div></section><section class='method'><h3>semantic_kg</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/DAL_577.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Ray of Frost</div>
+<div>card_id=52639 score=12.1</div>
+<div class="reason">classes=Mage; card_types=Spell; keywords=Freeze</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/SCH_509.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Brain Freeze</div>
+<div>card_id=59207 score=11.9</div>
+<div class="reason">classes=Mage; card_types=Spell; keywords=Freeze</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/MIS_302.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Buy One, Get One Freeze</div>
+<div>card_id=108619 score=11.9</div>
+<div class="reason">classes=Mage; card_types=Spell; keywords=Freeze</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/GIL_801.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Snap Freeze</div>
+<div>card_id=47821 score=11.9</div>
+<div class="reason">classes=Mage; card_types=Spell; keywords=Freeze</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CS2_026.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Frost Nova</div>
+<div>card_id=587 score=11.6</div>
+<div class="reason">classes=Mage; card_types=Spell; keywords=Freeze</div>
+</div>
+</div></section><section class='method'><h3>tfidf_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/CS2_028.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Blizzard</div>
+<div>card_id=457 score=0.490227</div>
+<div class="reason">token_overlap=and,art,blizzard,card,enemy,freeze,frost,mage,minions,spell</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_CS2_028.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Blizzard</div>
+<div>card_id=76273 score=0.490227</div>
+<div class="reason">token_overlap=and,art,blizzard,card,enemy,freeze,frost,mage,minions,spell</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/ICC_836.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Breath of Sindragosa</div>
+<div>card_id=43502 score=0.431054</div>
+<div class="reason">token_overlap=and,art,card,enemy,freeze,frost,mage,minion,spell</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/BT_072.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Deep Freeze</div>
+<div>card_id=57950 score=0.405082</div>
+<div class="reason">token_overlap=art,card,enemy,freeze,frost,mage,spell</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_BT_072.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Deep Freeze</div>
+<div>card_id=126976 score=0.405082</div>
+<div class="reason">token_overlap=art,card,enemy,freeze,frost,mage,spell</div>
+</div>
+</div></section></div></section>
+<section class='query'><h2>semi_paladin_recruit_commander</h2><p>Create a Paladin minion that leads Silver Hand Recruits. I want the art to show a heroic commander with little recruits behind them, and the card should either summon Recruits or buff them.</p><div class='methods'><section class='method'><h3>clip_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/WON_053.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Runi, Time Explorer</div>
+<div>card_id=102580 score=0.342981</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TIME_613.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Cryofrozen Champion</div>
+<div>card_id=120481 score=0.335369</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TLC_516.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Neferset Weaponsmith</div>
+<div>card_id=117698 score=0.332573</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/SW_317.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Catacomb Guard</div>
+<div>card_id=64371 score=0.331902</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DAL_147.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Dragon Speaker</div>
+<div>card_id=51761 score=0.329535</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div></section><section class='method'><h3>semantic_kg</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/FIR_941.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Searing Reflection</div>
+<div>card_id=115776 score=10.5</div>
+<div class="reason">classes=Paladin; actions=summon; actions=give_buff</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/SW_316.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Noble Mount</div>
+<div>card_id=64525 score=10.3</div>
+<div class="reason">classes=Paladin; actions=summon; actions=give_buff</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/WON_309.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Silvermoon Portal</div>
+<div>card_id=103212 score=10.3</div>
+<div class="reason">classes=Paladin; actions=summon; actions=give_buff</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TRL_309.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Spirit of the Tiger</div>
+<div>card_id=50031 score=10.3</div>
+<div class="reason">classes=Paladin; card_types=Minion; actions=summon</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DRG_225.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Sky Claw</div>
+<div>card_id=55047 score=10.1</div>
+<div class="reason">classes=Paladin; card_types=Minion; actions=summon</div>
+</div>
+</div></section><section class='method'><h3>tfidf_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/UNG_960.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Lost in the Jungle</div>
+<div>card_id=41912 score=0.457326</div>
+<div class="reason">token_overlap=art,card,hand,paladin,recruits,silver,summon,the</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/UNG_950.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Vinecleaver</div>
+<div>card_id=41859 score=0.446186</div>
+<div class="reason">token_overlap=art,card,hand,paladin,recruits,silver,summon</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/BAR_871.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Soldier&#x27;s Caravan</div>
+<div>card_id=63690 score=0.432433</div>
+<div class="reason">token_overlap=art,card,hand,minion,paladin,recruits,silver,summon</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DMF_244.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Day at the Faire</div>
+<div>card_id=61218 score=0.412982</div>
+<div class="reason">token_overlap=art,card,hand,paladin,recruits,silver,summon,the</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/MAW_015.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Jury Duty</div>
+<div>card_id=78145 score=0.406139</div>
+<div class="reason">token_overlap=art,card,hand,paladin,recruits,silver,summon</div>
+</div>
+</div></section></div></section>
+<section class='query'><h2>semi_warlock_imp_sacrifice</h2><p>I want a Warlock card for an Imp deck. It should sacrifice one of your small minions and turn that into card draw or damage. Keep it simple and a little cruel.</p><div class='methods'><section class='method'><h3>clip_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/CATA_131.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Felwood Treant</div>
+<div>card_id=122967 score=0.33165</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/EDR_491.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Archdruid of Thorns</div>
+<div>card_id=115307 score=0.331152</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TTN_960.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Sargeras, the Destroyer</div>
+<div>card_id=97702 score=0.331051</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/EDR_105.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Creature of Madness</div>
+<div>card_id=113973 score=0.329159</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TRL_315.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Pyromaniac</div>
+<div>card_id=50084 score=0.329074</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div></section><section class='method'><h3>semantic_kg</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/FIR_954.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Conflagrate</div>
+<div>card_id=115753 score=12.0</div>
+<div class="reason">classes=Warlock; card_types=Spell; actions=deal_damage</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/END_020.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Eternal Toil</div>
+<div>card_id=121168 score=12.0</div>
+<div class="reason">classes=Warlock; card_types=Spell; actions=deal_damage</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/EX1_302.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Mortal Coil</div>
+<div>card_id=1092 score=12.0</div>
+<div class="reason">classes=Warlock; card_types=Spell; actions=deal_damage</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_EX1_302.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Mortal Coil</div>
+<div>card_id=69553 score=12.0</div>
+<div class="reason">classes=Warlock; card_types=Spell; actions=deal_damage</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DEEP_030.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Elementium Geode</div>
+<div>card_id=102435 score=10.7</div>
+<div class="reason">classes=Warlock; card_types=Minion; actions=deal_damage</div>
+</div>
+</div></section><section class='method'><h3>tfidf_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/EX1_597.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Imp Master</div>
+<div>card_id=926 score=0.435254</div>
+<div class="reason">token_overlap=and,card,damage,deal,imp,minion</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/VAC_939.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Eat! The! Imp!</div>
+<div>card_id=107796 score=0.375328</div>
+<div class="reason">token_overlap=card,destroy,draw,friendly,imp,minion,spell,warlock</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/KAR_089.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Malchezaar&#x27;s Imp</div>
+<div>card_id=39740 score=0.360198</div>
+<div class="reason">token_overlap=card,demon,draw,imp,minion,warlock</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/EX1_319.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Flame Imp</div>
+<div>card_id=1090 score=0.317496</div>
+<div class="reason">token_overlap=card,damage,deal,demon,imp,minion,warlock</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_EX1_319.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Flame Imp</div>
+<div>card_id=69636 score=0.317496</div>
+<div class="reason">token_overlap=card,damage,deal,demon,imp,minion,warlock</div>
+</div>
+</div></section></div></section>
+<section class='query'><h2>vague_control_warrior_rager</h2><p>I want to make a new Rager meme card, but not just another bad Magma Rager clone. Make it feel like a defensive Control Warrior card that still keeps the classic Rager joke.</p><div class='methods'><section class='method'><h3>clip_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/FIR_953.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Magma Hound</div>
+<div>card_id=115751 score=0.341572</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/WW_424.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Overflow Surger</div>
+<div>card_id=101873 score=0.341373</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TTN_811.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Odyn, Prime Designate</div>
+<div>card_id=97061 score=0.339797</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CATA_150.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Ragnaros, the Great Fire</div>
+<div>card_id=124110 score=0.334978</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_NEW1_020.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Wild Pyromancer</div>
+<div>card_id=76321 score=0.334975</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div></section><section class='method'><h3>semantic_kg</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/CFM_756.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Alley Armorsmith</div>
+<div>card_id=40574 score=7.5</div>
+<div class="reason">classes=Warrior; card_types=Minion; actions=gain_armor</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/WON_339.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Alley Armorsmith</div>
+<div>card_id=103242 score=7.5</div>
+<div class="reason">classes=Warrior; card_types=Minion; actions=gain_armor</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/FIR_956.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Dragon Turtle</div>
+<div>card_id=115755 score=7.5</div>
+<div class="reason">classes=Warrior; card_types=Minion; actions=gain_armor</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/WORK_023.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Alloy Advisor</div>
+<div>card_id=110785 score=7.3</div>
+<div class="reason">classes=Warrior; card_types=Minion; actions=gain_armor</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DEEP_008.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Needlerock Totem</div>
+<div>card_id=102172 score=7.3</div>
+<div class="reason">classes=Warrior; card_types=Minion; actions=gain_armor</div>
+</div>
+</div></section><section class='method'><h3>tfidf_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/CS2_118.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Magma Rager</div>
+<div>card_id=1653 score=0.591542</div>
+<div class="reason">token_overlap=card,magma,minion,rager</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DAL_744.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Faceless Rager</div>
+<div>card_id=52936 score=0.501591</div>
+<div class="reason">token_overlap=card,minion,rager</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/AT_092.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Ice Rager</div>
+<div>card_id=2594 score=0.433462</div>
+<div class="reason">token_overlap=card,minion,rager</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/EDR_598.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Dream Rager</div>
+<div>card_id=117420 score=0.430773</div>
+<div class="reason">token_overlap=card,minion,rager</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/WW_376.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Cactus Rager</div>
+<div>card_id=101461 score=0.426884</div>
+<div class="reason">token_overlap=card,minion,rager</div>
+</div>
+</div></section></div></section>
+<section class='query'><h2>vague_priest_forgiveness_spell</h2><p>I have a Priest card idea about forgiveness after a mistake. It should feel kind and holy, but still be a real Hearthstone spell, not just flavor text.</p><div class='methods'><section class='method'><h3>clip_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/AV_328.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Spirit Guide</div>
+<div>card_id=70024 score=0.323975</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TOY_651.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Lab Patron</div>
+<div>card_id=103448 score=0.31835</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TOY_880.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Wind-Up Enforcer</div>
+<div>card_id=104796 score=0.318195</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/WON_053.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Runi, Time Explorer</div>
+<div>card_id=102580 score=0.317185</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/SW_444.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Twilight Deceptor</div>
+<div>card_id=64419 score=0.316649</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div></section><section class='method'><h3>semantic_kg</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/ULD_272.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Holy Ripple</div>
+<div>card_id=53971 score=9.0</div>
+<div class="reason">classes=Priest; card_types=Spell; actions=heal</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/UNG_030.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Binding Heal</div>
+<div>card_id=41170 score=8.8</div>
+<div class="reason">classes=Priest; card_types=Spell; actions=heal</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/AV_330.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Gift of the Naaru</div>
+<div>card_id=70026 score=8.8</div>
+<div class="reason">classes=Priest; card_types=Spell; actions=heal</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/AT_055.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Flash Heal</div>
+<div>card_id=2582 score=8.6</div>
+<div class="reason">classes=Priest; card_types=Spell; actions=heal</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_AT_055.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Flash Heal</div>
+<div>card_id=69707 score=8.6</div>
+<div class="reason">classes=Priest; card_types=Spell; actions=heal</div>
+</div>
+</div></section><section class='method'><h3>tfidf_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/NX2_050.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Mistake</div>
+<div>card_id=87317 score=0.300548</div>
+<div class="reason">token_overlap=card,hearthstone,mistake</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/BRM_017.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Resurrect</div>
+<div>card_id=2298 score=0.290323</div>
+<div class="reason">token_overlap=card,hearthstone,holy,priest,resurrect,spell</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/UNG_030.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Binding Heal</div>
+<div>card_id=41170 score=0.286937</div>
+<div class="reason">token_overlap=and,card,heal,hearthstone,holy,priest,spell</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/AT_055.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Flash Heal</div>
+<div>card_id=2582 score=0.266422</div>
+<div class="reason">token_overlap=card,heal,hearthstone,holy,priest,spell</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_AT_055.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Flash Heal</div>
+<div>card_id=69707 score=0.266422</div>
+<div class="reason">token_overlap=card,heal,hearthstone,holy,priest,spell</div>
+</div>
+</div></section></div></section>
+<section class='query'><h2>vague_rogue_heist_gadget</h2><p>Design me a Rogue card that feels like a heist gadget. I do not know the exact effect, but I want it to be sneaky, tricky, and maybe interact with Coins or cheap cards.</p><div class='methods'><section class='method'><h3>clip_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/WW_384.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Benevolent Banker</div>
+<div>card_id=101955 score=0.321657</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CFM_670.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Mayor Noggenfogger</div>
+<div>card_id=40955 score=0.318337</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_CFM_670.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Mayor Noggenfogger</div>
+<div>card_id=130320 score=0.317629</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/WW_331.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Miracle Salesman</div>
+<div>card_id=100101 score=0.316239</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CFM_064.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Blubber Baron</div>
+<div>card_id=40294 score=0.315291</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div></section><section class='method'><h3>semantic_kg</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/TIME_000.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Semi-Stable Portal</div>
+<div>card_id=118636 score=8.9</div>
+<div class="reason">card_types=Spell; actions=add_to_hand; actions=reduce_cost</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/TIME_102.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Circadiamancer</div>
+<div>card_id=121671 score=8.7</div>
+<div class="reason">card_types=Minion; actions=add_to_hand; actions=reduce_cost</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/FIR_913.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Inferno Herald</div>
+<div>card_id=115637 score=8.7</div>
+<div class="reason">card_types=Minion; actions=add_to_hand; actions=reduce_cost</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/GDB_123.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Abduction Ray</div>
+<div>card_id=111169 score=8.3</div>
+<div class="reason">card_types=Spell; actions=add_to_hand; actions=reduce_cost</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/DRG_089.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Dragonqueen Alexstrasza</div>
+<div>card_id=55441 score=8.1</div>
+<div class="reason">card_types=Minion; actions=add_to_hand; actions=reduce_cost</div>
+</div>
+</div></section><section class='method'><h3>tfidf_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/DRG_027.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Umbral Skulker</div>
+<div>card_id=55094 score=0.24926</div>
+<div class="reason">token_overlap=add,card,coins,hand,minion,rogue</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/AT_031.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Cutpurse</div>
+<div>card_id=2766 score=0.243621</div>
+<div class="reason">token_overlap=add,card,coin,hand,minion,rogue</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/GIL_687.jpg" alt="">
+<div class="meta">
+<div class="name">#3 WANTED!</div>
+<div>card_id=47625 score=0.229328</div>
+<div class="reason">token_overlap=add,card,coin,hand,minion,rogue,spell</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/SW_073.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Cheesemonger</div>
+<div>card_id=64721 score=0.217046</div>
+<div class="reason">token_overlap=add,card,cost,hand,minion,spell,the,with</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/ULD_231.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Whirlkick Master</div>
+<div>card_id=53627 score=0.216163</div>
+<div class="reason">token_overlap=add,card,combo,hand,minion,rogue</div>
+</div>
+</div></section></div></section>
+<section class='query'><h2>vague_shaman_storm_totem</h2><p>I want a Shaman card about a storm totem waking up during battle. It should care about spells or Overload, but you can decide the exact mechanic.</p><div class='methods'><section class='method'><h3>clip_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/GIL_807.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Bogshaper</div>
+<div>card_id=47873 score=0.330478</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/AV_258.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Bru&#x27;kan of the Elements</div>
+<div>card_id=67779 score=0.328942</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/ICC_083.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Doomed Apprentice</div>
+<div>card_id=42756 score=0.326524</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_CATA_004.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Rehgar Earthfury</div>
+<div>card_id=127407 score=0.325971</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/UNG_846.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Shimmering Tempest</div>
+<div>card_id=41927 score=0.325792</div>
+<div class="reason">clip_text_to_image_cosine</div>
+</div>
+</div></section><section class='method'><h3>semantic_kg</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/AT_052.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Totem Golem</div>
+<div>card_id=2610 score=8.4</div>
+<div class="reason">classes=Shaman; card_types=Minion; actions=overload</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/WW_326.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Minecart Cruiser</div>
+<div>card_id=100016 score=7.3</div>
+<div class="reason">classes=Shaman; card_types=Minion; actions=overload</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/WW_382.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Walking Mountain</div>
+<div>card_id=101482 score=7.1</div>
+<div class="reason">classes=Shaman; card_types=Minion; actions=overload</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/EX1_243.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Dust Devil</div>
+<div>card_id=618 score=6.9</div>
+<div class="reason">classes=Shaman; card_types=Minion; actions=overload</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/EX1_250.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Earth Elemental</div>
+<div>card_id=1141 score=6.9</div>
+<div class="reason">classes=Shaman; card_types=Minion; actions=overload</div>
+</div>
+</div></section><section class='method'><h3>tfidf_baseline</h3><div class="card">
+<img src="data/hf_hearthstone_art_512/images/AT_052.jpg" alt="">
+<div class="meta">
+<div class="name">#1 Totem Golem</div>
+<div>card_id=2610 score=0.453247</div>
+<div class="reason">token_overlap=card,minion,overload,shaman,totem</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/CORE_AT_052.jpg" alt="">
+<div class="meta">
+<div class="name">#2 Totem Golem</div>
+<div>card_id=129849 score=0.453247</div>
+<div class="reason">token_overlap=card,minion,overload,shaman,totem</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/WORK_011.jpg" alt="">
+<div class="meta">
+<div class="name">#3 Hydration Totem</div>
+<div>card_id=110763 score=0.34724</div>
+<div class="reason">token_overlap=card,minion,shaman,totem</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/END_029.jpg" alt="">
+<div class="meta">
+<div class="name">#4 Voodoo Totem</div>
+<div>card_id=121192 score=0.34561</div>
+<div class="reason">token_overlap=card,minion,shaman,totem</div>
+</div>
+</div>
+<div class="card">
+<img src="data/hf_hearthstone_art_512/images/EX1_565.jpg" alt="">
+<div class="meta">
+<div class="name">#5 Flametongue Totem</div>
+<div>card_id=1008 score=0.343908</div>
+<div class="reason">token_overlap=card,minion,shaman,totem</div>
+</div>
+</div></section></div></section>
+</body>
+</html>

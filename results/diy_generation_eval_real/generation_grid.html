@@ -1,0 +1,515 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Generation Comparison Grid</title>
+<style>
+body { font-family: ui-sans-serif, system-ui, sans-serif; margin: 24px; background: #f5f1e8; color: #1f2933; }
+.prompt { margin-bottom: 36px; padding: 20px; background: white; border: 1px solid #d8cbb2; border-radius: 16px; }
+.methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; }
+.method { background: #fbfaf6; border-radius: 12px; padding: 12px; border: 1px solid #eadfca; }
+.method img.main { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 10px; background: #e5e7eb; }
+.ref { display: grid; grid-template-columns: 48px 1fr; gap: 8px; align-items: center; margin-top: 8px; font-size: 12px; color: #58616f; }
+.ref img { width: 48px; height: 48px; object-fit: cover; border-radius: 6px; background: #e5e7eb; }
+.missing { display: grid; place-items: center; width: 100%; aspect-ratio: 1 / 1; border-radius: 10px; background: #ece6d8; color: #766b5c; font-size: 13px; text-align: center; }
+h3 { margin: 0 0 8px; }
+</style>
+</head>
+<body>
+<h1>Generation Comparison Grid</h1>
+<section class='prompt'><h2>vague_control_warrior_rager</h2><p>Hearthstone card art, Warrior, Minion, gain_armor, Rager, Magma Rager, I want to make a new Rager meme card, but not just another bad Magma Rager clone. Make it feel like a defensive Control Warrior card that still keeps the classic Rager joke.</p><div class='methods'><section class="method">
+<h3>sd_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/vague_control_warrior_rager/sd_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>sd_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/vague_control_warrior_rager/sd_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/CFM_756.jpg" alt="">
+<div>Alley Armorsmith<br>semantic_kg</div>
+</div>
+</section>
+<section class="method">
+<h3>lora_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/vague_control_warrior_rager/lora_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/vague_control_warrior_rager/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/CFM_756.jpg" alt="">
+<div>Alley Armorsmith<br>semantic_kg</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>vague_priest_forgiveness_spell</h2><p>Hearthstone card art, Priest, Spell, Holy, heal, restore_health, copy, I have a Priest card idea about forgiveness after a mistake. It should feel kind and holy, but still be a real Hearthstone spell, not just flavor text.</p><div class='methods'><section class="method">
+<h3>sd_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/vague_priest_forgiveness_spell/sd_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>sd_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/vague_priest_forgiveness_spell/sd_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/ULD_272.jpg" alt="">
+<div>Holy Ripple<br>semantic_kg</div>
+</div>
+</section>
+<section class="method">
+<h3>lora_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/vague_priest_forgiveness_spell/lora_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/vague_priest_forgiveness_spell/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/ULD_272.jpg" alt="">
+<div>Holy Ripple<br>semantic_kg</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>vague_rogue_heist_gadget</h2><p>Hearthstone card art, Rogue, Minion, Spell, add_to_hand, reduce_cost, combo, The Coin, Design me a Rogue card that feels like a heist gadget. I do not know the exact effect, but I want it to be sneaky, tricky, and maybe interact with Coins or cheap cards.</p><div class='methods'><section class="method">
+<h3>sd_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/vague_rogue_heist_gadget/sd_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>sd_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/vague_rogue_heist_gadget/sd_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/TIME_000.jpg" alt="">
+<div>Semi-Stable Portal<br>semantic_kg</div>
+</div>
+</section>
+<section class="method">
+<h3>lora_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/vague_rogue_heist_gadget/lora_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/vague_rogue_heist_gadget/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/TIME_000.jpg" alt="">
+<div>Semi-Stable Portal<br>semantic_kg</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>vague_shaman_storm_totem</h2><p>Hearthstone card art, Shaman, Minion, Totem, overload, spell_synergy, I want a Shaman card about a storm totem waking up during battle. It should care about spells or Overload, but you can decide the exact mechanic.</p><div class='methods'><section class="method">
+<h3>sd_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/vague_shaman_storm_totem/sd_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>sd_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/vague_shaman_storm_totem/sd_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/AT_052.jpg" alt="">
+<div>Totem Golem<br>semantic_kg</div>
+</div>
+</section>
+<section class="method">
+<h3>lora_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/vague_shaman_storm_totem/lora_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/vague_shaman_storm_totem/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/AT_052.jpg" alt="">
+<div>Totem Golem<br>semantic_kg</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>semi_druid_solar_lunar_payoff</h2><p>Hearthstone card art, Druid, Minion, Spell, Nature, add_to_hand, generate_card, spell_synergy, Solar Eclipse, Lunar Eclipse, nature magic, Make a Druid card that rewards players for using both Solar Eclipse and Lunar Eclipse. It should feel like celestial nature magic, and it should probably generate or care about those two spells.</p><div class='methods'><section class="method">
+<h3>sd_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/semi_druid_solar_lunar_payoff/sd_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>sd_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/semi_druid_solar_lunar_payoff/sd_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/EDR_848.jpg" alt="">
+<div>Photosynthesis<br>semantic_kg</div>
+</div>
+</section>
+<section class="method">
+<h3>lora_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/semi_druid_solar_lunar_payoff/lora_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/semi_druid_solar_lunar_payoff/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/EDR_848.jpg" alt="">
+<div>Photosynthesis<br>semantic_kg</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>semi_warlock_imp_sacrifice</h2><p>Hearthstone card art, Warlock, Spell, Minion, Imp, Demon, deal_damage, draw, destroy_friendly_minion, I want a Warlock card for an Imp deck. It should sacrifice one of your small minions and turn that into card draw or damage. Keep it simple and a little cruel.</p><div class='methods'><section class="method">
+<h3>sd_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/semi_warlock_imp_sacrifice/sd_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>sd_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/semi_warlock_imp_sacrifice/sd_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/FIR_954.jpg" alt="">
+<div>Conflagrate<br>semantic_kg</div>
+</div>
+</section>
+<section class="method">
+<h3>lora_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/semi_warlock_imp_sacrifice/lora_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/semi_warlock_imp_sacrifice/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/FIR_954.jpg" alt="">
+<div>Conflagrate<br>semantic_kg</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>semi_paladin_recruit_commander</h2><p>Hearthstone card art, Paladin, Minion, summon, give_buff, Create a Paladin minion that leads Silver Hand Recruits. I want the art to show a heroic commander with little recruits behind them, and the card should either summon Recruits or buff them.</p><div class='methods'><section class="method">
+<h3>sd_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/semi_paladin_recruit_commander/sd_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>sd_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/semi_paladin_recruit_commander/sd_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/FIR_941.jpg" alt="">
+<div>Searing Reflection<br>semantic_kg</div>
+</div>
+</section>
+<section class="method">
+<h3>lora_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/semi_paladin_recruit_commander/lora_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/semi_paladin_recruit_commander/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/FIR_941.jpg" alt="">
+<div>Searing Reflection<br>semantic_kg</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>semi_death_knight_corpse_giant</h2><p>Hearthstone card art, Death Knight, Minion, Undead, spend_corpse, reduce_cost, Make a Death Knight card where a huge undead giant gets cheaper as you spend Corpses. It should look massive and stitched together, like something raised from a battlefield.</p><div class='methods'><section class="method">
+<h3>sd_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/semi_death_knight_corpse_giant/sd_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>sd_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/semi_death_knight_corpse_giant/sd_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/MIS_006.jpg" alt="">
+<div>Toysnatching Geist<br>semantic_kg</div>
+</div>
+</section>
+<section class="method">
+<h3>lora_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/semi_death_knight_corpse_giant/lora_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/semi_death_knight_corpse_giant/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/MIS_006.jpg" alt="">
+<div>Toysnatching Geist<br>semantic_kg</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>semi_mage_freeze_board_tool</h2><p>Hearthstone card art, Mage, Spell, Frost, freeze, I need art and maybe a balanced design for a Mage freeze card. The feeling is a sudden blizzard that stops enemy minions, but it should not be as frustrating as permanent board lock.</p><div class='methods'><section class="method">
+<h3>sd_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/semi_mage_freeze_board_tool/sd_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>sd_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/semi_mage_freeze_board_tool/sd_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/DAL_577.jpg" alt="">
+<div>Ray of Frost<br>semantic_kg</div>
+</div>
+</section>
+<section class="method">
+<h3>lora_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/semi_mage_freeze_board_tool/lora_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/semi_mage_freeze_board_tool/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/DAL_577.jpg" alt="">
+<div>Ray of Frost<br>semantic_kg</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>complete_hunter_beastmaster</h2><p>Hearthstone card art, Hunter, Minion, Beast, summon, condition, Card is already designed. Name: Packcaller Renna. Class: Hunter. Type: Legendary Minion. Cost: 4. Stats: 3/5. Text: Battlecry: Summon a 1/1 Beast. If you played a Beast last turn, summon a 3/3 Beast instead. I only need Hearthstone-style art for it.</p><div class='methods'><section class="method">
+<h3>sd_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/complete_hunter_beastmaster/sd_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>sd_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/complete_hunter_beastmaster/sd_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/WW_814.jpg" alt="">
+<div>Spurfang<br>semantic_kg</div>
+</div>
+</section>
+<section class="method">
+<h3>lora_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/complete_hunter_beastmaster/lora_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/complete_hunter_beastmaster/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/WW_814.jpg" alt="">
+<div>Spurfang<br>semantic_kg</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>complete_warrior_weapon</h2><p>Hearthstone card art, Warrior, Weapon, Hero, gain_armor, equip, gain_attack, I already have the card text: Iron Oathbreaker, 3 Mana Warrior Weapon, 3 Attack / 2 Durability. After your hero gains Armor, gain +1 Attack this turn. I need art that looks like a heavy forged weapon from a fortress armory.</p><div class='methods'><section class="method">
+<h3>sd_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/complete_warrior_weapon/sd_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>sd_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/complete_warrior_weapon/sd_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/FIR_956.jpg" alt="">
+<div>Dragon Turtle<br>semantic_kg</div>
+</div>
+</section>
+<section class="method">
+<h3>lora_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/complete_warrior_weapon/lora_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/complete_warrior_weapon/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/FIR_956.jpg" alt="">
+<div>Dragon Turtle<br>semantic_kg</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>complete_priest_spell</h2><p>Hearthstone card art, Priest, Spell, Holy, heal, draw, add_to_hand, holy light, Finished card: Gentle Reprieve. Priest spell, 2 Mana, Holy. Restore 4 Health to a character. If it was damaged this turn, draw a card. Please generate art: warm chapel light, a wounded ally being protected, no text or card frame.</p><div class='methods'><section class="method">
+<h3>sd_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/complete_priest_spell/sd_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>sd_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/complete_priest_spell/sd_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/AV_330.jpg" alt="">
+<div>Gift of the Naaru<br>semantic_kg</div>
+</div>
+</section>
+<section class="method">
+<h3>lora_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/complete_priest_spell/lora_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/complete_priest_spell/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/AV_330.jpg" alt="">
+<div>Gift of the Naaru<br>semantic_kg</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>complete_demon_hunter_rush</h2><p>Hearthstone card art, Demon Hunter, Hunter, Hero, Minion, Fel, Demon, give_buff, rush, attack, fel magic, The card is: Felrunner Adept. Demon Hunter Common Minion. 2 Mana 2/2. Rush. After this attacks, if it survived, give your hero +1 Attack this turn. I need art of a fast fel-powered fighter lunging through green flames.</p><div class='methods'><section class="method">
+<h3>sd_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/complete_demon_hunter_rush/sd_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>sd_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/complete_demon_hunter_rush/sd_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/BT_814.jpg" alt="">
+<div>Illidari Felblade<br>semantic_kg</div>
+</div>
+</section>
+<section class="method">
+<h3>lora_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/complete_demon_hunter_rush/lora_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/complete_demon_hunter_rush/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/BT_814.jpg" alt="">
+<div>Illidari Felblade<br>semantic_kg</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>complete_neutral_funny_murloc</h2><p>Hearthstone card art, Neutral, Minion, Murloc, add_to_hand, random_generation, I made a silly Neutral Murloc: Suspicious Fishmonger, 3 Mana 2/4. Battlecry: Add a random Fish to your hand. It should look funny and a bit shady, like a Murloc selling fish from a trench coat.</p><div class='methods'><section class="method">
+<h3>sd_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/complete_neutral_funny_murloc/sd_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>sd_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/complete_neutral_funny_murloc/sd_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/ULD_289.jpg" alt="">
+<div>Fishflinger<br>semantic_kg</div>
+</div>
+</section>
+<section class="method">
+<h3>lora_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/complete_neutral_funny_murloc/lora_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/complete_neutral_funny_murloc/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/ULD_289.jpg" alt="">
+<div>Fishflinger<br>semantic_kg</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>community_balance_rework</h2><p>Hearthstone card art, simple_hook, I want to redesign a boring pack filler card into something people would actually discuss on Custom Hearthstone. It should still be a Common, not too flashy, but it needs one clean mechanical hook and art that makes the card memorable.</p><div class='methods'><section class="method">
+<h3>sd_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/community_balance_rework/sd_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>sd_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/community_balance_rework/sd_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/ETC_080.jpg" alt="">
+<div>E.T.C., Band Manager<br>semantic_kg</div>
+</div>
+</section>
+<section class="method">
+<h3>lora_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/community_balance_rework/lora_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/community_balance_rework/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/ETC_080.jpg" alt="">
+<div>E.T.C., Band Manager<br>semantic_kg</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>community_keyword_showcase</h2><p>Hearthstone card art, Mage, Spell, Minion, spell_synergy, trigger, I am trying a custom keyword for a fan expansion. The keyword is Echoing: this triggers again if you played a spell last turn. Make one Mage example card that introduces the idea without being broken.</p><div class='methods'><section class="method">
+<h3>sd_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/community_keyword_showcase/sd_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>sd_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/community_keyword_showcase/sd_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/TIME_852.jpg" alt="">
+<div>Azure Queen Sindragosa<br>semantic_kg</div>
+</div>
+</section>
+<section class="method">
+<h3>lora_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/community_keyword_showcase/lora_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/community_keyword_showcase/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/TIME_852.jpg" alt="">
+<div>Azure Queen Sindragosa<br>semantic_kg</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>community_set_theme_request</h2><p>Hearthstone card art, Rogue, Spell, Minion, steal, add_to_hand, discover, desert, tomb, cursed relic, For a fan-made desert archaeology set, I need a Rogue card about stealing a cursed relic from a tomb. It should support the set flavor but still read like a normal Hearthstone card.</p><div class='methods'><section class="method">
+<h3>sd_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/community_set_theme_request/sd_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>sd_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/community_set_theme_request/sd_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/GDB_841.jpg" alt="">
+<div>Rangari Scout<br>semantic_kg</div>
+</div>
+</section>
+<section class="method">
+<h3>lora_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/community_set_theme_request/lora_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/community_set_theme_request/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/GDB_841.jpg" alt="">
+<div>Rangari Scout<br>semantic_kg</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>art_first_card_later_dragon</h2><p>Hearthstone card art, Minion, Dragon, time, cost_manipulation, discover, I mainly want a cool Hearthstone dragon artwork first: an ancient bronze dragon sleeping inside a clockwork observatory. After that, help me turn it into a balanced card.</p><div class='methods'><section class="method">
+<h3>sd_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/art_first_card_later_dragon/sd_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>sd_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/art_first_card_later_dragon/sd_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/FIR_927.jpg" alt="">
+<div>Emberscarred Whelp<br>semantic_kg</div>
+</div>
+</section>
+<section class="method">
+<h3>lora_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/art_first_card_later_dragon/lora_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/art_first_card_later_dragon/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/FIR_927.jpg" alt="">
+<div>Emberscarred Whelp<br>semantic_kg</div>
+</div>
+</section></div></section>
+<section class='prompt'><h2>art_only_token</h2><p>Hearthstone card art, Mage, Minion, Arcane, Mech, Beast, summon, I just need art for a generated token: a 1/1 Mechanical Sheep for a Gnome-themed Mage card. Cute, tiny, blue arcane sparks, toy-like but still Hearthstone fantasy.</p><div class='methods'><section class="method">
+<h3>sd_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/art_only_token/sd_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>sd_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/art_only_token/sd_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/TSC_054.jpg" alt="">
+<div>Mecha-Shark<br>semantic_kg</div>
+</div>
+</section>
+<section class="method">
+<h3>lora_text_only</h3>
+<img class="main" src="results/diy_generation_eval_real/images/art_only_token/lora_text_only.png" alt="">
+
+</section>
+<section class="method">
+<h3>lora_reference</h3>
+<img class="main" src="results/diy_generation_eval_real/images/art_only_token/lora_reference.png" alt="">
+<div class="ref">
+<img src="data/hf_hearthstone_art_512/images/TSC_054.jpg" alt="">
+<div>Mecha-Shark<br>semantic_kg</div>
+</div>
+</section></div></section>
+</body>
+</html>

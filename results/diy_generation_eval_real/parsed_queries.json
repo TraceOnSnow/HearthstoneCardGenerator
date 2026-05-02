@@ -1,0 +1,600 @@
+{
+  "queries": [
+    {
+      "query_id": "vague_control_warrior_rager",
+      "text": "I want to make a new Rager meme card, but not just another bad Magma Rager clone. Make it feel like a defensive Control Warrior card that still keeps the classic Rager joke.",
+      "classes": [
+        "Warrior"
+      ],
+      "card_types": [
+        "Minion"
+      ],
+      "keywords": [],
+      "actions": [
+        "gain_armor"
+      ],
+      "targets": [],
+      "resources": [],
+      "spell_schools": [],
+      "minion_types": [],
+      "mechanic_tags": [],
+      "constraints": [],
+      "generated_roles": [],
+      "generated_card_names": [],
+      "related_card_names": [
+        "Rager",
+        "Magma Rager"
+      ],
+      "generation_hints": {
+        "visual_tags": []
+      }
+    },
+    {
+      "query_id": "vague_priest_forgiveness_spell",
+      "text": "I have a Priest card idea about forgiveness after a mistake. It should feel kind and holy, but still be a real Hearthstone spell, not just flavor text.",
+      "classes": [
+        "Priest"
+      ],
+      "card_types": [
+        "Spell"
+      ],
+      "keywords": [],
+      "actions": [
+        "heal",
+        "restore_health",
+        "copy",
+        "resurrect"
+      ],
+      "targets": [],
+      "resources": [],
+      "spell_schools": [
+        "Holy"
+      ],
+      "minion_types": [],
+      "mechanic_tags": [],
+      "constraints": [],
+      "generated_roles": [],
+      "generated_card_names": [],
+      "related_card_names": [],
+      "generation_hints": {
+        "visual_tags": []
+      }
+    },
+    {
+      "query_id": "vague_rogue_heist_gadget",
+      "text": "Design me a Rogue card that feels like a heist gadget. I do not know the exact effect, but I want it to be sneaky, tricky, and maybe interact with Coins or cheap cards.",
+      "classes": [
+        "Rogue"
+      ],
+      "card_types": [
+        "Minion",
+        "Spell"
+      ],
+      "keywords": [],
+      "actions": [
+        "add_to_hand",
+        "reduce_cost",
+        "combo"
+      ],
+      "targets": [],
+      "resources": [],
+      "spell_schools": [],
+      "minion_types": [],
+      "mechanic_tags": [],
+      "constraints": [],
+      "generated_roles": [],
+      "generated_card_names": [],
+      "related_card_names": [
+        "The Coin"
+      ],
+      "generation_hints": {
+        "visual_tags": []
+      }
+    },
+    {
+      "query_id": "vague_shaman_storm_totem",
+      "text": "I want a Shaman card about a storm totem waking up during battle. It should care about spells or Overload, but you can decide the exact mechanic.",
+      "classes": [
+        "Shaman"
+      ],
+      "card_types": [
+        "Minion"
+      ],
+      "keywords": [],
+      "actions": [
+        "overload",
+        "spell_synergy"
+      ],
+      "targets": [],
+      "resources": [],
+      "spell_schools": [],
+      "minion_types": [
+        "Totem"
+      ],
+      "mechanic_tags": [],
+      "constraints": [],
+      "generated_roles": [],
+      "generated_card_names": [],
+      "related_card_names": [],
+      "generation_hints": {
+        "visual_tags": []
+      }
+    },
+    {
+      "query_id": "semi_druid_solar_lunar_payoff",
+      "text": "Make a Druid card that rewards players for using both Solar Eclipse and Lunar Eclipse. It should feel like celestial nature magic, and it should probably generate or care about those two spells.",
+      "classes": [
+        "Druid"
+      ],
+      "card_types": [
+        "Minion",
+        "Spell"
+      ],
+      "keywords": [],
+      "actions": [
+        "add_to_hand",
+        "generate_card",
+        "spell_synergy"
+      ],
+      "targets": [],
+      "resources": [],
+      "spell_schools": [
+        "Nature"
+      ],
+      "minion_types": [],
+      "mechanic_tags": [],
+      "constraints": [],
+      "generated_roles": [],
+      "generated_card_names": [],
+      "related_card_names": [
+        "Solar Eclipse",
+        "Lunar Eclipse"
+      ],
+      "generation_hints": {
+        "visual_tags": [
+          "nature magic"
+        ]
+      }
+    },
+    {
+      "query_id": "semi_warlock_imp_sacrifice",
+      "text": "I want a Warlock card for an Imp deck. It should sacrifice one of your small minions and turn that into card draw or damage. Keep it simple and a little cruel.",
+      "classes": [
+        "Warlock"
+      ],
+      "card_types": [
+        "Spell",
+        "Minion"
+      ],
+      "keywords": [],
+      "actions": [
+        "deal_damage",
+        "draw",
+        "destroy_friendly_minion"
+      ],
+      "targets": [
+        "minion"
+      ],
+      "resources": [],
+      "spell_schools": [],
+      "minion_types": [
+        "Imp",
+        "Demon"
+      ],
+      "mechanic_tags": [],
+      "constraints": [],
+      "generated_roles": [],
+      "generated_card_names": [],
+      "related_card_names": [],
+      "generation_hints": {
+        "visual_tags": []
+      }
+    },
+    {
+      "query_id": "semi_paladin_recruit_commander",
+      "text": "Create a Paladin minion that leads Silver Hand Recruits. I want the art to show a heroic commander with little recruits behind them, and the card should either summon Recruits or buff them.",
+      "classes": [
+        "Paladin"
+      ],
+      "card_types": [
+        "Minion"
+      ],
+      "keywords": [],
+      "actions": [
+        "summon",
+        "give_buff"
+      ],
+      "targets": [
+        "minion"
+      ],
+      "resources": [],
+      "spell_schools": [],
+      "minion_types": [],
+      "mechanic_tags": [],
+      "constraints": [],
+      "generated_roles": [],
+      "generated_card_names": [
+        "Silver Hand Recruit"
+      ],
+      "related_card_names": [],
+      "generation_hints": {
+        "visual_tags": []
+      }
+    },
+    {
+      "query_id": "semi_death_knight_corpse_giant",
+      "text": "Make a Death Knight card where a huge undead giant gets cheaper as you spend Corpses. It should look massive and stitched together, like something raised from a battlefield.",
+      "classes": [
+        "Death Knight"
+      ],
+      "card_types": [
+        "Minion"
+      ],
+      "keywords": [],
+      "actions": [
+        "spend_corpse",
+        "reduce_cost"
+      ],
+      "targets": [],
+      "resources": [],
+      "spell_schools": [],
+      "minion_types": [
+        "Undead"
+      ],
+      "mechanic_tags": [],
+      "constraints": [],
+      "generated_roles": [],
+      "generated_card_names": [],
+      "related_card_names": [],
+      "generation_hints": {
+        "visual_tags": []
+      }
+    },
+    {
+      "query_id": "semi_mage_freeze_board_tool",
+      "text": "I need art and maybe a balanced design for a Mage freeze card. The feeling is a sudden blizzard that stops enemy minions, but it should not be as frustrating as permanent board lock.",
+      "classes": [
+        "Mage"
+      ],
+      "card_types": [
+        "Spell"
+      ],
+      "keywords": [
+        "Freeze"
+      ],
+      "actions": [
+        "freeze"
+      ],
+      "targets": [
+        "minion",
+        "enemy_minion"
+      ],
+      "resources": [],
+      "spell_schools": [
+        "Frost"
+      ],
+      "minion_types": [],
+      "mechanic_tags": [],
+      "constraints": [],
+      "generated_roles": [],
+      "generated_card_names": [],
+      "related_card_names": [],
+      "generation_hints": {
+        "visual_tags": []
+      }
+    },
+    {
+      "query_id": "complete_hunter_beastmaster",
+      "text": "Card is already designed. Name: Packcaller Renna. Class: Hunter. Type: Legendary Minion. Cost: 4. Stats: 3/5. Text: Battlecry: Summon a 1/1 Beast. If you played a Beast last turn, summon a 3/3 Beast instead. I only need Hearthstone-style art for it.",
+      "classes": [
+        "Hunter"
+      ],
+      "card_types": [
+        "Minion"
+      ],
+      "keywords": [
+        "Battlecry"
+      ],
+      "actions": [
+        "summon",
+        "condition"
+      ],
+      "targets": [
+        "minion"
+      ],
+      "resources": [],
+      "spell_schools": [],
+      "minion_types": [
+        "Beast"
+      ],
+      "mechanic_tags": [],
+      "constraints": [],
+      "generated_roles": [
+        "beast_token"
+      ],
+      "generated_card_names": [],
+      "related_card_names": [],
+      "generation_hints": {
+        "visual_tags": []
+      }
+    },
+    {
+      "query_id": "complete_warrior_weapon",
+      "text": "I already have the card text: Iron Oathbreaker, 3 Mana Warrior Weapon, 3 Attack / 2 Durability. After your hero gains Armor, gain +1 Attack this turn. I need art that looks like a heavy forged weapon from a fortress armory.",
+      "classes": [
+        "Warrior"
+      ],
+      "card_types": [
+        "Weapon",
+        "Hero"
+      ],
+      "keywords": [],
+      "actions": [
+        "gain_armor",
+        "equip",
+        "gain_attack",
+        "gain_armor_synergy"
+      ],
+      "targets": [
+        "hero"
+      ],
+      "resources": [
+        "armor"
+      ],
+      "spell_schools": [],
+      "minion_types": [],
+      "mechanic_tags": [],
+      "constraints": [],
+      "generated_roles": [],
+      "generated_card_names": [],
+      "related_card_names": [],
+      "generation_hints": {
+        "visual_tags": []
+      }
+    },
+    {
+      "query_id": "complete_priest_spell",
+      "text": "Finished card: Gentle Reprieve. Priest spell, 2 Mana, Holy. Restore 4 Health to a character. If it was damaged this turn, draw a card. Please generate art: warm chapel light, a wounded ally being protected, no text or card frame.",
+      "classes": [
+        "Priest"
+      ],
+      "card_types": [
+        "Spell"
+      ],
+      "keywords": [],
+      "actions": [
+        "heal",
+        "draw",
+        "add_to_hand",
+        "condition"
+      ],
+      "targets": [],
+      "resources": [],
+      "spell_schools": [
+        "Holy"
+      ],
+      "minion_types": [],
+      "mechanic_tags": [],
+      "constraints": [],
+      "generated_roles": [],
+      "generated_card_names": [],
+      "related_card_names": [],
+      "generation_hints": {
+        "visual_tags": [
+          "holy light"
+        ]
+      }
+    },
+    {
+      "query_id": "complete_demon_hunter_rush",
+      "text": "The card is: Felrunner Adept. Demon Hunter Common Minion. 2 Mana 2/2. Rush. After this attacks, if it survived, give your hero +1 Attack this turn. I need art of a fast fel-powered fighter lunging through green flames.",
+      "classes": [
+        "Demon Hunter",
+        "Hunter"
+      ],
+      "card_types": [
+        "Hero",
+        "Minion"
+      ],
+      "keywords": [
+        "Rush"
+      ],
+      "actions": [
+        "give_buff",
+        "rush",
+        "attack",
+        "gain_attack"
+      ],
+      "targets": [
+        "minion",
+        "hero"
+      ],
+      "resources": [],
+      "spell_schools": [
+        "Fel"
+      ],
+      "minion_types": [
+        "Demon"
+      ],
+      "mechanic_tags": [],
+      "constraints": [],
+      "generated_roles": [],
+      "generated_card_names": [],
+      "related_card_names": [],
+      "generation_hints": {
+        "visual_tags": [
+          "fel magic"
+        ]
+      }
+    },
+    {
+      "query_id": "complete_neutral_funny_murloc",
+      "text": "I made a silly Neutral Murloc: Suspicious Fishmonger, 3 Mana 2/4. Battlecry: Add a random Fish to your hand. It should look funny and a bit shady, like a Murloc selling fish from a trench coat.",
+      "classes": [
+        "Neutral"
+      ],
+      "card_types": [
+        "Minion"
+      ],
+      "keywords": [
+        "Battlecry"
+      ],
+      "actions": [
+        "add_to_hand",
+        "random_generation"
+      ],
+      "targets": [],
+      "resources": [],
+      "spell_schools": [],
+      "minion_types": [
+        "Murloc"
+      ],
+      "mechanic_tags": [],
+      "constraints": [],
+      "generated_roles": [],
+      "generated_card_names": [],
+      "related_card_names": [],
+      "generation_hints": {
+        "visual_tags": []
+      }
+    },
+    {
+      "query_id": "community_balance_rework",
+      "text": "I want to redesign a boring pack filler card into something people would actually discuss on Custom Hearthstone. It should still be a Common, not too flashy, but it needs one clean mechanical hook and art that makes the card memorable.",
+      "classes": [],
+      "card_types": [],
+      "keywords": [],
+      "actions": [
+        "simple_hook"
+      ],
+      "targets": [],
+      "resources": [],
+      "spell_schools": [],
+      "minion_types": [],
+      "mechanic_tags": [],
+      "constraints": [],
+      "generated_roles": [],
+      "generated_card_names": [],
+      "related_card_names": [],
+      "generation_hints": {
+        "visual_tags": []
+      }
+    },
+    {
+      "query_id": "community_keyword_showcase",
+      "text": "I am trying a custom keyword for a fan expansion. The keyword is Echoing: this triggers again if you played a spell last turn. Make one Mage example card that introduces the idea without being broken.",
+      "classes": [
+        "Mage"
+      ],
+      "card_types": [
+        "Spell",
+        "Minion"
+      ],
+      "keywords": [],
+      "actions": [
+        "spell_synergy",
+        "trigger"
+      ],
+      "targets": [],
+      "resources": [],
+      "spell_schools": [],
+      "minion_types": [],
+      "mechanic_tags": [],
+      "constraints": [],
+      "generated_roles": [],
+      "generated_card_names": [],
+      "related_card_names": [],
+      "generation_hints": {
+        "visual_tags": []
+      }
+    },
+    {
+      "query_id": "community_set_theme_request",
+      "text": "For a fan-made desert archaeology set, I need a Rogue card about stealing a cursed relic from a tomb. It should support the set flavor but still read like a normal Hearthstone card.",
+      "classes": [
+        "Rogue"
+      ],
+      "card_types": [
+        "Spell",
+        "Minion"
+      ],
+      "keywords": [],
+      "actions": [
+        "steal",
+        "add_to_hand",
+        "discover"
+      ],
+      "targets": [],
+      "resources": [],
+      "spell_schools": [],
+      "minion_types": [],
+      "mechanic_tags": [],
+      "constraints": [],
+      "generated_roles": [],
+      "generated_card_names": [],
+      "related_card_names": [],
+      "generation_hints": {
+        "visual_tags": []
+      }
+    },
+    {
+      "query_id": "art_first_card_later_dragon",
+      "text": "I mainly want a cool Hearthstone dragon artwork first: an ancient bronze dragon sleeping inside a clockwork observatory. After that, help me turn it into a balanced card.",
+      "classes": [],
+      "card_types": [
+        "Minion"
+      ],
+      "keywords": [],
+      "actions": [
+        "time",
+        "cost_manipulation",
+        "discover"
+      ],
+      "targets": [],
+      "resources": [],
+      "spell_schools": [],
+      "minion_types": [
+        "Dragon"
+      ],
+      "mechanic_tags": [],
+      "constraints": [],
+      "generated_roles": [],
+      "generated_card_names": [],
+      "related_card_names": [],
+      "generation_hints": {
+        "visual_tags": []
+      }
+    },
+    {
+      "query_id": "art_only_token",
+      "text": "I just need art for a generated token: a 1/1 Mechanical Sheep for a Gnome-themed Mage card. Cute, tiny, blue arcane sparks, toy-like but still Hearthstone fantasy.",
+      "classes": [
+        "Mage"
+      ],
+      "card_types": [
+        "Minion"
+      ],
+      "keywords": [],
+      "actions": [
+        "summon"
+      ],
+      "targets": [],
+      "resources": [],
+      "spell_schools": [
+        "Arcane"
+      ],
+      "minion_types": [
+        "Mech",
+        "Beast"
+      ],
+      "mechanic_tags": [],
+      "constraints": [],
+      "generated_roles": [],
+      "generated_card_names": [],
+      "related_card_names": [],
+      "generation_hints": {
+        "visual_tags": []
+      }
+    }
+  ]
+}

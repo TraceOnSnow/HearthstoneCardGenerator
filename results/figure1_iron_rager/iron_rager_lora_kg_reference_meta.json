@@ -1,0 +1,16 @@
+{
+  "method": "LoRA + KG reference img2img",
+  "output": "results/figure1_iron_rager/iron_rager_lora_kg_reference.png",
+  "reference": "results/figure1_iron_rager/references/CS2_118.jpg",
+  "prompt": "Hearthstone card art, a burly elemental rager forged from molten rock and clad in iron armor, Warrior class, glowing embers and metallic plates., Hearthstone splash art, dynamic fantasy illustration, no card frame, no text",
+  "negative_prompt": "text, watermark, logo, card frame, UI, typography, blurry, low quality, cropped, deformed, extra limbs",
+  "seed": 646,
+  "steps": 24,
+  "guidance_scale": 7.0,
+  "strength": 0.78,
+  "lora_scale": 0.8,
+  "base_model": "runwayml/stable-diffusion-v1-5",
+  "lora": "models/lora/pytorch_lora_weights.safetensors",
+  "device": "cuda",
+  "elapsed_seconds": 7.9
+}

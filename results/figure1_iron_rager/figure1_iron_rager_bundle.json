@@ -1,0 +1,215 @@
+{
+  "case_id": "figure1_iron_rager",
+  "purpose": "Single end-to-end case for the final report Figure 1 system overview.",
+  "user_request": "I want to DIY a new Rager meme card inspired by Magma Rager's classic 3-mana 5/1 statline, but make it feel like a defensive Control Warrior card that gains Armor. Keep it simple and plausible, like something Hearthstone players would actually design.",
+  "structured_query": {
+    "query_id": "diy_rager_meme_en",
+    "text": "I want to DIY a new Rager meme card inspired by Magma Rager's classic 3-mana 5/1 statline, but make it feel like a defensive Control Warrior card that gains Armor. Keep it simple and plausible, like something Hearthstone players would actually design.",
+    "classes": [
+      "Warrior"
+    ],
+    "card_types": [
+      "Minion"
+    ],
+    "keywords": [
+      "Rager",
+      "Armor"
+    ],
+    "actions": [
+      "gain_armor"
+    ],
+    "targets": [],
+    "resources": [
+      "3"
+    ],
+    "spell_schools": [],
+    "minion_types": [],
+    "mechanic_tags": [
+      "Rager"
+    ],
+    "constraints": [
+      "5/1 statline inspired by Magma Rager",
+      "defensive Control Warrior theme",
+      "armor gain",
+      "simple and plausible meme design"
+    ],
+    "generated_roles": [
+      "Control Warrior defensive minion",
+      "Rager meme card"
+    ],
+    "generated_card_names": [],
+    "related_card_names": [
+      "Magma Rager",
+      "Rager"
+    ],
+    "triggers": [],
+    "conditions": [],
+    "generation_hints": {
+      "visual_tags": [
+        "warrior aesthetic",
+        "armor theme",
+        "elemental reminiscent",
+        "simple meme-style design"
+      ]
+    }
+  },
+  "kg_evidence_policy": {
+    "note": "Use faceted KG evidence, not only a flat score ranking. The Rager family anchor has low token score but high design importance.",
+    "facets": {
+      "family_anchor": [
+        "Magma Rager"
+      ],
+      "mechanic_anchor": [
+        "Hookfist-3000"
+      ],
+      "class_support": [
+        "Armorsmith",
+        "Eternium Rover"
+      ]
+    }
+  },
+  "selected_references": [
+    {
+      "card_id": 1653,
+      "name": "Magma Rager",
+      "dbf_id": 1653,
+      "card_json_id": "CS2_118",
+      "rank": 20,
+      "score": 0.0,
+      "reasons": [
+        "related_name_match"
+      ],
+      "art_path": "references/CS2_118.jpg",
+      "source_art_path": "data/hf_hearthstone_art_512/images/CS2_118.jpg",
+      "used_for": "family/statline anchor: classic 3-mana 5/1 Rager meme"
+    },
+    {
+      "card_id": 86692,
+      "name": "Hookfist-3000",
+      "dbf_id": 86692,
+      "card_json_id": "NX2_028",
+      "rank": 1,
+      "score": 7.3,
+      "reasons": [
+        "classes=Warrior",
+        "card_types=Minion",
+        "actions=gain_armor",
+        "text_overlap=4"
+      ],
+      "art_path": "references/NX2_028.jpg",
+      "source_art_path": "data/hf_hearthstone_art_512/images/NX2_028.jpg",
+      "used_for": "mechanic anchor: Warrior minion that gains Armor"
+    },
+    {
+      "card_id": 596,
+      "name": "Armorsmith",
+      "dbf_id": 596,
+      "card_json_id": "EX1_402",
+      "rank": 6,
+      "score": 7.1,
+      "reasons": [
+        "classes=Warrior",
+        "card_types=Minion",
+        "actions=gain_armor",
+        "text_overlap=3"
+      ],
+      "art_path": "references/EX1_402.jpg",
+      "source_art_path": "data/hf_hearthstone_art_512/images/EX1_402.jpg",
+      "used_for": "class identity: iconic Warrior Armor synergy"
+    },
+    {
+      "card_id": 48691,
+      "name": "Eternium Rover",
+      "dbf_id": 48691,
+      "card_json_id": "BOT_059",
+      "rank": 8,
+      "score": 7.1,
+      "reasons": [
+        "classes=Warrior",
+        "card_types=Minion",
+        "actions=gain_armor",
+        "text_overlap=3"
+      ],
+      "art_path": "references/BOT_059.jpg",
+      "source_art_path": "data/hf_hearthstone_art_512/images/BOT_059.jpg",
+      "used_for": "defensive Warrior flavor: armored mech/minion reference"
+    }
+  ],
+  "designed_card": {
+    "name": "Iron Rager",
+    "mana_cost": 3,
+    "card_type": "Minion",
+    "class": [
+      "Warrior"
+    ],
+    "rarity": "Common",
+    "minion_type": "Elemental",
+    "attack": 5,
+    "health": 1,
+    "durability": null,
+    "keywords": [
+      "Battlecry"
+    ],
+    "rules_text": "Battlecry: Gain 3 Armor.",
+    "flavor_text": "Molten fury tempered by iron will."
+  },
+  "designed_structured_semantics": {
+    "actions": [
+      "gain_armor"
+    ],
+    "mechanic_tags": [
+      "battlecry",
+      "gain_armor"
+    ],
+    "constraints": [
+      "5/1 statline inspired by Magma Rager",
+      "defensive Control Warrior theme",
+      "armor gain",
+      "simple and plausible meme design"
+    ],
+    "related_card_refs": [
+      "Magma Rager",
+      "Hookfist-3000"
+    ],
+    "semantic_summary": "A 3-mana 5/1 Warrior Elemental that grants 3 Armor on play, echoing the classic Rager meme while providing defensive utility.",
+    "lora_caption": "Hearthstone card art, a burly elemental rager forged from molten rock and clad in iron armor, Warrior class, glowing embers and metallic plates."
+  },
+  "kg_usage": {
+    "retrieved_cards_used": [
+      {
+        "card_id": 1653,
+        "name": "Magma Rager",
+        "used_for": "statline/meme family"
+      },
+      {
+        "card_id": 86692,
+        "name": "Hookfist-3000",
+        "used_for": "armor gain mechanic"
+      }
+    ],
+    "design_rationale": "Kept the iconic 5/1 statline from Magma Rager to preserve the Rager meme, and added a simple Battlecry armor gain similar to Hookfist-3000 to give the card a defensive Control Warrior feel without power creep."
+  },
+  "balance_notes": "The 5/1 body is vulnerable but high-attack, and a 3 Armor battlecry is a modest defensive upside comparable to other 3-cost Warrior armor cards, keeping the card balanced for constructed play.",
+  "generation_slots_for_figure": [
+    {
+      "method": "SD text-only",
+      "status": "placeholder",
+      "prompt": "Hearthstone card art, a burly elemental rager forged from molten rock and clad in iron armor, Warrior class, glowing embers and metallic plates."
+    },
+    {
+      "method": "LoRA text-only",
+      "status": "placeholder",
+      "prompt": "Hearthstone card art, a burly elemental rager forged from molten rock and clad in iron armor, Warrior class, glowing embers and metallic plates."
+    },
+    {
+      "method": "LoRA + TF-IDF reference",
+      "status": "placeholder",
+      "reference_policy": "baseline nearest lexical/caption match"
+    },
+    {
+      "method": "LoRA + KG reference",
+      "status": "placeholder",
+      "reference_policy": "primary reference = Magma Rager, text hints = Warrior armor evidence"
+    }
+  ]
+}

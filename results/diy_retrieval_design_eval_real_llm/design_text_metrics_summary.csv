@@ -1,0 +1,2 @@
+method,rows,class_match_mean,action_match_mean,relation_match_mean,type_match_mean,wording_concision_mean,overall_design_text_quality_mean
+kg_augmented_mock_designer,19,1.0,0.9842,0.9684,1.0,0.9342,0.9679

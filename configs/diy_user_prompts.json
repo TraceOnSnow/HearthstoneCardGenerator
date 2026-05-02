@@ -1,0 +1,251 @@
+{
+  "description": "Natural-language Hearthstone DIY card prompts for KG/design/generation evaluation. Prompts are intentionally written as user requests, not only clean image captions.",
+  "source_inspiration": [
+    "r/customhearthstone and HearthCards-style custom card communities emphasize playable card ideas, official-looking wording, balance, and Hearthstone-style art.",
+    "The set mixes vague creative asks, semi-structured design briefs, implicit meme/family asks, and fully specified card designs that only need artwork."
+  ],
+  "prompts": [
+    {
+      "prompt_id": "vague_control_warrior_rager",
+      "difficulty": "implicit_meme_and_vague_design",
+      "stage": "design_and_art",
+      "user_request": "I want to make a new Rager meme card, but not just another bad Magma Rager clone. Make it feel like a defensive Control Warrior card that still keeps the classic Rager joke.",
+      "expected_intent": {
+        "class": ["Warrior"],
+        "card_type": ["Minion"],
+        "related_card_names": ["Magma Rager", "Rager"],
+        "mechanics": ["gain_armor"],
+        "notes": "Should retrieve Rager-family anchors plus Warrior armor cards."
+      }
+    },
+    {
+      "prompt_id": "vague_priest_forgiveness_spell",
+      "difficulty": "vague_theme",
+      "stage": "design_and_art",
+      "user_request": "I have a Priest card idea about forgiveness after a mistake. It should feel kind and holy, but still be a real Hearthstone spell, not just flavor text.",
+      "expected_intent": {
+        "class": ["Priest"],
+        "card_type": ["Spell"],
+        "mechanics": ["heal", "restore_health", "copy", "resurrect"],
+        "notes": "Open-ended request; KG should supply Priest healing/resurrection references."
+      }
+    },
+    {
+      "prompt_id": "vague_rogue_heist_gadget",
+      "difficulty": "vague_theme",
+      "stage": "design_and_art",
+      "user_request": "Design me a Rogue card that feels like a heist gadget. I do not know the exact effect, but I want it to be sneaky, tricky, and maybe interact with Coins or cheap cards.",
+      "expected_intent": {
+        "class": ["Rogue"],
+        "card_type": ["Minion", "Spell"],
+        "mechanics": ["add_to_hand", "reduce_cost", "combo"],
+        "related_card_names": ["The Coin"],
+        "notes": "Tests vague request parsing and Rogue identity retrieval."
+      }
+    },
+    {
+      "prompt_id": "vague_shaman_storm_totem",
+      "difficulty": "vague_theme",
+      "stage": "design_and_art",
+      "user_request": "I want a Shaman card about a storm totem waking up during battle. It should care about spells or Overload, but you can decide the exact mechanic.",
+      "expected_intent": {
+        "class": ["Shaman"],
+        "card_type": ["Minion"],
+        "minion_type": ["Totem"],
+        "mechanics": ["overload", "spell_synergy"],
+        "notes": "Useful for KG retrieval over class, minion type, and mechanic tags."
+      }
+    },
+    {
+      "prompt_id": "semi_druid_solar_lunar_payoff",
+      "difficulty": "implicit_related_cards",
+      "stage": "design_and_art",
+      "user_request": "Make a Druid card that rewards players for using both Solar Eclipse and Lunar Eclipse. It should feel like celestial nature magic, and it should probably generate or care about those two spells.",
+      "expected_intent": {
+        "class": ["Druid"],
+        "card_type": ["Minion", "Spell"],
+        "related_card_names": ["Solar Eclipse", "Lunar Eclipse"],
+        "mechanics": ["generate_card", "spell_synergy"],
+        "notes": "Tests LLM/KG ability to capture implicit named-card relationships."
+      }
+    },
+    {
+      "prompt_id": "semi_warlock_imp_sacrifice",
+      "difficulty": "semi_structured",
+      "stage": "design_and_art",
+      "user_request": "I want a Warlock card for an Imp deck. It should sacrifice one of your small minions and turn that into card draw or damage. Keep it simple and a little cruel.",
+      "expected_intent": {
+        "class": ["Warlock"],
+        "card_type": ["Spell", "Minion"],
+        "minion_type": ["Imp", "Demon"],
+        "mechanics": ["destroy_friendly_minion", "draw", "deal_damage"],
+        "notes": "Common real custom-card style: class archetype plus effect direction."
+      }
+    },
+    {
+      "prompt_id": "semi_paladin_recruit_commander",
+      "difficulty": "semi_structured",
+      "stage": "design_and_art",
+      "user_request": "Create a Paladin minion that leads Silver Hand Recruits. I want the art to show a heroic commander with little recruits behind them, and the card should either summon Recruits or buff them.",
+      "expected_intent": {
+        "class": ["Paladin"],
+        "card_type": ["Minion"],
+        "generated_card_names": ["Silver Hand Recruit"],
+        "mechanics": ["summon", "give_buff"],
+        "notes": "Tests token references and art direction."
+      }
+    },
+    {
+      "prompt_id": "semi_death_knight_corpse_giant",
+      "difficulty": "semi_structured",
+      "stage": "design_and_art",
+      "user_request": "Make a Death Knight card where a huge undead giant gets cheaper as you spend Corpses. It should look massive and stitched together, like something raised from a battlefield.",
+      "expected_intent": {
+        "class": ["Death Knight"],
+        "card_type": ["Minion"],
+        "minion_type": ["Undead"],
+        "mechanics": ["spend_corpse", "reduce_cost"],
+        "notes": "Tests newer class/resource semantics."
+      }
+    },
+    {
+      "prompt_id": "semi_mage_freeze_board_tool",
+      "difficulty": "semi_structured",
+      "stage": "design_and_art",
+      "user_request": "I need art and maybe a balanced design for a Mage freeze card. The feeling is a sudden blizzard that stops enemy minions, but it should not be as frustrating as permanent board lock.",
+      "expected_intent": {
+        "class": ["Mage"],
+        "card_type": ["Spell"],
+        "spell_school": ["Frost"],
+        "mechanics": ["freeze"],
+        "notes": "Useful for design-balance language and Frost visual reference retrieval."
+      }
+    },
+    {
+      "prompt_id": "complete_hunter_beastmaster",
+      "difficulty": "fully_specified_card",
+      "stage": "art_only",
+      "user_request": "Card is already designed. Name: Packcaller Renna. Class: Hunter. Type: Legendary Minion. Cost: 4. Stats: 3/5. Text: Battlecry: Summon a 1/1 Beast. If you played a Beast last turn, summon a 3/3 Beast instead. I only need Hearthstone-style art for it.",
+      "expected_intent": {
+        "class": ["Hunter"],
+        "card_type": ["Minion"],
+        "rarity": ["Legendary"],
+        "mechanics": ["summon", "condition"],
+        "generated_roles": ["beast_token"],
+        "notes": "Should bypass major design generation and focus on caption/reference retrieval."
+      }
+    },
+    {
+      "prompt_id": "complete_warrior_weapon",
+      "difficulty": "fully_specified_card",
+      "stage": "art_only",
+      "user_request": "I already have the card text: Iron Oathbreaker, 3 Mana Warrior Weapon, 3 Attack / 2 Durability. After your hero gains Armor, gain +1 Attack this turn. I need art that looks like a heavy forged weapon from a fortress armory.",
+      "expected_intent": {
+        "class": ["Warrior"],
+        "card_type": ["Weapon"],
+        "mechanics": ["gain_attack", "gain_armor_synergy"],
+        "notes": "Tests non-minion art generation with complete mechanics."
+      }
+    },
+    {
+      "prompt_id": "complete_priest_spell",
+      "difficulty": "fully_specified_card",
+      "stage": "art_only",
+      "user_request": "Finished card: Gentle Reprieve. Priest spell, 2 Mana, Holy. Restore 4 Health to a character. If it was damaged this turn, draw a card. Please generate art: warm chapel light, a wounded ally being protected, no text or card frame.",
+      "expected_intent": {
+        "class": ["Priest"],
+        "card_type": ["Spell"],
+        "spell_school": ["Holy"],
+        "mechanics": ["heal", "draw", "condition"],
+        "notes": "Complete design, strong visual direction."
+      }
+    },
+    {
+      "prompt_id": "complete_demon_hunter_rush",
+      "difficulty": "fully_specified_card",
+      "stage": "art_only",
+      "user_request": "The card is: Felrunner Adept. Demon Hunter Common Minion. 2 Mana 2/2. Rush. After this attacks, if it survived, give your hero +1 Attack this turn. I need art of a fast fel-powered fighter lunging through green flames.",
+      "expected_intent": {
+        "class": ["Demon Hunter"],
+        "card_type": ["Minion"],
+        "mechanics": ["rush", "attack", "gain_attack"],
+        "notes": "Tests keyword + class visual identity."
+      }
+    },
+    {
+      "prompt_id": "complete_neutral_funny_murloc",
+      "difficulty": "fully_specified_card_with_humor",
+      "stage": "art_only",
+      "user_request": "I made a silly Neutral Murloc: Suspicious Fishmonger, 3 Mana 2/4. Battlecry: Add a random Fish to your hand. It should look funny and a bit shady, like a Murloc selling fish from a trench coat.",
+      "expected_intent": {
+        "class": ["Neutral"],
+        "card_type": ["Minion"],
+        "minion_type": ["Murloc"],
+        "mechanics": ["add_to_hand", "random_generation"],
+        "notes": "Represents casual/funny custom card requests."
+      }
+    },
+    {
+      "prompt_id": "community_balance_rework",
+      "difficulty": "balance_rework_style",
+      "stage": "design_and_art",
+      "user_request": "I want to redesign a boring pack filler card into something people would actually discuss on Custom Hearthstone. It should still be a Common, not too flashy, but it needs one clean mechanical hook and art that makes the card memorable.",
+      "expected_intent": {
+        "rarity": ["Common"],
+        "mechanics": ["simple_hook"],
+        "notes": "Very vague; tests whether system can ask KG for common/simple cards rather than overdesigning."
+      }
+    },
+    {
+      "prompt_id": "community_keyword_showcase",
+      "difficulty": "custom_keyword_concept",
+      "stage": "design_and_art",
+      "user_request": "I am trying a custom keyword for a fan expansion. The keyword is Echoing: this triggers again if you played a spell last turn. Make one Mage example card that introduces the idea without being broken.",
+      "expected_intent": {
+        "class": ["Mage"],
+        "card_type": ["Minion", "Spell"],
+        "custom_keyword": ["Echoing"],
+        "mechanics": ["spell_synergy", "trigger"],
+        "notes": "Custom communities often experiment with new keywords; this tests handling without polluting official KG nodes."
+      }
+    },
+    {
+      "prompt_id": "community_set_theme_request",
+      "difficulty": "set_design_context",
+      "stage": "design_and_art",
+      "user_request": "For a fan-made desert archaeology set, I need a Rogue card about stealing a cursed relic from a tomb. It should support the set flavor but still read like a normal Hearthstone card.",
+      "expected_intent": {
+        "class": ["Rogue"],
+        "card_type": ["Spell", "Minion"],
+        "mechanics": ["steal", "add_to_hand", "discover"],
+        "visual_tags": ["desert", "tomb", "cursed relic"],
+        "notes": "Community set-style prompt with theme context."
+      }
+    },
+    {
+      "prompt_id": "art_first_card_later_dragon",
+      "difficulty": "art_first",
+      "stage": "art_then_design",
+      "user_request": "I mainly want a cool Hearthstone dragon artwork first: an ancient bronze dragon sleeping inside a clockwork observatory. After that, help me turn it into a balanced card.",
+      "expected_intent": {
+        "card_type": ["Minion"],
+        "minion_type": ["Dragon"],
+        "mechanics": ["time", "cost_manipulation", "discover"],
+        "notes": "Some users start from art/theme rather than mechanics."
+      }
+    },
+    {
+      "prompt_id": "art_only_token",
+      "difficulty": "token_art_only",
+      "stage": "art_only",
+      "user_request": "I just need art for a generated token: a 1/1 Mechanical Sheep for a Gnome-themed Mage card. Cute, tiny, blue arcane sparks, toy-like but still Hearthstone fantasy.",
+      "expected_intent": {
+        "class": ["Mage"],
+        "card_type": ["Minion"],
+        "minion_type": ["Mech", "Beast"],
+        "is_token": true,
+        "notes": "Tests generated-card/token support and caption generation."
+      }
+    }
+  ]
+}

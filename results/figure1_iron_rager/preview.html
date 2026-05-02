@@ -1,0 +1,156 @@
+<!doctype html>
+<html><head><meta charset='utf-8'><title>Iron Rager Figure 1 Case</title>
+<style>
+body{font-family:Georgia,serif;background:#f4efe4;color:#231b12;margin:28px;}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.card{background:#fff8e8;border:2px solid #8a5a2b;border-radius:14px;padding:12px;box-shadow:0 4px 12px #0002;}
+.card img{width:100%;border-radius:10px;display:block;}
+pre{background:#1f1a14;color:#f4efe4;padding:14px;border-radius:10px;white-space:pre-wrap;}
+.stage{background:#fff;border-left:6px solid #b26b21;padding:14px;margin:16px 0;}
+.placeholder{height:120px;border:2px dashed #777;display:flex;align-items:center;justify-content:center;background:#eee;margin-top:8px;}
+</style></head><body>
+<h1>Figure 1 Case: Iron Rager</h1>
+<div class='stage'><h2>User Request</h2><p>I want to DIY a new Rager meme card inspired by Magma Rager&#x27;s classic 3-mana 5/1 statline, but make it feel like a defensive Control Warrior card that gains Armor. Keep it simple and plausible, like something Hearthstone players would actually design.</p></div>
+<div class='stage'><h2>Structured Query</h2><pre>{
+  &quot;query_id&quot;: &quot;diy_rager_meme_en&quot;,
+  &quot;text&quot;: &quot;I want to DIY a new Rager meme card inspired by Magma Rager&#x27;s classic 3-mana 5/1 statline, but make it feel like a defensive Control Warrior card that gains Armor. Keep it simple and plausible, like something Hearthstone players would actually design.&quot;,
+  &quot;classes&quot;: [
+    &quot;Warrior&quot;
+  ],
+  &quot;card_types&quot;: [
+    &quot;Minion&quot;
+  ],
+  &quot;keywords&quot;: [
+    &quot;Rager&quot;,
+    &quot;Armor&quot;
+  ],
+  &quot;actions&quot;: [
+    &quot;gain_armor&quot;
+  ],
+  &quot;targets&quot;: [],
+  &quot;resources&quot;: [
+    &quot;3&quot;
+  ],
+  &quot;spell_schools&quot;: [],
+  &quot;minion_types&quot;: [],
+  &quot;mechanic_tags&quot;: [
+    &quot;Rager&quot;
+  ],
+  &quot;constraints&quot;: [
+    &quot;5/1 statline inspired by Magma Rager&quot;,
+    &quot;defensive Control Warrior theme&quot;,
+    &quot;armor gain&quot;,
+    &quot;simple and plausible meme design&quot;
+  ],
+  &quot;generated_roles&quot;: [
+    &quot;Control Warrior defensive minion&quot;,
+    &quot;Rager meme card&quot;
+  ],
+  &quot;generated_card_names&quot;: [],
+  &quot;related_card_names&quot;: [
+    &quot;Magma Rager&quot;,
+    &quot;Rager&quot;
+  ],
+  &quot;triggers&quot;: [],
+  &quot;conditions&quot;: [],
+  &quot;generation_hints&quot;: {
+    &quot;visual_tags&quot;: [
+      &quot;warrior aesthetic&quot;,
+      &quot;armor theme&quot;,
+      &quot;elemental reminiscent&quot;,
+      &quot;simple meme-style design&quot;
+    ]
+  }
+}</pre></div>
+<h2>Faceted KG Evidence</h2><div class='grid'>
+    <div class='card'>
+      <img src="references/CS2_118.jpg" />
+      <h3>Magma Rager</h3>
+      <p>family/statline anchor: classic 3-mana 5/1 Rager meme</p>
+      <small>CS2_118 / dbf 1653</small>
+    </div>
+    
+    <div class='card'>
+      <img src="references/NX2_028.jpg" />
+      <h3>Hookfist-3000</h3>
+      <p>mechanic anchor: Warrior minion that gains Armor</p>
+      <small>NX2_028 / dbf 86692</small>
+    </div>
+    
+    <div class='card'>
+      <img src="references/EX1_402.jpg" />
+      <h3>Armorsmith</h3>
+      <p>class identity: iconic Warrior Armor synergy</p>
+      <small>EX1_402 / dbf 596</small>
+    </div>
+    
+    <div class='card'>
+      <img src="references/BOT_059.jpg" />
+      <h3>Eternium Rover</h3>
+      <p>defensive Warrior flavor: armored mech/minion reference</p>
+      <small>BOT_059 / dbf 48691</small>
+    </div>
+    </div>
+<div class='stage'><h2>Generated Structured Card</h2><pre>{
+  &quot;card&quot;: {
+    &quot;name&quot;: &quot;Iron Rager&quot;,
+    &quot;mana_cost&quot;: 3,
+    &quot;card_type&quot;: &quot;Minion&quot;,
+    &quot;class&quot;: [
+      &quot;Warrior&quot;
+    ],
+    &quot;rarity&quot;: &quot;Common&quot;,
+    &quot;minion_type&quot;: &quot;Elemental&quot;,
+    &quot;attack&quot;: 5,
+    &quot;health&quot;: 1,
+    &quot;durability&quot;: null,
+    &quot;keywords&quot;: [
+      &quot;Battlecry&quot;
+    ],
+    &quot;rules_text&quot;: &quot;Battlecry: Gain 3 Armor.&quot;,
+    &quot;flavor_text&quot;: &quot;Molten fury tempered by iron will.&quot;
+  },
+  &quot;structured_semantics&quot;: {
+    &quot;actions&quot;: [
+      &quot;gain_armor&quot;
+    ],
+    &quot;mechanic_tags&quot;: [
+      &quot;battlecry&quot;,
+      &quot;gain_armor&quot;
+    ],
+    &quot;constraints&quot;: [
+      &quot;5/1 statline inspired by Magma Rager&quot;,
+      &quot;defensive Control Warrior theme&quot;,
+      &quot;armor gain&quot;,
+      &quot;simple and plausible meme design&quot;
+    ],
+    &quot;related_card_refs&quot;: [
+      &quot;Magma Rager&quot;,
+      &quot;Hookfist-3000&quot;
+    ],
+    &quot;semantic_summary&quot;: &quot;A 3-mana 5/1 Warrior Elemental that grants 3 Armor on play, echoing the classic Rager meme while providing defensive utility.&quot;,
+    &quot;lora_caption&quot;: &quot;Hearthstone card art, a burly elemental rager forged from molten rock and clad in iron armor, Warrior class, glowing embers and metallic plates.&quot;
+  },
+  &quot;kg_usage&quot;: {
+    &quot;retrieved_cards_used&quot;: [
+      {
+        &quot;card_id&quot;: 1653,
+        &quot;name&quot;: &quot;Magma Rager&quot;,
+        &quot;used_for&quot;: &quot;statline/meme family&quot;
+      },
+      {
+        &quot;card_id&quot;: 86692,
+        &quot;name&quot;: &quot;Hookfist-3000&quot;,
+        &quot;used_for&quot;: &quot;armor gain mechanic&quot;
+      }
+    ],
+    &quot;design_rationale&quot;: &quot;Kept the iconic 5/1 statline from Magma Rager to preserve the Rager meme, and added a simple Battlecry armor gain similar to Hookfist-3000 to give the card a defensive Control Warrior feel without power creep.&quot;
+  },
+  &quot;balance_notes&quot;: &quot;The 5/1 body is vulnerable but high-attack, and a 3 Armor battlecry is a modest defensive upside comparable to other 3-cost Warrior armor cards, keeping the card balanced for constructed play.&quot;
+}</pre></div>
+<h2>Generation Slots</h2><div class='grid'>
+<div class='card'><h3>SD text-only</h3><div class='placeholder'>replace with output</div></div>
+<div class='card'><h3>LoRA text-only</h3><div class='placeholder'>replace with output</div></div>
+<div class='card'><h3>LoRA + TF-IDF ref</h3><div class='placeholder'>replace with output</div></div>
+<div class='card'><h3>LoRA + KG ref</h3><div class='placeholder'>replace with output</div></div>
+</div></body></html>

@@ -90,9 +90,10 @@ def minimax_generate_content(
     timeout_seconds: int,
 ) -> str:
     url = "https://api.minimaxi.com/v1/chat/completions"
+    max_tokens = int(os.getenv("MINIMAX_MAX_TOKENS", "4096"))
     payload = {
         "model": model,
-        "max_tokens": 16384,
+        "max_tokens": max_tokens,
         "temperature": temperature,
         "messages": [{"role": "user", "content": prompt}],
     }

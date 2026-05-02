@@ -1,261 +1,222 @@
-# 🧠 Graph-RAG Hearthstone Card Generation
+# HearthGen: KG-Augmented Hearthstone Card Art Generation
 
-Author: Zhiheng Wang, Zicong Zhang, Yiseung Kim
+HearthGen is a course-project prototype for generating Hearthstone-style custom card artwork from natural-language DIY card ideas.
 
-> A data-driven pipeline that integrates Knowledge Graphs, Large Language Models, and Diffusion Models to generate **logically consistent** and **style-aligned** game cards.
+The core idea is simple: Hearthstone cards are not just images. They have class identity, card type, mana cost, keywords, mechanics, generated tokens, and references to existing card families. This project converts official Hearthstone card data into structured semantics, builds a semantic knowledge graph (KG), retrieves mechanically relevant reference cards, and uses those references with Stable Diffusion 1.5 plus a Hearthstone LoRA adapter.
 
----
+## What Is In This Repo
 
-## 📌 Overview
+- `app/semantics/`: builds structured semantic records from raw Hearthstone JSON.
+- `app/semantic_kg/`: builds and queries the semantic KG.
+- `app/retrieval/`: TF-IDF, CLIP, and KG retrieval baselines.
+- `app/generation/`: generation comparison and image metric helpers.
+- `app/kg/`: older/general KG pipeline utilities and shared LLM API code.
+- `scripts/`: command-line entrypoints for each pipeline stage.
+- `configs/`: fixed prompts and retrieval queries used in the final experiments.
+- `submission/final_report/`: final report source, compiled PDF, and report figures.
+- `results/`: selected final experiment outputs committed for inspection.
 
-This project explores a novel paradigm for AI-generated game content by introducing **structured priors** into the generation process.
+Large local datasets, model checkpoints, private notes, and scratch outputs are ignored by Git.
 
-Unlike traditional text-to-image or LLM-based approaches, which often suffer from:
+## Data
 
-* ❌ Logical inconsistencies (e.g., invalid game mechanics)
-* ❌ Style mismatch across generated assets
+Tracked small data files:
 
-We propose a **Graph-RAG pipeline** that combines:
+- `data/cards_all.jsonl`: all Hearthstone cards used by the semantic pipeline.
+- `data/cards_collectible.jsonl`: collectible-card subset.
+- `data/sample_img/`: small image fixtures.
 
-* Knowledge Graphs for **mechanical reasoning**
-* Graph Neural Networks (GNNs) for **balance prediction**
-* Graph-based Retrieval-Augmented Generation for **style alignment**
+Ignored local datasets:
 
----
+- `data/hf_hearthstone_art_512/`: local copy of Hearthstone artwork from the shared Hugging Face dataset.
+- `data/hs_art_512/`: local artwork dump.
 
-## 🚀 Key Idea
-
-> **Graph = Logic, Model = Creativity**
-
-We decouple the generation process into two parts:
-
-* 🧠 **Knowledge Graph** → ensures game logic and balance
-* 🎨 **Diffusion Model** → generates high-quality visuals
-
----
-
-## 🏗️ Pipeline
-
-### 1. Data Collection
-
-* Source: Blizzard API
-* Extract:
-
-  * Card metadata (cost, stats, class)
-  * Text descriptions
-  * Card images
-
----
-
-### 2. LLM-based Relation Extraction
-
-We use LLMs to extract **implicit mechanics and synergies** from card descriptions.
-
-Example:
-
-```json
-Input:
-"Spell Damage +1. Battlecry: Draw a card."
-
-Output:
-{
-  "mechanics": ["Spell Damage", "Battlecry", "Draw"],
-  "synergy": ["Spell-heavy decks"]
-}
-```
-
----
-
-### 3. Knowledge Graph Construction
-
-Using NetworkX:
-
-* Nodes:
-
-  * Cards
-  * Mechanics
-  * Classes
-* Edges:
-
-  * Explicit (from metadata)
-  * Implicit (from LLM extraction)
-
-This enables **multi-hop reasoning** between cards.
-
----
-
-### 4. Graph Machine Learning (GNN)
-
-We apply Graph Neural Networks for:
-
-* 🔗 **Link Prediction**
-
-  * Suggest missing relations (e.g., tribe/type)
-* 📊 **Node Regression**
-
-  * Predict balanced card stats (cost, attack, health)
-
-Framework:
-
-* PyTorch
-* PyTorch Geometric (PyG)
-
----
-
-### 5. Graph-RAG Retrieval
-
-For a newly generated card:
-
-1. Traverse the graph
-2. Retrieve topologically similar cards
-3. Extract their artwork
-
----
-
-### 6. Conditional Image Generation
-
-We use:
-
-* Stable Diffusion
-* IP-Adapter / ControlNet
-
-Inputs:
-
-* Text prompt (card description)
-* Image prompt (retrieved card art)
-
-Output:
-
-* 🎨 Style-consistent card artwork
-
----
-
-## 🛠️ Tech Stack
-
-| Component       | Tools                  |
-| --------------- | ---------------------- |
-| Data Collection | requests, pandas       |
-| LLM             | OpenAI API / LangChain |
-| Graph           | NetworkX               |
-| GNN             | PyTorch, PyG           |
-| Retrieval       | Graph traversal        |
-| Diffusion       | diffusers, IP-Adapter  |
-
----
-
-## 📂 Project Structure
-
-```
-project-root/
-│
-├── data/                # Raw and processed card data
-├── scripts/
-│   ├── fetch_data.py
-│   ├── extract_relations.py
-│   ├── build_graph.py
-│   └── train_gnn.py
-│
-├── models/              # Trained GNN / checkpoints
-├── graph/               # Serialized graph objects
-├── generation/          # Diffusion pipelines
-│
-├── notebooks/           # Experiments / demos
-├── docs/                # Project documentation
-│
-└── README.md
-```
-
----
-
-## 🧪 Example Workflow
-
-1. Fetch cards from Blizzard API
-2. Extract mechanics via LLM
-3. Build knowledge graph
-4. Train GNN for prediction
-5. Insert a new card node
-6. Retrieve similar cards (Graph-RAG)
-7. Generate final artwork
-
-## 🧱 KG Pipeline Usage
-
-Build a minimal local smoke-test graph without LLM calls:
+The artwork dataset is expected to come from:
 
 ```bash
-python3 scripts/fetch_metadata.py
-python3 scripts/run_kg.py smoke --limit 5 --out-dir data/kg_smoke --visualize
+uv run python scripts/fetch_hf_art_dataset.py \
+  --repo-id comp646/hearthstone-art-512 \
+  --output-dir data/hf_hearthstone_art_512
 ```
 
-Build an explicit metadata KG for all collectible cards without LLM calls:
+If the Hugging Face dataset is private, authenticate first with `huggingface-cli login` or set `HF_TOKEN`.
+
+## Environment
+
+This repo uses `uv`.
 
 ```bash
-python3 scripts/run_kg.py build \
-  --source data/cards_collectible.jsonl \
-  --out-dir data/kg_collectible_dry_run \
-  --dry-run \
-  --chunk-size 50 \
-  --visualize
+uv sync
 ```
 
-Build the full collectible-card KG with Gemini extraction enrichment:
-
-```bash
-GOOGLE_API_KEY=... python3 scripts/run_kg.py build \
-  --source data/cards_collectible.jsonl \
-  --out-dir data/kg_collectible \
-  --chunk-size 50 \
-  --visualize
-```
-
-Build a 200-card semantic KG test with MiniMax:
-
-```bash
-MINIMAX_API_KEY=... python3 scripts/run_kg.py build \
-  --provider minimax \
-  --source data/cards_collectible.jsonl \
-  --out-dir data/kg_minimax_200 \
-  --limit 200 \
-  --chunk-size 20 \
-  --visualize
-```
-
-The KG pipeline writes `cards_selected.jsonl`, `prompts.jsonl`, `llm_outputs.jsonl`,
-`graph.json`, `run_config.json`, and optionally `graph_vis.html` into the output
-directory. LLM runs resume successful batches by default; use `--force-llm` to
-rerun every batch. By default it reads ID-name mappings from
-`data/hearthstone_metadata.json`; regenerate that file with
-`python3 scripts/fetch_metadata.py`. Gemini uses `GOOGLE_API_KEY`; MiniMax uses
-`MINIMAX_API_KEY` and defaults to `MiniMax-M2.7`.
-
-## 🎨 Stable Diffusion 1.5 LoRA Fine-tuning
-
-The repo can fine-tune a Stable Diffusion 1.5 LoRA adapter from the private
-Hugging Face Hearthstone art dataset. The training script reads
-`metadata.jsonl` rows with `file_name` and `text` fields.
-
-Install the optional diffusion stack:
+For diffusion / CLIP / LoRA generation:
 
 ```bash
 uv sync --extra diffusion
 ```
 
-Fetch the HF dataset locally:
+For LLM enrichment or LLM-based judging, create a local `.env`:
 
 ```bash
-export HF_TOKEN=...
-python3 scripts/fetch_hf_art_dataset.py \
-  --repo-id comp646/hearthstone-art-512 \
-  --output-dir data/hf_hearthstone_art_512
+MINIMAX_API_KEY=...
+GOOGLE_API_KEY=...
 ```
 
-The fetch helper validates `images/`, and if the downloaded `metadata.jsonl`
-does not already include LoRA text prompts, it adds a `text` field locally from
-the card metadata.
+MiniMax is used through `app/kg/llm.py`. The default MiniMax model in current scripts is `MiniMax-M2.7`.
 
-Train a UNet LoRA adapter with Diffusers:
+## Main Pipeline
+
+### 1. Build Structured Semantics
+
+Build deterministic base semantics for all cards:
 
 ```bash
-python3 scripts/train_lora_sd15.py \
+uv run python scripts/build_semantics.py \
+  --cards data/cards_all.jsonl \
+  --out-dir data/semantics
+```
+
+Outputs include:
+
+- `data/semantics/cards_semantics_base.jsonl`
+- `data/semantics/lora_captions.jsonl`
+- derived-card edges and caption rows
+
+Optional MiniMax enrichment:
+
+```bash
+uv run python scripts/enrich_semantics.py \
+  --semantics data/semantics/cards_semantics_base.jsonl \
+  --out-dir data/semantics_enriched_full \
+  --chunk-strategy set_class \
+  --chunk-size 5 \
+  --provider minimax \
+  --model MiniMax-M2.7 \
+  --temperature 0.1 \
+  --timeout-seconds 360 \
+  --concurrency 8 \
+  --max-retries 3
+```
+
+Merge enriched output back into current semantics:
+
+```bash
+uv run python scripts/merge_enriched_semantics.py \
+  --base data/semantics/cards_semantics_base.jsonl \
+  --llm-outputs data/semantics_enriched_full/enrichment_llm_outputs.jsonl \
+  --out-dir data/semantics_enriched_current
+```
+
+### 2. Build Semantic KG
+
+```bash
+uv run python scripts/build_semantic_kg.py \
+  --semantics data/semantics_enriched_current/cards_semantics_enriched.jsonl \
+  --out-dir data/semantic_kg
+```
+
+Important outputs:
+
+- `data/semantic_kg/nodes.jsonl`
+- `data/semantic_kg/edges.jsonl`
+- `data/semantic_kg/card_index.jsonl`
+- `data/semantic_kg/graph.json`
+
+Visualize small card neighborhoods:
+
+```bash
+uv run python scripts/visualize_semantic_kg.py \
+  --kg-dir data/semantic_kg \
+  --out-dir data/semantic_kg/sample_vis \
+  --sample-size 3
+```
+
+### 3. Query and Retrieve
+
+Parse one natural-language request:
+
+```bash
+uv run python scripts/parse_kg_query.py \
+  "I want a Warrior Rager meme card that gains Armor."
+```
+
+Run KG retrieval:
+
+```bash
+uv run python scripts/run_kg_retrieval.py \
+  --card-index data/semantic_kg/card_index.jsonl \
+  --queries configs/retrieval_queries.json \
+  --out results/kg_retrieval/kg_results.jsonl
+```
+
+Run TF-IDF baseline:
+
+```bash
+uv run python scripts/run_tfidf_retrieval.py \
+  --captions data/semantics/lora_captions.jsonl \
+  --queries configs/retrieval_queries.json \
+  --out results/retrieval_eval/tfidf_results.jsonl
+```
+
+Run CLIP baseline:
+
+```bash
+uv run python scripts/run_clip_retrieval.py \
+  --captions data/semantics/lora_captions.jsonl \
+  --queries configs/retrieval_queries.json \
+  --image-root data/hf_hearthstone_art_512 \
+  --out results/retrieval_eval/clip_results.jsonl
+```
+
+### 4. End-to-End DIY Retrieval and Card Design Evaluation
+
+This is the main final-report retrieval/design script. It uses the 19 DIY prompts in `configs/diy_user_prompts.json`.
+
+Mock mode, fast and CI-friendly:
+
+```bash
+uv run python scripts/run_diy_retrieval_design_eval.py \
+  --out-dir results/diy_retrieval_design_eval
+```
+
+Real CLIP + real MiniMax card design + real MiniMax judging:
+
+```bash
+uv run python scripts/run_diy_retrieval_design_eval.py \
+  --no-mock-clip \
+  --no-mock-design \
+  --no-mock-judge \
+  --out-dir results/diy_retrieval_design_eval_real_llm \
+  --timeout-seconds 120
+```
+
+Final committed outputs:
+
+- `results/diy_retrieval_design_eval_real_llm/retrieval_results.jsonl`
+- `results/diy_retrieval_design_eval_real_llm/diy_card_designs.jsonl`
+- `results/diy_retrieval_design_eval_real_llm/table_retrieval_metrics.md`
+- `results/diy_retrieval_design_eval_real_llm/table_design_text_metrics.md`
+- `results/diy_retrieval_design_eval_real_llm/retrieval_grid.html`
+
+### 5. LoRA / Generation
+
+Fetch and prepare LoRA art metadata:
+
+```bash
+uv run python scripts/fetch_hf_art_dataset.py \
+  --repo-id comp646/hearthstone-art-512 \
+  --output-dir data/hf_hearthstone_art_512
+
+uv run python scripts/prepare_lora_hf_metadata.py \
+  --metadata data/hf_hearthstone_art_512/metadata.jsonl \
+  --semantics data/semantics_enriched_current/cards_semantics_enriched.jsonl \
+  --out data/hf_hearthstone_art_512/metadata.jsonl
+```
+
+Train a Stable Diffusion 1.5 LoRA adapter:
+
+```bash
+uv run python scripts/train_lora_sd15.py \
   --pretrained-model stable-diffusion-v1-5/stable-diffusion-v1-5 \
   --metadata data/hf_hearthstone_art_512/metadata.jsonl \
   --image-root data/hf_hearthstone_art_512 \
@@ -269,80 +230,130 @@ python3 scripts/train_lora_sd15.py \
   --mixed-precision fp16
 ```
 
-The final adapter is saved in `models/sd15-hearthstone-lora/`. The lowest
-logged training-loss adapter is also saved in
-`models/sd15-hearthstone-lora/best/` with `training_state.json`.
-
-The default trigger token is `hsart`, so include it when sampling:
+Generate one image with a trained LoRA:
 
 ```bash
-python3 scripts/generate_with_lora_sd15.py \
+uv run python scripts/generate_with_lora_sd15.py \
   --lora-dir models/sd15-hearthstone-lora \
-  --prompt "hsart Hearthstone card art, legendary mage minion, arcane magic"
+  --prompt "hsart Hearthstone card art, Warrior minion, iron armor, glowing embers"
 ```
 
-If the base model is gated in your Hugging Face account, authenticate first with
-`huggingface-cli login` or set `HF_TOKEN`.
+Run the final 2x2 generation evaluation over the DIY prompts:
 
----
+```bash
+uv run python scripts/run_diy_generation_eval.py \
+  --no-mock \
+  --out-dir results/diy_generation_eval_real \
+  --steps 24 \
+  --skip-existing
+```
 
-## 📊 Motivation
+Evaluate generated images with CLIP-style proxy metrics:
 
-Existing approaches:
+```bash
+uv run python scripts/evaluate_generation_metrics.py \
+  --plan results/diy_generation_eval_real/generation_plan.jsonl \
+  --out results/diy_generation_eval_real/generation_metrics.jsonl \
+  --summary-out results/diy_generation_eval_real/generation_metrics_summary.csv \
+  --style-reference-limit 64 \
+  --batch-size 4 \
+  --device cuda
+```
 
-* Pure LLM → lacks structured reasoning
-* Pure diffusion → lacks semantic control
+Final committed outputs:
 
-Our approach:
+- `results/diy_generation_eval_real/images/`: 76 generated images for 19 prompts x 4 methods.
+- `results/diy_generation_eval_real/generation_contact_sheet.png`
+- `results/diy_generation_eval_real/generation_grid.html`
+- `results/diy_generation_eval_real/table_generation_metrics.md`
 
-* ✅ Logical consistency via graph structure
-* ✅ Style alignment via graph-based retrieval
-* ✅ Interpretable pipeline
+## Final Report Artifacts
 
----
+The final report lives in:
 
-## 📚 Related Work
+```text
+submission/final_report/
+```
 
-* Retrieval-Augmented Generation (RAG)
-* GraphRAG
-* Knowledge Graph + LLM integration
-* Conditional diffusion (IP-Adapter)
+Important files:
 
----
+- `submission/final_report/report.tex`
+- `submission/final_report/report.pdf`
+- `submission/final_report/figures/`
 
-## 🗓️ Timeline
+The report currently includes:
 
-* **Phase 1**: Data & Graph Construction
-* **Phase 2**: GNN Training & Evaluation
-* **Phase 3**: Graph-RAG + Diffusion
-* **Phase 4**: Integration & Visualization
+- Figure 1: end-to-end Iron Rager case study.
+- Semantic KG neighborhood visualization.
+- Figure 2: six LoRA + KG-reference qualitative outputs.
+- Retrieval and generation metric tables.
 
----
+Compile:
 
-## 🔮 Future Work
+```bash
+cd submission/final_report
+pdflatex -interaction=nonstopmode report.tex
+```
 
-* More advanced graph embeddings (e.g., Graph Transformer)
-* Automatic balance validation
-* Interactive card generation UI
+## Final Results Tracked in Git
 
----
+Only selected final results are unignored:
 
-## 🤝 Contributions
+- `results/figure1_iron_rager/`
+- `results/diy_generation_eval_real/`
+- `results/diy_retrieval_design_eval_real_llm/`
+- `results/final_generation_eval/`
 
-This project is part of a course combining:
+Other `results/` directories are scratch/smoke/intermediate outputs and remain ignored.
 
-* Graph Machine Learning
-* Computer Vision
-* Large Language Models
+## Script Reference
 
----
+Data and artwork:
 
-## 📎 Notes
+- `scripts/fetch_cards.py`: fetch card JSON from Blizzard/API source.
+- `scripts/fetch_metadata.py`: fetch Hearthstone metadata ID-name maps.
+- `scripts/fetch_hf_art_dataset.py`: download the shared HF artwork dataset.
+- `scripts/download_cards.py`, `scripts/crop_cards.py`: older card-image download/crop utilities.
+- `scripts/download_hs_art.py`: experimental local game-file artwork extraction helper.
 
-This repository is a **research-oriented prototype**, focusing on:
+Semantics and KG:
 
-* Pipeline design
-* System integration
-* Concept validation
+- `scripts/build_semantics.py`: raw cards to structured semantic records.
+- `scripts/enrich_semantics.py`: MiniMax/Gemini enrichment over semantic chunks.
+- `scripts/merge_enriched_semantics.py`: merge LLM enrichment into base semantics.
+- `scripts/build_semantic_kg.py`: structured semantics to KG nodes/edges/card index.
+- `scripts/visualize_semantic_kg.py`: small HTML KG neighborhood visualizations.
+- `scripts/parse_kg_query.py`: natural-language request to structured KG query.
+- `scripts/run_kg_retrieval.py`: semantic KG retrieval.
 
----
+Retrieval baselines:
+
+- `scripts/run_tfidf_retrieval.py`: TF-IDF caption retrieval.
+- `scripts/run_clip_retrieval.py`: CLIP text-to-image retrieval.
+- `scripts/render_retrieval_grid.py`: HTML grid for retrieval results.
+- `scripts/make_judging_template.py`, `scripts/summarize_judging.py`: manual retrieval judging utilities.
+
+Generation:
+
+- `scripts/train_lora_sd15.py`: train Stable Diffusion 1.5 LoRA.
+- `scripts/generate_with_lora_sd15.py`: single-image LoRA inference.
+- `scripts/run_generation_comparison.py`: older prompt generation comparison runner.
+- `scripts/run_diy_generation_eval.py`: final 2x2 DIY generation evaluation.
+- `scripts/evaluate_generation_metrics.py`: automatic proxy metrics for generated images.
+- `scripts/make_generation_judging_template.py`, `scripts/summarize_generation_judging.py`: manual generation judging utilities.
+
+End-to-end final experiments:
+
+- `scripts/run_diy_retrieval_design_eval.py`: final retrieval + card-design + judging pipeline.
+- `scripts/design_card_from_kg.py`: single-card KG-augmented design probe.
+
+Legacy / demo:
+
+- `scripts/run_kg.py`, `scripts/run_kg_demo.py`, `app/kg_demo/`: early KG demo code kept for reference.
+- `scripts/visualize_graph.py`: older graph visualization helper.
+
+## Notes
+
+- Do not commit `.env`, local datasets, model checkpoints, or private notes.
+- `llm_knowledge/` is intentionally ignored. It contains private planning notes, paper PDFs, and templates used during development.
+- The committed final results are intended for inspection, not for retraining. Use the Hugging Face dataset and scripts above for full reproduction.

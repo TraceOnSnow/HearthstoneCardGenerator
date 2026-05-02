@@ -211,6 +211,7 @@ __marimo__/
 
 # Local private notes.
 kim_notes/
+llm_knowledge/
 
 # Data outputs and local datasets. Keep only small reproducible fixtures tracked.
 data/*
@@ -226,3 +227,13 @@ images/
 models/
 outputs/
 results/
+!results/
+results/*
+!results/figure1_iron_rager/
+!results/figure1_iron_rager/**
+!results/diy_generation_eval_real/
+!results/diy_generation_eval_real/**
+!results/diy_retrieval_design_eval_real_llm/
+!results/diy_retrieval_design_eval_real_llm/**
+!results/final_generation_eval/
+!results/final_generation_eval/**
