@@ -1,0 +1,158 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[breaklinks=true,bookmarks=false]{hyperref}
+
+\cvprfinalcopy
+\def\cvprPaperID{****}
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+\setcounter{page}{1}
+
+\newcommand{\figplaceholder}[2]{
+\fbox{\begin{minipage}[c][#2][c]{#1}
+\centering \vspace{0.3em}
+\textbf{Figure placeholder}\\
+\small Replace with exported PDF/SVG figure.\\
+Do not use notebook or terminal screenshots.
+\end{minipage}}
+}
+
+\begin{document}
+
+\title{HearthGen: Knowledge-Graph-Augmented Retrieval for Hearthstone Card Art Generation}
+
+\author{COMP 646 Project Team\\
+Rice University\\
+{\tt\small GitHub: \url{https://github.com/TraceOnSnow/HearthstoneCardGenerator}}
+}
+
+\maketitle
+
+\begin{abstract}
+Generating convincing Hearthstone-style card art requires more than visual style transfer: the artwork should also reflect card mechanics, class identity, and recurring card-family conventions. We present HearthGen, an end-to-end prototype that converts Hearthstone card data into structured semantics, builds a semantic knowledge graph (KG), retrieves mechanically grounded reference cards, and uses these references to guide Stable Diffusion and a Hearthstone LoRA adapter. Our system supports both artwork generation and KG-augmented card design from natural-language user requests. We evaluate retrieval against TF-IDF and CLIP baselines, and evaluate generation with qualitative side-by-side examples and automatic proxy metrics. The main result is that KG retrieval provides more interpretable design evidence than visual or lexical similarity alone, especially for implicit mechanics and meme/card-family requests such as a defensive ``Rager'' card.
+\end{abstract}
+
+\section{Introduction}
+
+Trading-card artwork generation is a constrained creative task. A generated Hearthstone card should match the game art style, but it should also express the card's class, mechanics, and design lineage. For example, a user request such as ``a defensive Control Warrior Rager meme card'' is not just an image prompt. It refers to the Magma Rager family, the traditional 3-mana 5/1 statline, and Warrior armor mechanics. A generic text-to-image model or a simple CLIP nearest-neighbor search may retrieve visually plausible images, but it has no explicit representation of these gameplay relations.
+
+We build HearthGen, a retrieval-augmented generation pipeline for Hearthstone card art. The system starts from Hearthstone JSON data and converts each card into a structured semantic record containing identity fields, stats, actions, keywords, generated-card references, derived-card links, and a LoRA caption. From these records we construct a semantic KG. User requests are parsed into structured queries and matched against the KG to retrieve reference cards. The retrieved evidence is then used to guide card design and image generation with Stable Diffusion~\cite{rombach2022ldm} and a LoRA adapter~\cite{hu2021lora}.
+
+Our contributions are:
+\begin{itemize}
+\item A structured semantic representation for Hearthstone cards that combines deterministic metadata, rule-based action extraction, and optional LLM enrichment.
+\item A semantic KG retrieval pipeline that returns faceted evidence rather than a single flat ranked list.
+\item A generation and evaluation workflow comparing SD text-only, LoRA text-only, and reference-conditioned generation using TF-IDF, CLIP~\cite{radford2021clip}, and KG retrieval.
+\end{itemize}
+
+\section{Related Work}
+
+Our work combines retrieval-augmented generation, knowledge graphs, and diffusion-based image synthesis. Retrieval-augmented generation (RAG) uses external evidence to condition generation rather than relying only on model parameters~\cite{lewis2020rag}. In our setting, the retrieval corpus is not text passages but structured card semantics and artwork references. Knowledge graphs provide an interpretable way to represent entity and relation structure; we use the graph to connect cards to classes, keywords, actions, resources, and generated-card references.
+
+For image generation, we use latent diffusion models~\cite{rombach2022ldm}, which generate images in a compressed latent space, and LoRA~\cite{hu2021lora}, a parameter-efficient finetuning method. CLIP~\cite{radford2021clip} is used both as a retrieval baseline and for automatic prompt-alignment metrics. We also use DINOv2~\cite{oquab2023dinov2} or CLIP image embeddings as proxy style/reference similarity metrics. The card data is derived from Blizzard's Hearthstone API and community-maintained data sources, including HearthstoneJSON and HearthSim tooling~\cite{hearthstoneapi,hearthstonejson,hearthsim}.
+
+\section{Method}
+
+\subsection{Structured Card Semantics}
+
+The input is Hearthstone card JSON. We construct one semantic record per card, including collectible and non-collectible derived cards. Deterministic fields are extracted directly from JSON and metadata maps: card type, class, set, rarity, spell school, minion type, mana cost, attack, health, keywords, and child card IDs. Rule-based text extractors identify common gameplay actions such as \texttt{deal\_damage}, \texttt{summon}, \texttt{draw}, \texttt{gain\_armor}, \texttt{freeze}, and \texttt{destroy}. Each action stores type, amount, target, resource, trigger, condition, and raw text phrase when available.
+
+We optionally enrich this base representation using MiniMax-M2.7~\cite{minimaxm27}. The LLM is not the source of deterministic facts; it only fills fields that rules often miss, such as generated-card roles, implicit conditions, action groups, and concise semantic summaries. The same semantic record is used for two downstream artifacts: a LoRA caption for generation and graph triples for KG retrieval.
+
+\subsection{Semantic Knowledge Graph}
+
+The KG contains card nodes and value nodes. Important node types include class, card type, keyword, action, target, resource, mechanic tag, generated card name, and related card name. Edges include \texttt{HAS\_CLASS}, \texttt{HAS\_KEYWORD}, \texttt{PERFORMS\_ACTION}, \texttt{AFFECTS\_RESOURCE}, \texttt{GENERATES\_CARD}, and \texttt{HAS\_CHILD\_CARD}. Visual tags are intentionally excluded from the KG facts because they are derived from text and should not be double-counted as gameplay evidence.
+
+Natural-language requests are parsed into structured queries. A query contains fields such as class, card type, actions, resources, keywords, generated card names, and related card names. Retrieval first scores cards by matching query fields to KG nodes. However, a single flat ranking can over-rank repeated mechanic matches. Therefore, for card design we return a faceted evidence package: family/name anchors, mechanic matches, identity matches, and a diversified shortlist. This is important for requests such as a Rager meme card, where a lower-ranked Magma Rager anchor may be more useful than another high-scoring Warrior armor card.
+
+\subsection{Generation Pipeline}
+
+For image generation we compare Stable Diffusion v1.5 text-only generation, LoRA text-only generation, and reference-conditioned generation. The LoRA adapter is trained on Hearthstone artwork captions. Reference conditioning is implemented with image-to-image generation. We found that using multiple strong references can create ``fusion'' artifacts; the preferred policy is one primary visual reference plus text-only semantic hints from the rest of the KG evidence.
+
+\begin{figure*}[t]
+\centering
+\figplaceholder{0.96\textwidth}{2.15in}
+\caption{\textbf{System overview placeholder.} Replace with a MovieGen-style figure using real examples. Row 1: user request and structured KG query. Row 2: KG evidence such as Magma Rager and Warrior armor cards, followed by the generated structured card Iron Rager. Row 3: artwork generation outputs showing SD text-only, LoRA text-only, LoRA+TF-IDF reference, and LoRA+KG reference.}
+\label{fig:overview}
+\end{figure*}
+
+\section{Experiments}
+
+We evaluate two questions. First, does KG retrieval return more useful Hearthstone references than lexical or visual baselines? Second, do LoRA and KG references improve card artwork generation?
+
+\subsection{Retrieval Evaluation}
+
+We compare three retrieval methods: TF-IDF over captions, CLIP text-to-image nearest-neighbor retrieval, and semantic KG retrieval. The queries include explicit mechanics, such as a Warlock lifesteal damage spell, and harder implicit requests, such as cards that generate Solar Eclipse and Lunar Eclipse or a defensive Rager meme card. Retrieval outputs top-$k$ reference cards with explanations.
+
+\subsection{Generation Evaluation}
+
+For generation, we compare SD text-only, LoRA text-only, LoRA with TF-IDF references, and LoRA with KG references on the same prompts. We report automatic proxy metrics: CLIP prompt alignment, style similarity to Hearthstone references, and reference similarity. These metrics do not fully measure card-design correctness, so we also include qualitative side-by-side examples and failure analysis.
+
+\begin{figure*}[t]
+\centering
+\figplaceholder{0.96\textwidth}{2.3in}
+\caption{\textbf{Qualitative generation placeholder.} Replace with a grid of 4--6 prompts. Columns should be: prompt, SD text-only, LoRA text-only, LoRA+TF-IDF reference, LoRA+KG reference. Use real generated images from \texttt{results/final\_generation\_eval/}.}
+\label{fig:qualitative}
+\end{figure*}
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{Method} & \textbf{Align.}$\uparrow$ & \textbf{Style}$\uparrow$ & \textbf{Ref.}$\uparrow$ \\
+\midrule
+SD text-only & XX & XX & -- \\
+LoRA text-only & XX & XX & -- \\
+LoRA + TF-IDF ref & XX & XX & XX \\
+LoRA + KG ref & XX & XX & XX \\
+\bottomrule
+\end{tabular}
+\caption{Generation metrics placeholder. Fill from \texttt{generation\_metrics\_summary.csv}. Alignment is CLIP prompt-image similarity; Style is similarity to Hearthstone art references; Ref. is similarity to the selected reference image.}
+\label{tab:generation}
+\end{table}
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lcc}
+\toprule
+\textbf{Retrieval} & \textbf{Rel.@5}$\uparrow$ & \textbf{Main failure mode} \\
+\midrule
+TF-IDF & XX & literal keywords \\
+CLIP & XX & visual but not mechanic match \\
+KG & XX & repeated facet over-ranking \\
+\bottomrule
+\end{tabular}
+\caption{Retrieval evaluation placeholder. Fill with human review or proxy scores. KG returns interpretable reasons and faceted evidence, which is useful even when a flat ranking is imperfect.}
+\label{tab:retrieval}
+\end{table}
+
+\section{Results and Analysis}
+
+Figure~\ref{fig:overview} should show the complete system in one glance. The key point is that the KG is not only a way to find images. It also returns design evidence. In the Rager example, the user request is parsed into a Warrior minion with armor gain and related cards Magma Rager/Rager. The KG retrieves both Warrior armor cards and Rager-family anchors. The card-design module then produces \textit{Iron Rager}, a 3-mana 5/1 Warrior Elemental with ``Battlecry: Gain 3 Armor.'' This illustrates why faceted evidence is preferable to a single score-sorted list.
+
+Figure~\ref{fig:qualitative} should show the generation ablation. The expected pattern is that SD text-only images often follow the prompt but lack Hearthstone style; LoRA text-only improves style but may miss specific mechanics; reference-conditioned outputs better match the selected card theme. KG references are most useful when the prompt depends on gameplay semantics or generated-card relations rather than surface-level visual similarity.
+
+Tables~\ref{tab:generation} and~\ref{tab:retrieval} provide quantitative evidence. The automatic generation metrics are proxy measures: CLIP alignment checks prompt-image compatibility, while style and reference similarity check image embedding proximity. These numbers should be interpreted together with the qualitative grids, because a high reference similarity can also indicate over-copying. We observed that overly strong image-to-image conditioning can create fusion artifacts, so our final design recommends using one primary reference and treating other KG hits as text-only semantic hints.
+
+\section{Conclusion}
+
+HearthGen is an end-to-end prototype for KG-augmented Hearthstone card art generation. The main contribution is not a new diffusion architecture, but a structured semantic KG that retrieves mechanically grounded and interpretable references for generation and card design. LoRA improves visual style, while KG retrieval improves the relevance of prompts and references. The current system is limited by small-scale evaluation and imperfect reference conditioning, but it demonstrates a practical path from raw card data and user requests to structured card semantics and generated Hearthstone-style artwork.
+
+\noindent
+{\bf Acknowledgments.} We acknowledge the use of AI coding assistants for implementation support, debugging, and drafting assistance. All experiments, analysis, and final system design decisions were reviewed by the project team.
+
+{\small
+\bibliographystyle{ieee}
+\bibliography{egbib}
+}
+
+\end{document}
