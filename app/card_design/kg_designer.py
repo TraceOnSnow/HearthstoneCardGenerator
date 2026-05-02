@@ -41,11 +41,12 @@ def design_card_from_kg(
     retrieval_results = _add_related_name_matches(card_index, query=query, results=retrieval_results, top_k=top_k)
     semantics_by_id = {row.get("card_id"): row for row in read_jsonl(semantics_path)}
     evidence = [_evidence_row(row, semantics_by_id.get(row.get("card_id"))) for row in retrieval_results]
+    evidence_package = build_evidence_package(query=query, evidence=evidence)
 
     load_dotenv()
     api_key = _api_key_for_provider(provider)
     raw_response = _generate_content(
-        _build_design_prompt(request_text=request_text, query=query, evidence=evidence),
+        _build_design_prompt(request_text=request_text, query=query, evidence_package=evidence_package),
         provider=provider,
         api_key=api_key,
         model=model,
@@ -60,6 +61,7 @@ def design_card_from_kg(
         "query": query,
         "retrieval_results": retrieval_results,
         "evidence": evidence,
+        "evidence_package": evidence_package,
         "design": parsed,
         "raw_response": raw_response,
     }
@@ -69,6 +71,7 @@ def write_design_outputs(result: dict[str, Any], *, out_dir: Path) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "parsed_query.json").write_text(json.dumps(result["query"], ensure_ascii=False, indent=2), encoding="utf-8")
     write_jsonl(out_dir / "retrieved_cards.jsonl", result["retrieval_results"])
+    (out_dir / "evidence_package.json").write_text(json.dumps(result["evidence_package"], ensure_ascii=False, indent=2), encoding="utf-8")
     (out_dir / "design.json").write_text(json.dumps(result["design"], ensure_ascii=False, indent=2), encoding="utf-8")
     (out_dir / "raw_response.txt").write_text(str(result["raw_response"]), encoding="utf-8")
     (out_dir / "summary.md").write_text(_summary_markdown(result), encoding="utf-8")
@@ -90,6 +93,45 @@ def _evidence_row(retrieval_row: dict[str, Any], semantics: dict[str, Any] | Non
         "actions": semantics.get("actions", []),
         "mechanic_tags": semantics.get("mechanic_tags", []),
         "semantic_summary": semantics.get("semantic_summary", ""),
+    }
+
+
+def build_evidence_package(*, query: dict[str, Any], evidence: list[dict[str, Any]]) -> dict[str, Any]:
+    """Split KG evidence into design facets instead of one global rank.
+
+    A single score-sorted list over-rewards repeated overlaps. For design, one
+    lower-ranked family card can be more useful than five near-duplicate armor
+    cards. The package keeps separate evidence strings for mechanics, identity,
+    named/family anchors, and a diversified shortlist.
+    """
+
+    family = _facet_rows(
+        evidence,
+        predicate=lambda row: _is_family_or_named_anchor(row, query),
+        limit=8,
+    )
+    mechanics = _facet_rows(
+        evidence,
+        predicate=lambda row: _has_reason_prefix(row, ("actions=", "resources=", "keywords=", "mechanic_tags=")),
+        limit=8,
+    )
+    identity = _facet_rows(
+        evidence,
+        predicate=lambda row: _has_reason_prefix(row, ("classes=", "card_types=", "minion_types=", "spell_schools=")),
+        limit=8,
+    )
+    diversified = _diverse_rows([*family, *mechanics, *identity, *evidence], limit=12)
+    return {
+        "retrieval_policy": {
+            "ranking_note": "Do not treat rank as the only importance signal. Use high-score mechanic matches for mechanics, and family/name matches as style/statline anchors even if their score is lower.",
+            "lora_reference_note": "For image generation, prefer one primary reference plus prompt-only semantic hints. If img2img is used, use a higher denoise strength around 0.75-0.85 so the result is influenced by the reference without becoming a literal fusion of multiple references.",
+        },
+        "facets": {
+            "family_or_named_anchors": family,
+            "mechanic_matches": mechanics,
+            "identity_matches": identity,
+            "diversified_shortlist": diversified,
+        },
     }
 
 
@@ -134,7 +176,7 @@ def _add_related_name_matches(
     return combined
 
 
-def _build_design_prompt(*, request_text: str, query: dict[str, Any], evidence: list[dict[str, Any]]) -> str:
+def _build_design_prompt(*, request_text: str, query: dict[str, Any], evidence_package: dict[str, Any]) -> str:
     return f"""You are designing one new custom Hearthstone card from a user's natural-language request.
 Use the retrieved KG evidence as design context, not as a list to copy blindly.
 
@@ -147,6 +189,8 @@ Design goals:
 - Use KG evidence to justify the design. Mention which retrieved cards influenced stats/mechanics.
 - Avoid direct power creep unless the user explicitly asks for it.
 - Prefer one clean mechanic over a complicated custom essay.
+- The KG evidence is multi-facet. Do not blindly copy rank #1. A lower-ranked family/name anchor may be more important than several near-duplicate high-score mechanic matches.
+- For LoRA/image reference, choose at most one primary visual reference and use the rest as text-only semantic hints.
 
 User request:
 {request_text}
@@ -154,8 +198,8 @@ User request:
 Structured retrieval query:
 {json.dumps(query, ensure_ascii=False, indent=2)}
 
-Retrieved KG evidence:
-{json.dumps(evidence, ensure_ascii=False, indent=2)}
+Retrieved KG evidence package:
+{json.dumps(evidence_package, ensure_ascii=False, indent=2)}
 
 Return this JSON schema:
 {{
@@ -214,6 +258,17 @@ def _summary_markdown(result: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
+            "## Evidence Package",
+            "",
+            "```json",
+            json.dumps(result.get("evidence_package", {}), ensure_ascii=False, indent=2),
+            "```",
+            "",
+        ]
+    )
+    lines.extend(
+        [
+            "",
             "## Designed Card",
             "",
             f"**{card.get('name', '')}**",
@@ -235,3 +290,51 @@ def _summary_markdown(result: dict[str, Any]) -> str:
         ]
     )
     return "\n".join(lines)
+
+
+def _facet_rows(evidence: list[dict[str, Any]], *, predicate, limit: int) -> list[dict[str, Any]]:
+    return _diverse_rows([row for row in evidence if predicate(row)], limit=limit)
+
+
+def _diverse_rows(rows: list[dict[str, Any]], *, limit: int) -> list[dict[str, Any]]:
+    selected = []
+    seen_cards = set()
+    seen_signatures = set()
+    for row in rows:
+        card_id = row.get("card_id")
+        if card_id in seen_cards:
+            continue
+        signature = _reason_signature(row)
+        if signature in seen_signatures:
+            continue
+        selected.append(row)
+        seen_cards.add(card_id)
+        seen_signatures.add(signature)
+        if len(selected) >= limit:
+            break
+    return selected
+
+
+def _reason_signature(row: dict[str, Any]) -> tuple[str, ...]:
+    reasons = row.get("reasons") or []
+    normalized = []
+    for reason in reasons:
+        text = str(reason)
+        if text.startswith("text_overlap="):
+            continue
+        normalized.append(text)
+    if not normalized:
+        normalized = [str(row.get("name") or row.get("card_name") or "")]
+    return tuple(sorted(normalized))
+
+
+def _has_reason_prefix(row: dict[str, Any], prefixes: tuple[str, ...]) -> bool:
+    return any(str(reason).startswith(prefixes) for reason in row.get("reasons") or [])
+
+
+def _is_family_or_named_anchor(row: dict[str, Any], query: dict[str, Any]) -> bool:
+    name = str(row.get("name") or row.get("card_name") or "").lower()
+    related = [str(item).lower() for item in query.get("related_card_names") or [] if str(item).strip()]
+    if any(item in name for item in related):
+        return True
+    return "related_name_match" in {str(reason) for reason in row.get("reasons") or []}
