@@ -1,0 +1,2 @@
+method,rows,image_quality_score_mean,clip_prompt_alignment_mean,style_similarity_mean,reference_similarity_mean
+lora_reference,10,0.501242,0.305663,0.873232,0.846176
