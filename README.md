@@ -13,7 +13,6 @@ The core idea is simple: Hearthstone cards are not just images. They have class 
 - `app/kg/`: older/general KG pipeline utilities and shared LLM API code.
 - `scripts/`: command-line entrypoints for each pipeline stage.
 - `configs/`: fixed prompts and retrieval queries used in the final experiments.
-- `submission/final_report/`: final report source, compiled PDF, and report figures.
 - `results/`: selected final experiment outputs committed for inspection.
 
 Large local datasets, model checkpoints, private notes, and scratch outputs are ignored by Git.
@@ -275,34 +274,6 @@ Final committed outputs:
 - `results/diy_generation_eval_real/generation_grid.html`
 - `results/diy_generation_eval_real/table_generation_metrics.md`
 
-## Final Report Artifacts
-
-The final report lives in:
-
-```text
-submission/final_report/
-```
-
-Important files:
-
-- `submission/final_report/report.tex`
-- `submission/final_report/report.pdf`
-- `submission/final_report/figures/`
-
-The report currently includes:
-
-- Figure 1: end-to-end Iron Rager case study.
-- Semantic KG neighborhood visualization.
-- Figure 2: six LoRA + KG-reference qualitative outputs.
-- Retrieval and generation metric tables.
-
-Compile:
-
-```bash
-cd submission/final_report
-pdflatex -interaction=nonstopmode report.tex
-```
-
 ## Final Results Tracked in Git
 
 Only selected final results are unignored:
@@ -364,4 +335,5 @@ Legacy / demo:
 
 - Do not commit `.env`, local datasets, model checkpoints, or private notes.
 - `llm_knowledge/` is intentionally ignored. It contains private planning notes, paper PDFs, and templates used during development.
+- `submission/` is intentionally ignored. It contains local submission packaging artifacts rather than reusable project code.
 - The committed final results are intended for inspection, not for retraining. Use the Hugging Face dataset and scripts above for full reproduction.

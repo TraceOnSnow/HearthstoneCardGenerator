@@ -212,6 +212,7 @@ __marimo__/
 # Local private notes.
 kim_notes/
 llm_knowledge/
+submission/
 
 # Data outputs and local datasets. Keep only small reproducible fixtures tracked.
 data/*

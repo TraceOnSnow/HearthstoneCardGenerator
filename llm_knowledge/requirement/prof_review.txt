@@ -1,8 +1,0 @@
-Apr 17 at 4:38pm
-Fig 5 not very legible. I don't see any generations so far. Your report should have enough examples that it can convince me that what you proposed actually worked. You also have no references in your report, use \cite and bibtex as in the sample report. At minimum you should cite LoRA, Stable Diffusion, whatever you are using for knoweldge graphs and related work. 
-
- 
-
-For your final report I need to see: (1) side-by-side text-only vs text+reference vs LoRA+reference generations on the same prompts; (2) concrete evidence that the knowledge-graph retrieval actually improves outputs over a simple CLIP nearest-neighbor retrieval baseline — otherwise the KG branch is complexity for its own sake; (3) proper evaluation using the metrics you promise.
-
-Since a lot is left for future work in this report it is hard for me to give more detailed feedback. make sure both qualitative and quantitative results are presented.
