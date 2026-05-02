@@ -61,18 +61,19 @@ def parse_query_rule(text: str, *, query_id: str | None = None) -> dict[str, Any
     query = {
         "query_id": query_id or _query_id(text),
         "text": text,
-        "classes": _find_names(text, CLASSES),
-        "card_types": _infer_card_types(lowered),
+        "classes": _unique([*_find_names(text, CLASSES), *_class_hints(lowered)]),
+        "card_types": _unique([*_infer_card_types(lowered), *_card_type_hints(lowered)]),
         "keywords": _find_names(text, KEYWORDS),
-        "actions": _find_patterns(lowered, ACTION_PATTERNS),
+        "actions": _unique([*_find_patterns(lowered, ACTION_PATTERNS), *_action_hints(lowered)]),
         "targets": _find_patterns(lowered, TARGET_PATTERNS),
+        "resources": _resource_hints(lowered),
         "spell_schools": _find_names(text, SPELL_SCHOOLS),
         "minion_types": _find_names(text, MINION_TYPES),
         "mechanic_tags": [],
         "constraints": [],
         "generated_roles": [],
         "generated_card_names": [],
-        "related_card_names": [],
+        "related_card_names": _related_card_names(lowered),
         "generation_hints": {"visual_tags": _visual_tags(lowered)},
     }
     if "lifesteal" in lowered and "deal_damage" in query["actions"]:
@@ -150,6 +151,7 @@ Allowed actions:
 deal_damage, heal, gain_armor, summon, draw, discover, destroy, freeze, silence, equip, give_buff, transform, add_to_hand, other
 
 Use canonical Hearthstone names when possible, for example Warlock, Mage, Spell, Minion, Lifesteal, Deathrattle, Fel, Fire. Do not put pure artwork descriptions into retrieval fields; put them under generation_hints.visual_tags only.
+If the user references Hearthstone community memes or Chinese card names, infer the canonical English card family when clear. Examples: 暴怒者 means Rager, 熔岩暴怒者 means Magma Rager. Put these under related_card_names.
 
 User request:
 {text}
@@ -207,6 +209,43 @@ def _visual_tags(lowered: str) -> list[str]:
     if "fel" in lowered and "fel magic" not in tags:
         tags.append("fel magic")
     return tags
+
+
+def _related_card_names(lowered: str) -> list[str]:
+    names = []
+    if "暴怒者" in lowered or "rager" in lowered:
+        names.append("Rager")
+    if "熔岩暴怒者" in lowered or "magma rager" in lowered:
+        names.append("Magma Rager")
+    return names
+
+
+def _class_hints(lowered: str) -> list[str]:
+    classes = []
+    if "防战" in lowered or "战士" in lowered:
+        classes.append("Warrior")
+    return classes
+
+
+def _card_type_hints(lowered: str) -> list[str]:
+    card_types = []
+    if "暴怒者" in lowered or "rager" in lowered:
+        card_types.append("Minion")
+    return card_types
+
+
+def _action_hints(lowered: str) -> list[str]:
+    actions = []
+    if "护甲" in lowered or "防战" in lowered:
+        actions.append("gain_armor")
+    return actions
+
+
+def _resource_hints(lowered: str) -> list[str]:
+    resources = []
+    if "护甲" in lowered or "armor" in lowered or "armour" in lowered or "防战" in lowered:
+        resources.append("armor")
+    return resources
 
 
 def _query_id(text: str) -> str:
