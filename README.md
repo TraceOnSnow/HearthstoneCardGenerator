@@ -200,6 +200,14 @@ Final committed outputs:
 
 ### 5. LoRA / Generation
 
+Pretrained project LoRA weights are hosted as a Hugging Face model repo:
+
+```text
+comp646/hearthstone-sd15-lora
+```
+
+Use this repo when you only need inference or reproduction of the final generation experiments. Train your own adapter only if you want to reproduce the LoRA training stage.
+
 Fetch and prepare LoRA art metadata:
 
 ```bash
@@ -234,7 +242,7 @@ Generate one image with a trained LoRA:
 
 ```bash
 uv run python scripts/generate_with_lora_sd15.py \
-  --lora-dir models/sd15-hearthstone-lora \
+  --lora-dir comp646/hearthstone-sd15-lora \
   --prompt "hsart Hearthstone card art, Warrior minion, iron armor, glowing embers"
 ```
 
