@@ -1,0 +1,56 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\citation{perozzi2014deepwalk,grover2016node2vec}
+\citation{kipf2017gcn,hamilton2017graphsage}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \textbf  {End-to-end HearthGen case study.} A vague community-style request is parsed into graph attributes, matched against faceted KG evidence, converted into a playable card design and LoRA caption, and rendered as Hearthstone-style artwork. For the 559 project, the central technical object is the semantic graph and retrieval over it; image generation demonstrates the complete application.}}{2}{figure.1}\protected@file@percent }
+\newlabel{fig:overview}{{1}{2}{\textbf {End-to-end HearthGen case study.} A vague community-style request is parsed into graph attributes, matched against faceted KG evidence, converted into a playable card design and LoRA caption, and rendered as Hearthstone-style artwork. For the 559 project, the central technical object is the semantic graph and retrieval over it; image generation demonstrates the complete application}{figure.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{2}{section.2}\protected@file@percent }
+\citation{lewis2020rag}
+\citation{radford2021clip}
+\citation{rombach2022ldm}
+\citation{hu2021lora}
+\citation{hearthstonejson,hearthsim}
+\citation{minimaxm27}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Data and Semantic Graph Construction}{3}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Card Data}{3}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Structured Semantics}{3}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Semantic Knowledge Graph}{3}{subsection.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \textbf  {Semantic KG neighborhood sampled from the real graph.} The card node ``Health'' Drink connects to typed semantic attributes such as class, card type, spell school, keyword, action, and target. User queries are mapped into the same attribute space, allowing graph retrieval to match gameplay semantics.}}{4}{figure.2}\protected@file@percent }
+\newlabel{fig:semantic_kg}{{2}{4}{\textbf {Semantic KG neighborhood sampled from the real graph.} The card node ``Health'' Drink connects to typed semantic attributes such as class, card type, spell school, keyword, action, and target. User queries are mapped into the same attribute space, allowing graph retrieval to match gameplay semantics}{figure.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Methods}{4}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Natural-Language Query Parsing}{4}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Retrieval Methods}{4}{subsection.4.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces \textbf  {Retrieval relevance on 19 DIY prompts.} Semantic KG matching performs best overall because it directly matches typed gameplay attributes. Node2Vec improves over TF-IDF overall but is less precise than explicit KG matching for action semantics.}}{5}{table.1}\protected@file@percent }
+\newlabel{tab:retrieval}{{1}{5}{\textbf {Retrieval relevance on 19 DIY prompts.} Semantic KG matching performs best overall because it directly matches typed gameplay attributes. Node2Vec improves over TF-IDF overall but is less precise than explicit KG matching for action semantics}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Held-Out Edge Prediction}{5}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Experiments}{5}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}DIY Retrieval Evaluation}{5}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}GraphML Edge Prediction}{5}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Downstream Generation Evaluation}{5}{subsection.5.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces \textbf  {Held-out card-attribute edge prediction.} Node2Vec embeddings capture useful semantic graph structure, achieving strong ROC-AUC and average precision on unseen edges.}}{6}{table.2}\protected@file@percent }
+\newlabel{tab:link_prediction}{{2}{6}{\textbf {Held-out card-attribute edge prediction.} Node2Vec embeddings capture useful semantic graph structure, achieving strong ROC-AUC and average precision on unseen edges}{table.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \textbf  {LoRA + KG-reference qualitative outputs.} Six representative user prompts are shown as final generated artwork with the corresponding card description. The set mixes vague creative requests, implicit Hearthstone references, mechanic-first briefs, fully specified card text, and art-first requests.}}{6}{figure.3}\protected@file@percent }
+\newlabel{fig:qualitative}{{3}{6}{\textbf {LoRA + KG-reference qualitative outputs.} Six representative user prompts are shown as final generated artwork with the corresponding card description. The set mixes vague creative requests, implicit Hearthstone references, mechanic-first briefs, fully specified card text, and art-first requests}{figure.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Results and Discussion}{6}{section.6}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces \textbf  {Downstream generation proxy metrics.} LoRA improves Hearthstone style, and reference conditioning increases similarity to retrieved card evidence. These image metrics are secondary to the GraphML evaluation.}}{7}{table.3}\protected@file@percent }
+\newlabel{tab:generation}{{3}{7}{\textbf {Downstream generation proxy metrics.} LoRA improves Hearthstone style, and reference conditioning increases similarity to retrieved card evidence. These image metrics are secondary to the GraphML evaluation}{table.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Challenges and Limitations}{7}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Student Contributions}{7}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Conclusion}{7}{section.9}\protected@file@percent }
+\bibstyle{plainnat}
+\bibdata{references}
+\bibcite{grover2016node2vec}{{1}{2016}{{Grover and Leskovec}}{{}}}
+\bibcite{hamilton2017graphsage}{{2}{2017}{{Hamilton et~al.}}{{Hamilton, Ying, and Leskovec}}}
+\bibcite{hearthsim}{{3}{2026}{{HearthSim}}{{}}}
+\bibcite{hu2021lora}{{4}{2021}{{Hu et~al.}}{{Hu, Shen, Wallis, Allen-Zhu, Li, Wang, Wang, and Chen}}}
+\bibcite{kipf2017gcn}{{5}{2017}{{Kipf and Welling}}{{}}}
+\bibcite{lewis2020rag}{{6}{2020}{{Lewis et~al.}}{{Lewis, Perez, Piktus, Petroni, Karpukhin, Goyal, Kuttler, Lewis, Yih, Rocktaschel, Riedel, and Kiela}}}
+\bibcite{minimaxm27}{{7}{2026}{{MiniMax}}{{}}}
+\bibcite{perozzi2014deepwalk}{{8}{2014}{{Perozzi et~al.}}{{Perozzi, Al-Rfou, and Skiena}}}
+\bibcite{radford2021clip}{{9}{2021}{{Radford et~al.}}{{Radford, Kim, Hallacy, Ramesh, Goh, Agarwal, Sastry, Askell, Mishkin, Clark, Krueger, and Sutskever}}}
+\bibcite{rombach2022ldm}{{10}{2022}{{Rombach et~al.}}{{Rombach, Blattmann, Lorenz, Esser, and Ommer}}}
+\bibcite{hearthstonejson}{{11}{2026}{{Zero-to-Heroes}}{{}}}
+\gdef \@abspage@last{8}

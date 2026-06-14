@@ -49,6 +49,53 @@ This repo uses `uv`.
 uv sync
 ```
 
+## Local CLI
+
+The main user-facing entrypoint is `hs-cardgen`, a local-first CLI workflow that can generate a custom card design, art prompt, art image, and a composed card PNG in one run.
+
+```bash
+uv run hs-cardgen generate "Create a 5-cost Mage Mech legendary minion about arcane machinery."
+```
+
+The command writes a run directory under `runs/`:
+
+```text
+runs/<request>_<timestamp>/
+  input.json
+  query.json
+  retrieved_cards.json
+  card.json
+  design.json
+  art_prompt.txt
+  art.png
+  final_card.png
+  run.json
+  summary.md
+```
+
+By default, card text is generated with the configured LLM provider and art uses a local mock renderer so the full workflow does not require a GPU. For a smoke test without external LLM calls:
+
+```bash
+uv run hs-cardgen generate \
+  "Create a Mage Mech minion that Discovers a spell." \
+  --mock-design
+```
+
+For LoRA image generation:
+
+```bash
+uv sync --extra diffusion
+uv run hs-cardgen generate \
+  "Create a 5-cost Mage Mech legendary minion about arcane machinery." \
+  --image-provider lora
+```
+
+Check local data paths with:
+
+```bash
+uv run hs-cardgen init
+```
+
 For diffusion / CLIP / LoRA generation:
 
 ```bash

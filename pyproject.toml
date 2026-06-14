@@ -11,6 +11,15 @@ dependencies = [
     "pillow>=11.2.1",
 ]
 
+[project.scripts]
+hs-cardgen = "app.cli:main"
+
+[tool.uv]
+package = true
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
 [project.optional-dependencies]
 diffusion = [
     "accelerate>=1.6.0",

@@ -1,0 +1,81 @@
+\begin{thebibliography}{11}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Grover and Leskovec(2016)]{grover2016node2vec}
+Aditya Grover and Jure Leskovec.
+\newblock node2vec: Scalable feature learning for networks.
+\newblock In \emph{Proceedings of the ACM SIGKDD International Conference on
+  Knowledge Discovery and Data Mining}, 2016.
+
+\bibitem[Hamilton et~al.(2017)Hamilton, Ying, and
+  Leskovec]{hamilton2017graphsage}
+William~L. Hamilton, Rex Ying, and Jure Leskovec.
+\newblock Inductive representation learning on large graphs.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2017.
+
+\bibitem[{HearthSim}(2026)]{hearthsim}
+{HearthSim}.
+\newblock Hearthsim python hearthstone data.
+\newblock \url{https://github.com/HearthSim/python-hearthstone-data}, 2026.
+\newblock Accessed May 2026.
+
+\bibitem[Hu et~al.(2021)Hu, Shen, Wallis, Allen-Zhu, Li, Wang, Wang, and
+  Chen]{hu2021lora}
+Edward~J. Hu, Yelong Shen, Phillip Wallis, Yuanzhi Allen-Zhu, Yuanzhi Li, Shean
+  Wang, Lu~Wang, and Weizhu Chen.
+\newblock Lora: Low-rank adaptation of large language models.
+\newblock \emph{arXiv preprint arXiv:2106.09685}, 2021.
+
+\bibitem[Kipf and Welling(2017)]{kipf2017gcn}
+Thomas~N. Kipf and Max Welling.
+\newblock Semi-supervised classification with graph convolutional networks.
+\newblock In \emph{International Conference on Learning Representations}, 2017.
+
+\bibitem[Lewis et~al.(2020)Lewis, Perez, Piktus, Petroni, Karpukhin, Goyal,
+  Kuttler, Lewis, Yih, Rocktaschel, Riedel, and Kiela]{lewis2020rag}
+Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir
+  Karpukhin, Naman Goyal, Heinrich Kuttler, Mike Lewis, Wen-tau Yih, Tim
+  Rocktaschel, Sebastian Riedel, and Douwe Kiela.
+\newblock Retrieval-augmented generation for knowledge-intensive nlp tasks.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2020.
+
+\bibitem[{MiniMax}(2026)]{minimaxm27}
+{MiniMax}.
+\newblock Minimax m2.7 text generation api.
+\newblock \url{https://platform.minimaxi.com/docs}, 2026.
+\newblock Accessed May 2026.
+
+\bibitem[Perozzi et~al.(2014)Perozzi, Al-Rfou, and Skiena]{perozzi2014deepwalk}
+Bryan Perozzi, Rami Al-Rfou, and Steven Skiena.
+\newblock Deepwalk: Online learning of social representations.
+\newblock In \emph{Proceedings of the ACM SIGKDD International Conference on
+  Knowledge Discovery and Data Mining}, 2014.
+
+\bibitem[Radford et~al.(2021)Radford, Kim, Hallacy, Ramesh, Goh, Agarwal,
+  Sastry, Askell, Mishkin, Clark, Krueger, and Sutskever]{radford2021clip}
+Alec Radford, Jong~Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh,
+  Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark,
+  Gretchen Krueger, and Ilya Sutskever.
+\newblock Learning transferable visual models from natural language
+  supervision.
+\newblock In \emph{International Conference on Machine Learning}, 2021.
+
+\bibitem[Rombach et~al.(2022)Rombach, Blattmann, Lorenz, Esser, and
+  Ommer]{rombach2022ldm}
+Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Bjorn
+  Ommer.
+\newblock High-resolution image synthesis with latent diffusion models.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition}, 2022.
+
+\bibitem[{Zero-to-Heroes}(2026)]{hearthstonejson}
+{Zero-to-Heroes}.
+\newblock Hearthstonejson.
+\newblock \url{https://github.com/Zero-to-Heroes/HearthstoneJSON}, 2026.
+\newblock Accessed May 2026.
+
+\end{thebibliography}
