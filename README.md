@@ -379,9 +379,3 @@ Legacy / demo:
 - `scripts/run_kg.py`, `scripts/run_kg_demo.py`, `app/kg_demo/`: early KG demo code kept for reference.
 - `scripts/visualize_graph.py`: older graph visualization helper.
 
-## Notes
-
-- Do not commit `.env`, local datasets, model checkpoints, or private notes.
-- `llm_knowledge/` is intentionally ignored. It contains private planning notes, paper PDFs, and templates used during development.
-- `submission/` is intentionally ignored. It contains local submission packaging artifacts rather than reusable project code.
-- The committed final results are intended for inspection, not for retraining. Use the Hugging Face dataset and scripts above for full reproduction.
